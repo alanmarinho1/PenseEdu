@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "CompEdu",
+    "slug": "CompEdu",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
