@@ -10,6 +10,7 @@ export const InputLogin = styled.TextInput`
     margin-top: 5px;
     padding: 5px;
     border-radius: 5px;
+    border: 1px gray;
 `
 
 export const InputTextField = ({placeholder, secureTextEntry, value, onChangeText}) => (

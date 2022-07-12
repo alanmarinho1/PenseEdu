@@ -20,7 +20,7 @@ export default function Cadastro({navigation}) {
         <DivInputForm>
           <TextForm>Nome:</TextForm>
           <InputTextField 
-            placeholder=''
+            placeholder='Ex: Alan Marinho...'
             type="text"
             onChangeText={(text) => setNome(text)}
             value={nome}/>
@@ -28,7 +28,7 @@ export default function Cadastro({navigation}) {
         <DivInputForm>
           <TextForm>Email:</TextForm>
           <InputTextField 
-            placeholder=''
+            placeholder='Ex: alan.marinho@...'
             type="text"
             onChangeText={(text) => setEmail(text)}
             value={email}/>

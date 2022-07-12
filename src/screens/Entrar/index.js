@@ -8,7 +8,7 @@ import { FormElements } from '../../components/FormElements'
 
 export default function Login({navigation}) {
   
-  const [usuario, setUsuario] = useState("")
+  const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
 
   return (
@@ -27,12 +27,12 @@ export default function Login({navigation}) {
         value = {{usuario}}
         /> */}
         <DivInputLogin>
-          <TextForm>Usuario:</TextForm>
+          <TextForm>Email:</TextForm>
           <InputTextField 
-            placeholder='Digite seu usuario'
+            placeholder='Digite seu email'
             type="text"
-            onChangeText={(text) => setUsuario(text)}
-            value={usuario}/>
+            onChangeText={(text) => setEmail(text)}
+            value={email}/>
         </DivInputLogin>
         <DivInputLogin>
           <TextForm>Senha:</TextForm>
