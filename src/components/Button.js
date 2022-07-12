@@ -4,29 +4,70 @@ import styled, {css} from 'styled-components/native';
 const LoginButton = styled.TouchableOpacity`
 
   align-self: center;
-  justify-self: right;
-  /* position: relative;
-  bottom: 0px; */
-  margin-top: 20px;
   width: 300px;
   height: 45px;
-  padding: 12px;
   border-radius: 10px;
   background-color: ${props => props.bgColor};
 `;
 
 const LoginButtonText = styled.Text`
-  /* width: 90px;
-  height: 25px; */
-  /* left: 20px;
-  bottom: 5px; */
+
   font-size: 16px;
-  align-self: center;
+
   color: white;
+  text-align: center;
+  margin-top: 10px;
+
+`;
+
+const RegisterButton = styled.TouchableOpacity`
+
+  align-self: center;
+  margin-top: 15px;
+  width: 300px;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px #3CB371;
+  background-color: ${props => props.bgColor};
+`;
+
+const RegisterButtonText = styled.Text`
+
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+  color: #3CB371;
+  
+`;
+
+const BackRegisterButton = styled.TouchableOpacity`
+
+  align-self: center;
+  margin-top: 15px;
+  width: 300px;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px #3CB371;
+  background-color: ${props => props.bgColor};
+`;
+
+const BackRegisterButtonText = styled.Text`
+
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+  color: #3CB371;
+  
 `;
 
 export const PressableLoginButton = ({ onPress, bgColor, title }) => (
     <LoginButton onPress={onPress} bgColor={bgColor}>
       <LoginButtonText>{title}</LoginButtonText>
     </LoginButton>
+  );
+
+  export const PressableRegisterButton = ({ onPress, bgColor, title }) => (
+    <RegisterButton onPress={onPress} bgColor={bgColor}>
+      <RegisterButtonText>{title}</RegisterButtonText>
+    </RegisterButton>
   );

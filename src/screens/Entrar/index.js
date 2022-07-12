@@ -1,8 +1,10 @@
-import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native'
+import { StyleSheet, KeyboardAvoidingView } from 'react-native'
 import React, { Component, useState, useEffect } from 'react';
-import { Container, DivLogin, TextLogin, TextNameApp, DivInputLogin } from './styles'
+import { DivLogin, TextForm, TextNameApp, DivInputLogin, DivButtonLogin } from './styles'
 import { InputTextField } from '../../components/Inputs';
-import { PressableLoginButton } from '../../components/Button'
+import { PressableLoginButton, PressableRegisterButton } from '../../components/Button'
+import { FormElements } from '../../components/FormElements'
+
 
 export default function Login({navigation}) {
   
@@ -18,27 +20,39 @@ export default function Login({navigation}) {
       {console.log("Xablau")}
       <TextNameApp>CompEdu</TextNameApp>
       <DivLogin>
+        {/* <FormElements
+        texto = 'Xablau'
+        placeholder = 'Dale'
+        func = {setUsuario}
+        value = {{usuario}}
+        /> */}
         <DivInputLogin>
-        <TextLogin>Usuario</TextLogin>
-        <InputTextField 
-          placeholder='Digite seu usuario'
-          type="text"
-          onChangeText={(text) => setUsuario(text)}
-          value={usuario}/>
+          <TextForm>Usuario:</TextForm>
+          <InputTextField 
+            placeholder='Digite seu usuario'
+            type="text"
+            onChangeText={(text) => setUsuario(text)}
+            value={usuario}/>
         </DivInputLogin>
         <DivInputLogin>
-          <TextLogin>Senha</TextLogin>
+          <TextForm>Senha:</TextForm>
           <InputTextField 
           placeholder='Digite sua senha'
           type="text"
           onChangeText={(text) => setSenha(text)}
           value={senha}/>
         </DivInputLogin>
+        <DivButtonLogin>
+          <PressableLoginButton
+            onPress={() => navigation.navigate('Wellcome')}
+            title='Entrar'
+            bgColor='#3CB371' />
+          <PressableRegisterButton
+            onPress={() => navigation.navigate('Cadastro')}
+            title='Cadastrar'
+            bgColor='white' />
+        </DivButtonLogin>
         
-        <PressableLoginButton
-          onPress={() => navigation.navigate('Wellcome')}
-          title='Entrar'
-          bgColor='#3CB371' />
       </DivLogin>
     {/* </Container> */}
     </KeyboardAvoidingView>
@@ -46,7 +60,7 @@ export default function Login({navigation}) {
   )
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#E0FFFF',

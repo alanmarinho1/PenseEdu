@@ -4,9 +4,12 @@ import React from "react";
 export const InputLogin = styled.TextInput`
 
     /* border: 1px red solid; */
-    height: 30px;
-    width: 200px;
-    /* margin: 10px; */
+    height: 35px;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 5px;
 `
 
 export const InputTextField = ({placeholder, secureTextEntry, value, onChangeText}) => (
