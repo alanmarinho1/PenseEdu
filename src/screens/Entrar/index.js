@@ -79,12 +79,13 @@ export default function Login({navigation}) {
           <InputTextField 
           placeholder='Digite sua senha'
           type="text"
+          secureTextEntry={true}
           onChangeText={(text) => setPassword(text)}
           value={password}/>
         </DivInputLogin>
         <DivButtonLogin>
           <PressableLoginButton
-            onPress={() => {handleLogin}}
+            onPress={() => {handleLogin()}}
             title='Entrar'
             bgColor='#3CB371' />
           <PressableRegisterButton

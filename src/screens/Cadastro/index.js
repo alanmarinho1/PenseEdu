@@ -72,6 +72,7 @@ export default function Cadastro({navigation}) {
           <InputTextField 
             placeholder=''
             type="text"
+            secureTextEntry={true}
             onChangeText={(text) => setPassword(text)}
             value={password}/>
         </DivInputForm>
