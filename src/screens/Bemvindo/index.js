@@ -4,9 +4,10 @@ import { Container } from './styles'
 
 export default function Wellcome({navigation}) {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'space-around'}}>
-        {/* <Container/> */}
-      <Text style={{fontSize: 20}}>BEM VINDO GALERA!!!</Text>
-    </View>
+
+    <Container>
+      <Text>Xablau</Text>
+    </Container>
+
   )
 }
