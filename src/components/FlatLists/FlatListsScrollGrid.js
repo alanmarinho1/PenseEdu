@@ -2,10 +2,10 @@ import React from "react";
 import { ScrollView, FlatList, View, Text } from "react-native";
 import styled from "styled-components";
 
-export default function ListH({navigation}) {
+export default function ListGrid() {
 
     const renderItem = ({ item }) => (
-        <Item title={item.title} navigation={navigation} />
+        <Item title={item.title} />
       );
       
     return(
@@ -13,12 +13,13 @@ export default function ListH({navigation}) {
         data={DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-        horizontal={true}/>
+        numColumns={2}
+        />
     )
 }
 
-const Item = ({ title, navigation }) => (
-    <DivItem onPress={() => navigation.navigate("DetalhesAtividade")}>
+const Item = ({ title }) => (
+    <DivItem>
       <Text>{title}</Text>
     </DivItem>
   );
@@ -46,14 +47,13 @@ const DATA = [
     },
   ];
 
-const DivItem = styled.TouchableOpacity`
+const DivItem = styled.View`
 
     border: 1px grey;
-    width: 200px;
-    height: 100px;
-    margin-left: 10px;
-    background-color: rgba(224, 255, 255, 0.5);
     border-radius: 10px;
+    width: 150px;
+    height: 120px;
+    margin: 0px 10px 20px 10px;
     padding: 5px;
 
 `

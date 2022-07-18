@@ -2,10 +2,10 @@ import React from "react";
 import { ScrollView, FlatList, View, Text } from "react-native";
 import styled from "styled-components";
 
-export default function ListGrid() {
+export default function ListH({navigation}) {
 
     const renderItem = ({ item }) => (
-        <Item title={item.title} />
+        <Item title={item.title} navigation={navigation} />
       );
       
     return(
@@ -13,13 +13,12 @@ export default function ListGrid() {
         data={DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-        numColumns={2}
-        />
+        horizontal={true}/>
     )
 }
 
-const Item = ({ title }) => (
-    <DivItem>
+const Item = ({ title, navigation }) => (
+    <DivItem onPress={() => navigation.navigate("DetalhesAtividade")}>
       <Text>{title}</Text>
     </DivItem>
   );
@@ -37,15 +36,24 @@ const DATA = [
       id: '58694a0f-3da1-471f-bd96-145571e29d72',
       title: 'Third Item',
     },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d75',
+      title: 'Forthy Item',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d71',
+      title: 'Fifthy Item',
+    },
   ];
 
-const DivItem = styled.View`
+const DivItem = styled.TouchableOpacity`
 
     border: 1px grey;
+    width: 200px;
+    height: 100px;
+    margin-left: 10px;
+    /* background-color: rgba(224, 255, 255, 0.5); */
     border-radius: 10px;
-    width: 150px;
-    height: 120px;
-    margin: 0px 10px 20px 10px;
     padding: 5px;
 
 `

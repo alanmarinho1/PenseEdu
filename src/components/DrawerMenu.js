@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import DrawerItem from './DrawerItems';
 import { useRoute } from '@react-navigation/native';
 import Atividade from '../screens/Atividade';
+import Glossario from '../screens/Glossario';
 
 
 const Drawer = createDrawerNavigator();
@@ -38,6 +39,7 @@ export function DrawerComponent(){
         <Drawer.Screen name="DetalhesAtividade" component={Atividade} options={({ navigation }) => ({
           headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.goBack()}/>
         })}/>
+        <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Disciplinas"}}/>
         </Drawer.Navigator>
     )
 }
@@ -83,10 +85,10 @@ const CustomDrawer = ({ navigation, state }) => {
             icon={"compass-rose"}
             label={"Glossário"}
             func={() => {
-                if(getActiveRouteState(state.routes, state.index, 'Disciplina')){
+                if(getActiveRouteState(state.routes, state.index, 'Glossario')){
                     navigation.closeDrawer()
                 }else{
-                    navigation.navigate("DetalhesDisciplina")
+                    navigation.navigate("Glossario")
                 }
             }}/>
             <DrawerItem

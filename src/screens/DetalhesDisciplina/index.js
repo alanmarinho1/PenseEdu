@@ -1,8 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { Container, TitleScreen, DivFlatListAtv, TitleFlatListAtv, DivAllAtv } from './styles'
-import ListV from '../../components/FlatListsScrollV'
-import ListGrid from '../../components/FlatListsScrollGrid'
+import ListV from '../../components/FlatLists/FlatListsScrollV'
 
 export default function Disciplina(props) {
   return (
