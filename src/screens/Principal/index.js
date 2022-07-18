@@ -1,12 +1,27 @@
-import { View, Text } from 'react-native'
+import { View, Text, Button, FlatList, ScrollView } from 'react-native'
 import React from 'react'
-import { Container } from './styles'
+import { Container, DivFlatListAtv, TitleComponents, DivNews, DivBNCC } from './styles'
+import ListH from '../../components/FlatListsScrollH'
 
-export default function Home() {
+export default function Home(props) {
   return (
-    <View>
-        <Container/>
-      <Text>Home</Text>
-    </View>
+    <ScrollView>
+      <Container>
+      <DivFlatListAtv>
+        <TitleComponents>Ultimas Atividades:</TitleComponents>
+        <ListH{...props}/>
+        <TitleComponents>Atividades Sugeridas:</TitleComponents>
+        <ListH/>
+      </DivFlatListAtv>
+      <DivNews>
+        <TitleComponents>O que há de novo?</TitleComponents>
+      </DivNews>
+      <DivBNCC>
+        <TitleComponents>BNCC:</TitleComponents>
+      </DivBNCC>
+    </Container>
+
+    </ScrollView>
+    
   )
 }

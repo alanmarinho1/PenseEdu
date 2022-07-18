@@ -1,6 +1,6 @@
 import { View, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { DivFormRegister, DivInputForm, DivButtonRegister, TextForm } from './styles'
+import { DivFormRegister, DivInputForm, DivButtonRegister, TextForm, TextRegisterApp } from './styles'
 import { InputTextField } from '../../components/Inputs';
 import { PressableLoginButton, PressableRegisterButton } from '../../components/Button'
 import auth from '@react-native-firebase/auth';
@@ -14,7 +14,10 @@ export default function Cadastro({navigation}) {
   // const [created, setCreated] = useState(false)
 
   function handleSignUp() {
-    auth()
+    if(email.trim() === '' || password.trim() === '' || name.trim() === ''){
+      alert("Existe campo vazio, favor preencher")
+    } else {
+      auth()
      .createUserWithEmailAndPassword(email, password)
      .then(userCredentials => {
        const user = userCredentials.user;
@@ -35,6 +38,8 @@ export default function Cadastro({navigation}) {
           alert(error.message)
         }
      })
+    }
+    
   }
 
   // useEffect(() => {
@@ -47,10 +52,11 @@ export default function Cadastro({navigation}) {
 
   return (
     <KeyboardAvoidingView 
-      behavior="height"
+      behavior="padding"
       style={styles.container}
     >
       <DivFormRegister>
+      <TextRegisterApp>Crie sua conta</TextRegisterApp>
         <DivInputForm>
           <TextForm>Nome:</TextForm>
           <InputTextField 

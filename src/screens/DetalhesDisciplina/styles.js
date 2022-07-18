@@ -7,7 +7,7 @@ export const Container = styled.View`
 
 `;
 
-export const DivFlatListDisc = styled.View`
+export const DivFlatListAtv = styled.View`
 
     margin-top: 10px;
     padding: 10px;
@@ -17,7 +17,7 @@ export const DivFlatListDisc = styled.View`
     border-radius: 10px;
 `
 
-export const DivAllDisc = styled.View`
+export const DivAllAtv = styled.View`
 
   margin-top: 20px;
   width: 360px;
@@ -34,7 +34,7 @@ export const TitleScreen = styled.Text`
   margin-top: 10px;
 `
 
-export const TitleFlatListDisc = styled.Text`
+export const TitleFlatListAtv = styled.Text`
 
     font-size: 20px;
     font-weight: bold;

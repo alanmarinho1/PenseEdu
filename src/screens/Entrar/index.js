@@ -16,7 +16,10 @@ export default function Login({navigation}) {
   // const [user, setUser] = useState();
 
   function handleLogin() {
-    auth()
+    if(email.trim() === '' || password.trim() === ''){
+      alert("Existe campo vazio, favor preencher")
+    } else {
+      auth()
       .signInWithEmailAndPassword(email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
@@ -33,7 +36,10 @@ export default function Login({navigation}) {
         } else {
           alert(error.message)
         }
+        // console.log(error.message)
     });
+    }
+    
   }
 
   // useEffect(() => {
@@ -85,7 +91,7 @@ export default function Login({navigation}) {
         </DivInputLogin>
         <DivButtonLogin>
           <PressableLoginButton
-            onPress={() => {handleLogin()}}
+            onPress={handleLogin}
             title='Entrar'
             bgColor='#3CB371' />
           <PressableRegisterButton
