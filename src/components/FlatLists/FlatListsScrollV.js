@@ -49,7 +49,7 @@ const DATA = [
 
 const DivItem = styled.TouchableOpacity`
 
-    border: 1px grey;
+    border: 1px #3CB371;
     border-radius: 10px;
     width: 200px;
     height: 80px;

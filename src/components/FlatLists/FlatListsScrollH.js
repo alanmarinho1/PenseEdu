@@ -48,7 +48,7 @@ const DATA = [
 
 const DivItem = styled.TouchableOpacity`
 
-    border: 1px grey;
+    border: 1px #3CB371;
     width: 200px;
     height: 100px;
     margin-left: 10px;

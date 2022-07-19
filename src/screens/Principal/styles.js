@@ -13,7 +13,7 @@ export const DivNews = styled.View`
     width: 360px;
     height: 300px;
     padding: 10px;
-    border: 1px grey;
+    border: 1px #3CB371;
     border-radius: 10px;
 `
 
@@ -23,7 +23,7 @@ export const DivFlatListAtv = styled.View`
     width: 360px;
     height: 300px;
     padding: 10px;
-    border: 1px grey;
+    border: 1px #3CB371;
     border-radius: 10px;
 `
 export const DivBNCC = styled.View`
@@ -33,7 +33,7 @@ export const DivBNCC = styled.View`
     width: 360px;
     height: 300px;
     padding: 10px;
-    border: 1px grey;
+    border: 1px #3CB371;
     border-radius: 10px;
 `
 
@@ -42,5 +42,5 @@ export const TitleComponents = styled.Text`
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-    /* color: #00875F; */
+    color: #00875F; 
 `

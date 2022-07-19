@@ -12,9 +12,6 @@ export default function Login({navigation}) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  // const [initializing, setInitializing] = useState(true);
-  // const [user, setUser] = useState();
-
   function handleLogin() {
     if(email.trim() === '' || password.trim() === ''){
       alert("Existe campo vazio, favor preencher")
@@ -22,8 +19,7 @@ export default function Login({navigation}) {
       auth()
       .signInWithEmailAndPassword(email, password)
       .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Logado com email: ', user.email)
+        // const user = userCredentials.user;
         alert("Conta logada com sucesso!")
         navigation.navigate('Wellcome');
       })
@@ -33,36 +29,21 @@ export default function Login({navigation}) {
           alert('Email/senha invalidos');
         } else if (error.code === 'auth/invalid-email') {
           alert("Formato de email inválido");
+        } else if (error.code === 'auth/user-disabled') {
+          alert("Usuario desativado.");
         } else {
           alert(error.message)
         }
-        // console.log(error.message)
+       
     });
-    }
-    
+    } 
   }
-
-  // useEffect(() => {
-  //   // const unsubscribe = auth.onAuthStateChanged(user => {
-  //   //   if (user){
-  //   //     navigation.navigate("Wellcome")
-  //   //   }
-  //   // })
-
-  //   // return unsubscribe
-
-  //   // const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-  //   // return subscriber; // unsubscribe on unmount
-  // }, [])
-
-  // if (initializing) return null;
 
   return (
     <KeyboardAvoidingView 
       behavior="height"
       style={styles.container}
     >
-      {/* <Container> */}
       {console.log("Xablau")}
       <TextNameApp>CompEdu</TextNameApp>
       <DivLogin>
@@ -99,9 +80,7 @@ export default function Login({navigation}) {
             title='Cadastrar'
             bgColor='white' />
         </DivButtonLogin>
-        
       </DivLogin>
-    {/* </Container> */}
     </KeyboardAvoidingView>
     
   )

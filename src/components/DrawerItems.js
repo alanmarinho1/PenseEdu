@@ -1,15 +1,14 @@
+
 import React from 'react';
-import { Drawer } from "react-native-paper";
+import { Drawer, IconButton } from "react-native-paper";
 
 
-const DrawerItem = ({icon, label, func, navigation, route}) => {
+const DrawerItem = ({icon, label, func}) => {
     return(
         <Drawer.Item
-        style={{width: 270}}
         icon={icon}
         label={label}
         onPress={func}
-        focusable={true}
         />
     )  
 };

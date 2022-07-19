@@ -12,6 +12,7 @@ import DrawerItem from './DrawerItems';
 import { useRoute } from '@react-navigation/native';
 import Atividade from '../screens/Atividade';
 import Glossario from '../screens/Glossario';
+import auth from '@react-native-firebase/auth';
 
 
 const Drawer = createDrawerNavigator();
@@ -20,7 +21,6 @@ export function DrawerComponent(){
     return(
         <Drawer.Navigator
         useLegacyImplementation  
-        initialRouteName="Principal" 
         screenOptions={{
         headerStyle:{
             backgroundColor:'#00875F',
@@ -70,7 +70,8 @@ const CustomDrawer = ({ navigation, state }) => {
                 }else{
                     navigation.navigate("Principal")
                 }
-            }}/>
+            }}
+            />
             <DrawerItem
             icon={"animation-outline"}
             label={"Disciplinas"}
@@ -135,15 +136,14 @@ const CustomDrawer = ({ navigation, state }) => {
             icon={"exit-run"}
             label={"Sair"}
             func={() => {
-                if(getActiveRouteState(state.routes, state.index, 'Disciplinas')){
-                    navigation.closeDrawer()
-                }else{
-                    navigation.navigate("Disciplinas")
-                }
+                auth().signOut().then(() => {
+                    alert("Usuario desconectado")
+                    navigation.navigate("Login")
+                });
             }}/>
         </DivItems>
         <DivDebBy>
-            <DevBy> Desenvolvido por</DevBy>
+            <DevBy>Desenvolvido por</DevBy>
             <Text>Alan Marinho</Text>
         </DivDebBy>
         
@@ -157,6 +157,7 @@ const getActiveRouteState = function (routes, index, name) {
   
 const DivDrawer = styled.View`
 
+  flex: 1;
     
 `
 const DivUserDrawer = styled.View`
@@ -188,12 +189,12 @@ const EmailDrawer = styled.Text`
 const DivDebBy = styled.View`
 
     align-items: center;
-    top: 210px;
+    
+    top: 200px;
     
 `
 const DevBy = styled.Text`
 
     font-size: 10px;
     
-
 `
