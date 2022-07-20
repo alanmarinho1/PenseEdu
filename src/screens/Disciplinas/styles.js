@@ -11,19 +11,19 @@ export const DivFlatListDisc = styled.View`
 
     margin-top: 10px;
     padding: 10px;
-    width: 360px;
+    width: 93%;
     height: 250px;
-    border: 1px grey;
+    border: 1px #3CB371;
     border-radius: 10px;
 `
 
 export const DivAllDisc = styled.View`
 
-  margin-top: 20px;
-  width: 360px;
-  height: 400px;
+  margin-top: 4%;
+  width: 93%;
+  height: 55%;
   padding: 10px;
-  border: 1px grey;
+  border: 1px #3CB371;
   border-radius: 10px;
 `
 

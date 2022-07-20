@@ -58,4 +58,5 @@ export const TextComponent = styled.Text`
     font-size: 16px;
     width: 310px;
     text-align: center;
+    
 `

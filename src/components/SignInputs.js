@@ -5,7 +5,7 @@ export const InputLogin = styled.TextInput`
 
     /* border: 1px red solid; */
     height: 35px;
-    width: 300px;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.1);
     margin-top: 5px;
     padding: 5px;
@@ -18,6 +18,6 @@ export const InputTextField = ({placeholder, secureTextEntry, value, onChangeTex
     secureTextEntry={secureTextEntry} 
     value={value} 
     onChangeText={onChangeText} 
-    style={{height: 35 | height, width: 300 | width}}></InputLogin>
+    />
 );
 

@@ -19,7 +19,7 @@ export default function Login({navigation}) {
       auth()
       .signInWithEmailAndPassword(email, password)
       .then(response => {
-        console.log('resposta ao logar: ', response);
+        console.log('resposta ao logar: ', response.user.uid);
         navigation.navigate('Wellcome');
         return Alert.alert('Acesso a conta', "Conta logada com sucesso!")
         

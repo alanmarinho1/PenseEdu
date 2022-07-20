@@ -1,21 +1,22 @@
-import { View, StyleSheet, KeyboardAvoidingView } from 'react-native'
+import { View, StyleSheet, KeyboardAvoidingView, Alert } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { DivFormRegister, DivInputForm, DivButtonRegister, TextForm, TextRegisterApp } from './styles'
 import { InputTextField } from '../../components/SignInputs';
 import { PressableLoginButton, PressableRegisterButton } from '../../components/Button'
 import auth from '@react-native-firebase/auth';
-
+import firestore from '@react-native-firebase/firestore'
 
 export default function Cadastro({navigation}) {
 
   const [name, setName] = useState("")
+  const [graduation, setGraduation] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   // const [created, setCreated] = useState(false)
 
   function handleSignUp() {
     if(email.trim() === '' || password.trim() === '' || name.trim() === ''){
-      alert("Existe campo vazio, favor preencher")
+      return Alert.alert("Registrar", "Existe campo vazio, favor preencher")
     } else {
       auth()
      .createUserWithEmailAndPassword(email, password)
@@ -25,21 +26,41 @@ export default function Cadastro({navigation}) {
        console.log("Conta criada!!");
        console.log(user.name, user.email, user.password);
        navigation.goBack();
+       handleNewUserRegister(user.uid);
       //  setCreated(true)
      })
      .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
-          alert("Email já em uso");
+          return Alert.alert("Registrar", "Email já em uso");
         } else if (error.code === 'auth/invalid-email') {
-          alert("Formato de email inválido");
+          return Alert.alert("Registrar", "Formato de email inválido");
         } else if (error.code === 'auth/weak-password') {
-          alert("Favor inserir senha de no minimo 6 caracteres");
+          return Alert.alert("Registrar", "Favor inserir senha de no minimo 6 caracteres");
         } else {
-          alert(error.message)
+          console.log(error.message)
+          return Alert.alert("Registrar", "Ocorreu um erro")
         }
      })
     }
     
+  }
+
+  function handleNewUserRegister(user_id) {
+    firestore()
+    .collection('users')
+    .add({
+      user_id: user_id,
+      name,
+      graduation,
+      email,
+      created_at: firestore.FieldValue.serverTimestamp()
+    })
+    .then(() => {
+      console.log("Usuario cadastrado no banco")
+    })
+    .catch((error) => {
+      console.log('Deu error na criação do usuario no banco: ', error)
+    })
   }
 
   // useEffect(() => {
@@ -64,6 +85,15 @@ export default function Cadastro({navigation}) {
             type="text"
             onChangeText={(text) => setName(text)}
             value={name}
+            />
+        </DivInputForm>
+        <DivInputForm>
+          <TextForm>Escolaridade:</TextForm>
+          <InputTextField 
+            placeholder='Ex: Licenciado em Computação - UFRPE...'
+            type="text"
+            onChangeText={(text) => setGraduation(text)}
+            value={graduation}
             />
         </DivInputForm>
         <DivInputForm>

@@ -11,16 +11,19 @@ export const PCImage = styled.ImageBackground`
 
     width: 380px;
     height: 240px;
-    margin: 10px 0px 0px 0px;
+    
+    /* margin: 10px 0px 0px 10px; */
 `
 
 export const DivAtvInfo = styled.View`
 
-    border: 1px grey;
+    border: 1px #3CB371;
     border-radius: 10px;
     align-items: center;
+    /* justify-items: center; */
     width: 360px;
-    height: 470px;
+    height: 65%;
+    /* margin-bottom: 1%; */
 
 `
 
@@ -43,7 +46,7 @@ export const DivAtvDetailsParent = styled.View`
 
 export const DivAtvDetailsChildren = styled.View`
 
-    border: 1px grey;
+    border: 1px #3CB371;
     border-radius: 10px;
     align-items: center;
     justify-content: center;
@@ -54,11 +57,11 @@ export const DivAtvDetailsChildren = styled.View`
 
 export const DivAtvDescription = styled.View`
 
-    border: 1px grey;
+    border: 1px #3CB371;
     border-radius: 10px;
     width: 350px;
-    height: 180px;
-    margin-top: 5px;
+    height: 40%;
+    margin-top: 3%;
 `
 
 export const AtvDetailsTitle = styled.Text`

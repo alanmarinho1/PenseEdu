@@ -3,11 +3,11 @@ import styled, {css} from 'styled-components/native';
 
 export const DivLogin = styled.View`
 
-    position: relative;
+  
     height: 300px;
     width: 90%;
-    padding: 20px;
-    margin-bottom: 70px;
+    padding: 3%;
+    margin-bottom: 10%;
     border: 0.5px gray;
     align-self: center;
     background-color: white;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-native';
 import styled, {css} from 'styled-components/native';
-import { IconButton} from 'react-native-paper'
+import { IconButton } from 'react-native-paper'
 
 
 const LoginButton = styled.TouchableOpacity`
@@ -50,7 +50,7 @@ const WellcomeButton = styled.TouchableOpacity`
   /* align-content: space-between; */
   width: 180px;
   height: 45px;
-  top: 170px;
+  top: 35%;
   border-radius: 10px;
 
   background-color: ${props => props.bgColor};
@@ -82,7 +82,7 @@ export const PressableRegisterButton = ({ onPress, bgColor, title }) => (
 export const PressableWellcomeButton = ({ onPress, bgColor, title }) => (
   <WellcomeButton onPress={onPress} bgColor={bgColor}> 
     <WellcomeButtonText>{title}</WellcomeButtonText>
-    <IconButton icon={"forward"} />
+    <IconButton icon={"arrow-right"} color={'white'} size={25}/>
     {/* <Button icon={"arrow_forward"} /> */}
   </WellcomeButton>
 );

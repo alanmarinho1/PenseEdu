@@ -17,7 +17,7 @@ import auth from '@react-native-firebase/auth';
 
 const Drawer = createDrawerNavigator();
 
-function handleLogout() {
+function handleLogout(navigation) {
     auth()
     .signOut()
     .then(() => {
@@ -124,7 +124,7 @@ const CustomDrawer = ({ navigation, state }) => {
             <DrawerItem
             icon={"exit-run"}
             label={"Sair"}
-            func={() => {handleLogout()}}/>
+            func={() => {handleLogout(navigation)}}/>
         </DivItems>
         <DivDebBy>
             <DevBy>Desenvolvido por</DevBy>

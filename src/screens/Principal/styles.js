@@ -10,7 +10,7 @@ export const Container = styled.ImageBackground`
 export const DivNews = styled.View`
 
     margin-top: 20px;
-    width: 360px;
+    width: 93%;
     height: 300px;
     padding: 10px;
     border: 1px #3CB371;
@@ -20,7 +20,7 @@ export const DivNews = styled.View`
 export const DivFlatListAtv = styled.View`
 
     margin-top: 20px;
-    width: 360px;
+    width: 93%;
     height: 300px;
     padding: 10px;
     border: 1px #3CB371;
@@ -30,7 +30,7 @@ export const DivBNCC = styled.View`
 
     margin-top: 20px;
     margin-bottom: 15px;
-    width: 360px;
+    width: 93%;
     height: 300px;
     padding: 10px;
     border: 1px #3CB371;

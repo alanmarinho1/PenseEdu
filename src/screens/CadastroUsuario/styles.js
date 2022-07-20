@@ -14,7 +14,7 @@ export const DivFormRegister = styled.View`
 
 export const DivInputForm = styled.View`
 
-    margin: 20px 0px 0px 25px;
+    margin: 2% 4% 0% 5%;
     
 `
 

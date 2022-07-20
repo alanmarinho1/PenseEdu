@@ -10,6 +10,7 @@
       "@react-native-firebase/app"
     ],
     "android": {
+      "package": "com.compedu",
       "googleServicesFile": "./android/app/google-services.json"
     }
   }
