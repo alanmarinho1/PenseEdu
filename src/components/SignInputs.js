@@ -13,8 +13,11 @@ export const InputLogin = styled.TextInput`
     border: 1px gray;
 `
 
-export const InputTextField = ({placeholder, secureTextEntry, value, onChangeText}) => (
-    <InputLogin placeholder={placeholder} secureTextEntry={secureTextEntry} value={value} onChangeText={onChangeText}></InputLogin>
-  
+export const InputTextField = ({placeholder, secureTextEntry, value, onChangeText, height, width}) => (
+    <InputLogin placeholder={placeholder} 
+    secureTextEntry={secureTextEntry} 
+    value={value} 
+    onChangeText={onChangeText} 
+    style={{height: 35 | height, width: 300 | width}}></InputLogin>
 );
 

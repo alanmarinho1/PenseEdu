@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Alert } from 'react-native'
 import styled from 'styled-components/native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList} from '@react-navigation/drawer';
 import Home from '../screens/Principal';
@@ -17,33 +17,22 @@ import auth from '@react-native-firebase/auth';
 
 const Drawer = createDrawerNavigator();
 
-export function DrawerComponent(){
-    return(
-        <Drawer.Navigator
-        useLegacyImplementation  
-        screenOptions={{
-        headerStyle:{
-            backgroundColor:'#00875F',
-        },
-        headerTitle:'CompEdu',
-        headerTintColor: 'white',
-        headerShown: true,
-        }}
-        drawerContent={(props) => <CustomDrawer {...props}/>}
-        backBehavior={'history'}>
-        <Drawer.Screen name="Principal" component={Home} options={{drawerLabel: "Home"}}/>
-        <Drawer.Screen name="Disciplinas" component={Disciplinas} options={{drawerLabel: "Disciplinas"}}/>
-        <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
-          headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
-        })}/>
-        <Drawer.Screen name="DetalhesAtividade" component={Atividade} options={({ navigation }) => ({
-          headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.goBack()}/>
-        })}/>
-        <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Disciplinas"}}/>
-        </Drawer.Navigator>
-    )
+function handleLogout() {
+    auth()
+    .signOut()
+    .then(() => {
+        alert("Usuario desconectado")
+        navigation.navigate("Login")
+    })
+    .catch(error => {
+        console.log(error);
+        return Alert.alert('Sair', 'Não foi possivel sair do app.')
+    });
 }
 
+const getActiveRouteState = function (routes, index, name) {
+    return routes[index].name.toLowerCase().indexOf(name.toLowerCase()) >= 0;
+  };
 
 const CustomDrawer = ({ navigation, state }) => {
     const route = useRoute();
@@ -135,26 +124,43 @@ const CustomDrawer = ({ navigation, state }) => {
             <DrawerItem
             icon={"exit-run"}
             label={"Sair"}
-            func={() => {
-                auth().signOut().then(() => {
-                    alert("Usuario desconectado")
-                    navigation.navigate("Login")
-                });
-            }}/>
+            func={() => {handleLogout()}}/>
         </DivItems>
         <DivDebBy>
             <DevBy>Desenvolvido por</DevBy>
             <Text>Alan Marinho</Text>
         </DivDebBy>
-        
       </DivDrawer>
     )
 }
 
-const getActiveRouteState = function (routes, index, name) {
-    return routes[index].name.toLowerCase().indexOf(name.toLowerCase()) >= 0;
-  };
-  
+export function DrawerComponent(){
+    return(
+        <Drawer.Navigator
+        useLegacyImplementation  
+        screenOptions={{
+        headerStyle:{
+            backgroundColor:'#00875F',
+        },
+        headerTitle:'CompEdu',
+        headerTintColor: 'white',
+        headerShown: true,
+        }}
+        drawerContent={(props) => <CustomDrawer {...props}/>}
+        backBehavior={'history'}>
+        <Drawer.Screen name="Principal" component={Home} options={{drawerLabel: "Home"}}/>
+        <Drawer.Screen name="Disciplinas" component={Disciplinas} options={{drawerLabel: "Disciplinas"}}/>
+        <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
+          headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
+        })}/>
+        <Drawer.Screen name="DetalhesAtividade" component={Atividade} options={({ navigation }) => ({
+          headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.goBack()}/>
+        })}/>
+        <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Disciplinas"}}/>
+        </Drawer.Navigator>
+    )
+}
+
 const DivDrawer = styled.View`
 
   flex: 1;

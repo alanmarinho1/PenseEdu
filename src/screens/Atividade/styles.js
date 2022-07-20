@@ -9,9 +9,9 @@ export const Container = styled.View`
 
 export const PCImage = styled.ImageBackground`
 
-    width: 400px;
-    height: 290px;
-    margin-top: 20px;
+    width: 380px;
+    height: 240px;
+    margin: 10px 0px 0px 0px;
 `
 
 export const DivAtvInfo = styled.View`
@@ -20,8 +20,8 @@ export const DivAtvInfo = styled.View`
     border-radius: 10px;
     align-items: center;
     width: 360px;
-    height: 430px;
-    padding: 10px;
+    height: 470px;
+
 `
 
 export const DivAtvTitle = styled.View`
@@ -37,7 +37,6 @@ export const DivAtvDetailsParent = styled.View`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20px;
     width: 350px;
     height: 80px;
 `
@@ -59,7 +58,7 @@ export const DivAtvDescription = styled.View`
     border-radius: 10px;
     width: 350px;
     height: 180px;
-    margin-top: 20px;
+    margin-top: 5px;
 `
 
 export const AtvDetailsTitle = styled.Text`

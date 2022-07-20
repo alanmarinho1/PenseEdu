@@ -1,7 +1,7 @@
 import { View, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { DivFormRegister, DivInputForm, DivButtonRegister, TextForm, TextRegisterApp } from './styles'
-import { InputTextField } from '../../components/Inputs';
+import { InputTextField } from '../../components/SignInputs';
 import { PressableLoginButton, PressableRegisterButton } from '../../components/Button'
 import auth from '@react-native-firebase/auth';
 
@@ -63,7 +63,8 @@ export default function Cadastro({navigation}) {
             placeholder='Ex: Alan Marinho...'
             type="text"
             onChangeText={(text) => setName(text)}
-            value={name}/>
+            value={name}
+            />
         </DivInputForm>
         <DivInputForm>
           <TextForm>Email:</TextForm>

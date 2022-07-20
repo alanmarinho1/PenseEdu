@@ -68,7 +68,7 @@ const WellcomeButtonText = styled.Text`
 `;
 
 export const PressableLoginButton = ({ onPress, bgColor, title }) => (
-    <LoginButton onPress={onPress} bgColor={bgColor}>
+    <LoginButton onPress={onPress} bgColor={bgColor} >
       <LoginButtonText>{title}</LoginButtonText>
     </LoginButton>
   );

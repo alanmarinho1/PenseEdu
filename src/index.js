@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DrawerComponent } from './components/DrawerMenu'
 import Login from './screens/Entrar';
 import Home from './screens/Principal';
-import Cadastro from './screens/Cadastro';
+import Cadastro from './screens/CadastroUsuario';
 import Wellcome from './screens/Bemvindo';
 import Disciplinas from './screens/Disciplinas';
 import Atividade from './screens/Atividade';

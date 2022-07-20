@@ -34,6 +34,16 @@ export default function Atividade() {
               <AtvDetails>EM13LGG701</AtvDetails>
             </DivAtvDetailsChildren>
           </DivAtvDetailsParent>
+          <DivAtvDetailsParent>
+            <DivAtvDetailsChildren>
+              <AtvDetailsTitle>Autor</AtvDetailsTitle>
+              <AtvDetails>Alan Marinho</AtvDetails>
+            </DivAtvDetailsChildren>
+            <DivAtvDetailsChildren>
+              <AtvDetailsTitle>Disciplina</AtvDetailsTitle>
+              <AtvDetails>Matemática</AtvDetails>
+            </DivAtvDetailsChildren>
+          </DivAtvDetailsParent>
           <DivAtvDescription>
             <ScrollView>
               <AtvDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer molestie luctus egestas. 

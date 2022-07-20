@@ -1,9 +1,9 @@
-import { StyleSheet, KeyboardAvoidingView } from 'react-native'
+import { StyleSheet, KeyboardAvoidingView, Alert } from 'react-native'
 import React, { Component, useState, useEffect } from 'react';
 import { DivLogin, TextForm, TextNameApp, DivInputLogin, DivButtonLogin } from './styles'
-import { InputTextField } from '../../components/Inputs';
+import { InputTextField } from '../../components/SignInputs';
 import { PressableLoginButton, PressableRegisterButton } from '../../components/Button'
-import { FormElements } from '../../components/FormElements'
+import { FormElements } from '../../components/FormsElements'
 import auth from '@react-native-firebase/auth';
 
 
@@ -14,25 +14,26 @@ export default function Login({navigation}) {
 
   function handleLogin() {
     if(email.trim() === '' || password.trim() === ''){
-      alert("Existe campo vazio, favor preencher")
+      return Alert.alert('Acesso a conta', "Existe campo vazio, favor preencher")
     } else {
       auth()
       .signInWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        // const user = userCredentials.user;
-        alert("Conta logada com sucesso!")
+      .then(response => {
+        console.log('resposta ao logar: ', response);
         navigation.navigate('Wellcome');
+        return Alert.alert('Acesso a conta', "Conta logada com sucesso!")
+        
       })
       .catch(error => {
-
+        console.log(error.message)
         if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
-          alert('Email/senha invalidos');
+          return Alert.alert('Acesso a conta', 'Email ou senha inválido');
         } else if (error.code === 'auth/invalid-email') {
-          alert("Formato de email inválido");
+          return Alert.alert('Acesso a conta', "Formato de email inválido");
         } else if (error.code === 'auth/user-disabled') {
-          alert("Usuario desativado.");
+          return Alert.alert('Acesso a conta', "Usuário desativado.");
         } else {
-          alert(error.message)
+          return Alert.alert('Acesso a conta', "Houve um erro ao tentar logar");
         }
        
     });
@@ -78,7 +79,8 @@ export default function Login({navigation}) {
           <PressableRegisterButton
             onPress={() => navigation.navigate('Cadastro')}
             title='Cadastrar'
-            bgColor='white' />
+            bgColor='white'
+             />
         </DivButtonLogin>
       </DivLogin>
     </KeyboardAvoidingView>
