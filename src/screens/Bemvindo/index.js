@@ -4,14 +4,18 @@ import { Container, WellcomeImage, DivWellcome, DivWellcomeOne, DivWellcomeTwo, 
 import { PressableWellcomeButton } from '../../components/Button'
 import { TouchableOpacity } from 'react-native-web'
 
-export default function Wellcome({navigation}) {
+export default function Wellcome({route, navigation}) {
+
+  const { id } = route.params;
+
   return (
 
    <View style={{backgroundColor: '#E0FFFF', flex:1, alignItems: 'center', justifyContent: 'center'}} >
     <WellcomeImage source={require('../../assets/wellcome_background.jpg')}>
       <DivWellcome>
         <DivWellcomeOne>
-          <TitleComponent>Seja bem vindo!</TitleComponent>
+        {console.log("Passando ID em Bem Vindo", id)}
+          <TitleComponent>Seja bem vindo! </TitleComponent>
           <TextComponent>
             Olá! Vamos aprender de forma prática que a computação 
             faz parte do cotidiano social e o pensamento computacional é desenvolvido de maneira multidisciplinar.
@@ -26,7 +30,7 @@ export default function Wellcome({navigation}) {
         </DivWellcomeTwo>
       </DivWellcome>
       <PressableWellcomeButton
-        onPress={() => {navigation.navigate("Home")}}
+        onPress={() => {navigation.navigate("Home", {id: id});}}
         title='Continuar'
         bgColor='#3CB371'/>
     </WellcomeImage>

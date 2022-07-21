@@ -6,10 +6,12 @@ import auth from '@react-native-firebase/auth';
 import { Loading } from '../../components/Loading';
 
 
-export default function Home(props) {
+export default function Home({route, navigation}) {
 
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
+
+  // const { id } = route.params;
 
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(user => {
@@ -26,9 +28,10 @@ export default function Home(props) {
     return (
       <ScrollView>
         <Container>
+        {console.log("Tentando passar rota em Home", route.params.id)}
         <DivFlatListAtv>
           <TitleComponents>Ultimas Atividades:</TitleComponents>
-          <ListH{...props}/>
+          <ListH/>
           <TitleComponents>Atividades Sugeridas:</TitleComponents>
           <ListH/>
         </DivFlatListAtv>
