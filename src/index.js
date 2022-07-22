@@ -26,13 +26,14 @@ export default function App() {
   useEffect(() => {
     auth().onAuthStateChanged(user => {
       setUser(user)
+      // console.log(user)
     });
   }, [])
   return (
     <PaperProvider>
       <NativeBaseProvider>
         {fontsLoaded ? <NavigationContainer>
-          {user ? <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+          {user ? <Stack.Navigator initialRouteName="Home" id={user.uid} screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={DrawerComponent} />
             <Stack.Screen name="Cadastro" component={Cadastro} />
@@ -46,6 +47,7 @@ export default function App() {
           <Stack.Screen name="Home" component={DrawerComponent} />
           <Stack.Screen name="Cadastro" component={Cadastro} />
           <Stack.Screen name="Wellcome" component={Wellcome} />
+
           <Stack.Screen name="Disciplinas" component={Disciplinas} />
           <Stack.Screen name="Disciplina" component={Disciplina} />
           <Stack.Screen name="Atividade" component={Atividade} />

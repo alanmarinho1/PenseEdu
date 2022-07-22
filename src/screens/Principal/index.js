@@ -19,6 +19,8 @@ export default function Home({route, navigation}) {
       if (initializing) setInitializing(false)
     });
 
+    
+
     return unsubscribe;
   }, []);
 
@@ -28,7 +30,7 @@ export default function Home({route, navigation}) {
     return (
       <ScrollView>
         <Container>
-        {console.log("Tentando passar rota em Home", route.params.id)}
+        {console.log("Passando user em Home", user)}
         <DivFlatListAtv>
           <TitleComponents>Ultimas Atividades:</TitleComponents>
           <ListH/>

@@ -18,4 +18,4 @@ export default function Disciplinas(props) {
       </DivAllDisc>
     </Container>
   )
-}
+} 

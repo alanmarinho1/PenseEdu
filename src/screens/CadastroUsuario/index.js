@@ -12,6 +12,7 @@ export default function Cadastro({navigation}) {
   const [graduation, setGraduation] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [contact, setContact] = useState("")
   // const [created, setCreated] = useState(false)
 
   function handleSignUp() {
@@ -53,6 +54,7 @@ export default function Cadastro({navigation}) {
       name,
       graduation,
       email,
+      contact,
       created_at: firestore.FieldValue.serverTimestamp()
     })
     .then(() => {
@@ -94,6 +96,15 @@ export default function Cadastro({navigation}) {
             type="text"
             onChangeText={(text) => setGraduation(text)}
             value={graduation}
+            />
+        </DivInputForm>
+        <DivInputForm>
+          <TextForm>Contato:</TextForm>
+          <InputTextField 
+            placeholder='Ex: (81) 9...'
+            type="text"
+            onChangeText={(text) => setContact(text)}
+            value={contact}
             />
         </DivInputForm>
         <DivInputForm>

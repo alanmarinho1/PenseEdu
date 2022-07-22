@@ -1,6 +1,6 @@
 
 import React, {useEffect, useState } from 'react'
-import { View, Text, Alert } from 'react-native'
+import { View, Text, Alert, Image } from 'react-native'
 import styled from 'styled-components/native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList} from '@react-navigation/drawer';
 import Home from '../screens/Principal';
@@ -15,6 +15,7 @@ import Glossario from '../screens/Glossario';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore'
 import { dateFormat } from '../utils/firestoreDateFormate';
+import { Loading } from './Loading';
 
 
 const Drawer = createDrawerNavigator();
@@ -37,19 +38,27 @@ const getActiveRouteState = function (routes, index, name) {
   };
 
 const CustomDrawer = (props) => {
-    const route = useRoute();
+
+    const userInfo = props.navigation.getId()[0];
+
+    const userPhoto = () => {
+        if(userInfo.photo){
+            return userInfo.photo;
+        } else {
+            return 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
+        }
+    }
+
     return (
       <DivDrawer>
-        {/* {console.log("props do custom Drawer:", props)} */}
         <DivUserDrawer>
-            <IconButton 
-            icon={'account-circle'} 
-            style={{right: 20}}
-            size={100}
-            color={'white'}/>
             <DivUserInfoDrawer>
-                <NomeDrawer>Nome de alguem</NomeDrawer>
-                <EmailDrawer>emaildealguem@gmail.com</EmailDrawer>
+                <Image
+                source={{uri: userPhoto()}}
+                style={{width: 100, height: 100, borderRadius: 50, marginTop: 30, marginBottom: 5}}
+                />
+                <NomeDrawer>{userInfo.name}</NomeDrawer>
+                <EmailDrawer>{userInfo.email}</EmailDrawer>
             </DivUserInfoDrawer>
         </DivUserDrawer>
         <DivItems>
@@ -139,26 +148,26 @@ const CustomDrawer = (props) => {
 
 
 
-export function DrawerComponent({route}){
+export function DrawerComponent({navigation}){
 
-    const [userId, setUserId] = useState("")
-    const [userData, setUserData] = useState("")
-    
+    const [userId, setUserId] = useState(navigation.getId())
+    const [userData, setUserData] = useState([])
+    const [initializing, setInitializing] = useState(true)
 
     useEffect(() => {
         
-        auth().onAuthStateChanged(user => {
-            // console.log("apareceu o user.uid", user.id)
-            setUserId(user.uid)
-            // console.log("Atualizou o userId", userId)
-        //   if (initializing) setInitializing(false)
+        const unsubscriber = auth().onAuthStateChanged(user => {
+            if(user){
+                setUserId(user.uid)
+            }
+          
         });
-        const unsubscriber = firestore()
+        const subscriber = firestore()
         .collection('users')
         .where('user_id', '==', userId)
         .onSnapshot(snapshot => {
             const data = snapshot.docs.map(doc => {
-                const { name, email, user_id, graduation, photo, created_at } = doc.data();
+                const { name, email, user_id, graduation, photo, created_at, contact } = doc.data();
 
                 return {
                     id: doc.id,
@@ -167,43 +176,48 @@ export function DrawerComponent({route}){
                     user_id,
                     graduation,
                     photo,
+                    contact,
                     when: dateFormat(created_at)
                 }
             });
 
             setUserData(data)
-            // console.log(userData)
+            if (initializing) setInitializing(false)
         })
-    
+        
         return unsubscriber;
       }, []);
-      
-    return(
-        
-        <Drawer.Navigator
-        useLegacyImplementation  
-        screenOptions={{
-        headerStyle:{
-            backgroundColor:'#00875F',
-        },
-        headerTitle:'CompEdu',
-        headerTintColor: 'white',
-        headerShown: true,
-        }}
-        drawerContent={(props) => <CustomDrawer {...props}/>}
-        backBehavior={'history'}>
-            {console.log("Tentando passar ID em Drawer", route.params.id)}
-        <Drawer.Screen name="Principal" component={Home} options={{drawerLabel: "Home"}}/>
-        <Drawer.Screen name="Disciplinas" component={Disciplinas} options={{drawerLabel: "Disciplinas"}}/>
-        <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
-          headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
-        })}/>
-        <Drawer.Screen name="DetalhesAtividade" component={Atividade} options={({ navigation }) => ({
-          headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.goBack()}/>
-        })}/>
-        <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Disciplinas"}}/>
-        </Drawer.Navigator>
-    )
+
+    if(initializing){
+        return <Loading/>
+    } else {
+        return(
+            <Drawer.Navigator
+            useLegacyImplementation
+            screenOptions={{
+            headerStyle:{
+                backgroundColor:'#00875F',
+            },
+            headerTitle:'CompEdu',
+            headerTintColor: 'white',
+            headerShown: true,
+            }}
+            id={userData}
+            drawerContent={(props) => <CustomDrawer {...props}/>}
+            backBehavior={'history'}>
+            <Drawer.Screen name="Principal" component={Home} options={{drawerLabel: "Home"}}/>
+            <Drawer.Screen name="Disciplinas" component={Disciplinas} options={{drawerLabel: "Disciplinas"}}/>
+            <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
+              headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
+            })}/>
+            <Drawer.Screen name="DetalhesAtividade" component={Atividade} options={({ navigation }) => ({
+              headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.goBack()}/>
+            })}/>
+            <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Disciplinas"}}/>
+            </Drawer.Navigator>
+        )
+    }
+    
 }
 
 const DivDrawer = styled.View`
