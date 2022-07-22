@@ -16,6 +16,7 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore'
 import { dateFormat } from '../utils/firestoreDateFormate';
 import { Loading } from './Loading';
+import Perfil from '../screens/Perfil';
 
 
 const Drawer = createDrawerNavigator();
@@ -205,8 +206,10 @@ export function DrawerComponent({navigation}){
             id={userData}
             drawerContent={(props) => <CustomDrawer {...props}/>}
             backBehavior={'history'}>
+            <Drawer.Screen name="Profile" component={Perfil} options={{drawerLabel: "Profile"}}/>
             <Drawer.Screen name="Principal" component={Home} options={{drawerLabel: "Home"}}/>
             <Drawer.Screen name="Disciplinas" component={Disciplinas} options={{drawerLabel: "Disciplinas"}}/>
+            
             <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
               headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
             })}/>

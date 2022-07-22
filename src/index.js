@@ -12,6 +12,7 @@ import Wellcome from './screens/Bemvindo';
 import Disciplinas from './screens/Disciplinas';
 import Atividade from './screens/Atividade';
 import Disciplina from './screens/DetalhesDisciplina';
+import Perfil from './screens/Perfil';
 import { Roboto_400Regular, useFonts } from '@expo-google-fonts/roboto';
 import { Loading } from './components/Loading';
 import { NativeBaseProvider } from 'native-base';
@@ -38,6 +39,7 @@ export default function App() {
             <Stack.Screen name="Home" component={DrawerComponent} />
             <Stack.Screen name="Cadastro" component={Cadastro} />
             <Stack.Screen name="Wellcome" component={Wellcome} />
+            <Stack.Screen name="Perfil" component={Perfil} />
             <Stack.Screen name="Disciplinas" component={Disciplinas} />
             <Stack.Screen name="Disciplina" component={Disciplina} />
             <Stack.Screen name="Atividade" component={Atividade} />
@@ -47,7 +49,7 @@ export default function App() {
           <Stack.Screen name="Home" component={DrawerComponent} />
           <Stack.Screen name="Cadastro" component={Cadastro} />
           <Stack.Screen name="Wellcome" component={Wellcome} />
-
+          <Stack.Screen name="Perfil" component={Perfil} />
           <Stack.Screen name="Disciplinas" component={Disciplinas} />
           <Stack.Screen name="Disciplina" component={Disciplina} />
           <Stack.Screen name="Atividade" component={Atividade} />

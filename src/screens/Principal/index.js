@@ -6,7 +6,7 @@ import auth from '@react-native-firebase/auth';
 import { Loading } from '../../components/Loading';
 
 
-export default function Home({route, navigation}) {
+export default function Home(props) {
 
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
@@ -33,7 +33,7 @@ export default function Home({route, navigation}) {
         {console.log("Passando user em Home", user)}
         <DivFlatListAtv>
           <TitleComponents>Ultimas Atividades:</TitleComponents>
-          <ListH/>
+          <ListH{...props}/>
           <TitleComponents>Atividades Sugeridas:</TitleComponents>
           <ListH/>
         </DivFlatListAtv>
