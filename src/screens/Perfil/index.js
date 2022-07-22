@@ -1,10 +1,11 @@
 import { View, Text } from 'react-native'
 import React, {useState, useEffect} from 'react'
-import { Container, DivPhoto, Photo } from './styles'
+import { Container, DivPhoto, DivUserInfo, Photo, TextForm } from './styles'
 import { Loading } from '../../components/Loading';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore'
 import { IconButton } from "react-native-paper";
+import { InputTextField } from '../../components/SignInputs';
 
 export default function Perfil({route, navigation}) {
 
@@ -30,6 +31,17 @@ export default function Perfil({route, navigation}) {
             onPress={() => alert("Alterar foto")}
             />
       </DivPhoto>
+      <DivUserInfo>
+        <TextForm>Nome:</TextForm>
+        <InputTextField
+        active={false}
+        type="text"
+        onChangeText={(text) => setName(text)}
+        value={'Alan Marinho'}
+        width={200}/>
+      </DivUserInfo>
+      
+
     </Container>
   )
   

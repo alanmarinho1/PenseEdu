@@ -75,6 +75,17 @@ const CustomDrawer = (props) => {
             }}
             />
             <DrawerItem
+            icon={"account"}
+            label={"Perfil"}
+            func={() => {
+                if(getActiveRouteState(props.state.routes, props.state.index, 'Profile')){
+                    props.navigation.closeDrawer()
+                }else{
+                    props.navigation.navigate("Profile")
+                }
+            }}
+            />
+            <DrawerItem
             icon={"animation-outline"}
             label={"Disciplinas"}
             func={() => {
@@ -206,17 +217,17 @@ export function DrawerComponent({navigation}){
             id={userData}
             drawerContent={(props) => <CustomDrawer {...props}/>}
             backBehavior={'history'}>
-            <Drawer.Screen name="Profile" component={Perfil} options={{drawerLabel: "Profile"}}/>
+            
             <Drawer.Screen name="Principal" component={Home} options={{drawerLabel: "Home"}}/>
             <Drawer.Screen name="Disciplinas" component={Disciplinas} options={{drawerLabel: "Disciplinas"}}/>
-            
+            <Drawer.Screen name="Profile" component={Perfil} options={{drawerLabel: "Glossario"}}/>
             <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
               headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
             })}/>
             <Drawer.Screen name="DetalhesAtividade" component={Atividade} options={({ navigation }) => ({
               headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.goBack()}/>
             })}/>
-            <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Disciplinas"}}/>
+            <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Glossario"}}/>
             </Drawer.Navigator>
         )
     }

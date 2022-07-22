@@ -5,7 +5,8 @@ export const DivFormRegister = styled.View`
     height: 550px;
     width: 90%;
     border: 0.5px gray;
-    align-self: center;
+    /* align-self: center; */
+    align-items: center;
     background-color: white;
     border-radius: 10px;
     margin-top: 160px;
@@ -14,7 +15,7 @@ export const DivFormRegister = styled.View`
 
 export const DivInputForm = styled.View`
 
-    margin: 2% 4% 0% 5%;
+    margin: 2% 5% 0% 5%;
     
 `
 

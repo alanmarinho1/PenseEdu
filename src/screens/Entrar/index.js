@@ -2,7 +2,7 @@ import { StyleSheet, KeyboardAvoidingView, Alert } from 'react-native'
 import React, { Component, useState, useEffect } from 'react';
 import { DivLogin, TextForm, TextNameApp, DivInputLogin, DivButtonLogin } from './styles'
 import { InputTextField } from '../../components/SignInputs';
-import { PressableLoginButton, PressableRegisterButton } from '../../components/Button'
+import { PressableButton, PressableLoginButton, PressableRegisterButton } from '../../components/Button'
 import { FormElements } from '../../components/FormsElements'
 import auth from '@react-native-firebase/auth';
 
@@ -60,7 +60,8 @@ export default function Login({navigation}) {
             placeholder='Digite seu email'
             type="text"
             onChangeText={(text) => setEmail(text)}
-            value={email}/>
+            value={email}
+            />
         </DivInputLogin>
         <DivInputLogin>
           <TextForm>Senha:</TextForm>
@@ -72,10 +73,11 @@ export default function Login({navigation}) {
           value={password}/>
         </DivInputLogin>
         <DivButtonLogin>
+          
           <PressableLoginButton
             onPress={handleLogin}
             title='Entrar'
-            bgColor='#3CB371' />
+            bgColor='#3CB371' /> 
           <PressableRegisterButton
             onPress={() => navigation.navigate('Cadastro')}
             title='Cadastrar'
@@ -94,5 +96,11 @@ export const styles = StyleSheet.create({
     backgroundColor: '#E0FFFF',
     justifyContent: 'flex-end',
     alignItems: 'center',
-  }
+    
+  },
+  divLogin: {
+    height: '18.75rem',
+    width: '65rem',
+
+}
 })

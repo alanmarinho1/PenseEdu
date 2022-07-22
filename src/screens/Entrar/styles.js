@@ -9,7 +9,7 @@ export const DivLogin = styled.View`
     padding: 3%;
     margin-bottom: 10%;
     border: 0.5px gray;
-    align-self: center;
+    align-items: center;
     background-color: white;
     border-radius: 10px;
     
@@ -17,6 +17,8 @@ export const DivLogin = styled.View`
 
 export const DivInputLogin = styled.View`
 
+    /* border: 1px red solid; */
+    width: 90%;
     margin: 5px;
     
 `

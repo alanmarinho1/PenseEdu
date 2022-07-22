@@ -17,6 +17,15 @@ export const DivPhoto = styled.View`
   align-items: center;
   
 `
+export const DivUserInfo = styled.View`
+
+  border: 1px #3CB371;
+  border-radius: 10px;
+  padding: 3%;
+  width: 90%;
+  height: 60%;
+  margin-top: 5%;
+`
 const PhotoComponent = styled.Image`
 
   margin-top: 20px;
@@ -24,9 +33,15 @@ const PhotoComponent = styled.Image`
   width: 150px;
   height: 150px;
 `
+
+export const TextForm = styled.Text`
+
+    color: #3CB371;
+    font-size: 16px;
+`;
 export const Photo = ({source}) => (
 
   <PhotoComponent source={{uri: source}}/>
     
- 
 );
+
