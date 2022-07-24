@@ -86,5 +86,5 @@ export const AtvDescription = styled.Text`
 
     font-size: 16px;
     text-align: justify;
-    padding: 5px;
+    padding: 2%;
 `

@@ -1,10 +1,11 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.ImageBackground`
+export const Container = styled.View`
 
   flex: 1;
   align-items: center;
-  
+  background-color: rgba(224, 255, 255, 0.6);
+  /* background-repeat: repeat-y; */
 `;
 
 export const DivNews = styled.View`
@@ -14,6 +15,7 @@ export const DivNews = styled.View`
     height: 300px;
     padding: 10px;
     border: 1px #3CB371;
+    background-color: white;
     border-radius: 10px;
 `
 
@@ -24,6 +26,7 @@ export const DivFlatListAtv = styled.View`
     height: 300px;
     padding: 10px;
     border: 1px #3CB371;
+    background-color: white;
     border-radius: 10px;
 `
 export const DivBNCC = styled.View`
@@ -33,13 +36,14 @@ export const DivBNCC = styled.View`
     width: 93%;
     height: 300px;
     padding: 10px;
+    background-color: white;
     border: 1px #3CB371;
     border-radius: 10px;
 `
 
 export const TitleComponents = styled.Text`
 
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
     color: #00875F; 

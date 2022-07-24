@@ -97,10 +97,5 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     
-  },
-  divLogin: {
-    height: '18.75rem',
-    width: '65rem',
-
-}
+  }
 })

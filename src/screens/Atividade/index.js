@@ -21,28 +21,32 @@ export default function Atividade() {
             <AtvTitle>Titulo da Atividade Aqui! Lorem Ipsum</AtvTitle>
           </DivAtvTitle>
           <DivAtvDetailsParent>
-            <DivAtvDetailsChildren>
-              <AtvDetailsTitle>Público alvo</AtvDetailsTitle>
-              <AtvDetails>5° ano</AtvDetails>
-            </DivAtvDetailsChildren>
-            <DivAtvDetailsChildren>
-              <AtvDetailsTitle>Duração</AtvDetailsTitle>
-              <AtvDetails>45 min</AtvDetails>
-            </DivAtvDetailsChildren>
-            <DivAtvDetailsChildren>
-              <AtvDetailsTitle>Habilidade (BNCC)</AtvDetailsTitle>
-              <AtvDetails>EM13LGG701</AtvDetails>
-            </DivAtvDetailsChildren>
+            <InfoComponent 
+              title={'Público alvo'}
+              detail={'5° ano'}
+            />
+            <InfoComponent 
+              title={'Duração'}
+              detail={'45 min'}
+            />
+            <InfoComponent 
+              title={'Habilidade (BNCC)'}
+              detail={'EM13LGG701'}
+            />
           </DivAtvDetailsParent>
           <DivAtvDetailsParent>
-            <DivAtvDetailsChildren>
-              <AtvDetailsTitle>Autor</AtvDetailsTitle>
-              <AtvDetails>Alan Marinho</AtvDetails>
-            </DivAtvDetailsChildren>
-            <DivAtvDetailsChildren>
-              <AtvDetailsTitle>Disciplina</AtvDetailsTitle>
-              <AtvDetails>Matemática</AtvDetails>
-            </DivAtvDetailsChildren>
+          <InfoComponent 
+              title={'Autor'}
+              detail={'Alan Marinho'}
+            />
+            <InfoComponent 
+              title={'Disciplina'}
+              detail={'Matemática'}
+            />
+            <InfoComponent 
+              title={'Pilar do PC'}
+              detail={'Algoritmos'}
+            />
           </DivAtvDetailsParent>
           <DivAtvDescription>
             <ScrollView>
@@ -58,3 +62,10 @@ export default function Atividade() {
     </Container>
   )
 }
+
+const InfoComponent = ({title, detail}) => (
+  <DivAtvDetailsChildren>
+    <AtvDetailsTitle>{title}</AtvDetailsTitle>
+    <AtvDetails>{detail}</AtvDetails>
+  </DivAtvDetailsChildren>
+)

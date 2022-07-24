@@ -5,6 +5,7 @@ export const Container = styled.View`
 
     flex: 1;
     align-items: center;
+    background-color: rgba(224, 255, 255, 0.6);
    
 `
 export const DivTitleScreen = styled.View`
@@ -14,6 +15,7 @@ export const DivTitleScreen = styled.View`
 export const DivGlossary = styled.View`
 
     flex: 1;
+    background-color: white;
     border: 1px #3CB371;
     border-radius: 10px;
     margin: 10px 0px 10px 0px;
@@ -25,6 +27,7 @@ export const DivGlossary = styled.View`
 const DivGlossaryItem = styled.View`
 
     border: 1px #3CB371;
+    background-color: rgba(224, 255, 255, 0.6);
     border-radius: 10px;
     margin: 0px 0px 10px 0px;
     padding: 5px;

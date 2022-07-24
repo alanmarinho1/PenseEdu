@@ -3,45 +3,96 @@ import React, {useState, useEffect} from 'react'
 import { Container, DivFlatListAtv, TitleComponents, DivNews, DivBNCC } from './styles'
 import ListH from '../../components/FlatLists/FlatListsScrollH'
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore'
+import { dateFormat } from '../../utils/firestoreDateFormate';
 import { Loading } from '../../components/Loading';
 
 
-export default function Home(props) {
+export default function Home({navigation}) {
 
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
+  const [allActivities, setAllActivities] = useState();
+  const [interestActivities, setInterestActivities] = useState();
 
-  // const { id } = route.params;
+  function LoadAllActivities(){
+    firestore()
+    .collection("activities")
+    .orderBy("created_at", "desc")
+    .onSnapshot(snapshot => {
+        const data = snapshot.docs.map(doc => {
+            const { author, description, discipline, duration, hability, created_at, target, title } = doc.data();
+
+            return {
+                id: doc.id,
+                author,
+                description,
+                discipline,
+                duration,
+                hability,
+                target,
+                title,
+                when: dateFormat(created_at)
+            }
+        });
+        setAllActivities(data)
+      })
+  }
+
+  function LoadInterestActivities(){
+    firestore()
+    .collection("activities")
+    .where("discipline", "in", ["Matemática", "Ciências"])
+    .onSnapshot(snapshot => {
+        const data = snapshot.docs.map(doc => {
+            const { author, description, discipline, duration, hability, created_at, target, title } = doc.data();
+
+            return {
+                id: doc.id,
+                author,
+                description,
+                discipline,
+                duration,
+                hability,
+                target,
+                title,
+                when: dateFormat(created_at)
+            }
+        });
+        setInterestActivities(data)
+      })
+  }
+
 
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(user => {
       setUser(user)
+      LoadAllActivities();
+      LoadInterestActivities();
       if (initializing) setInitializing(false)
     });
-
-    
 
     return unsubscribe;
   }, []);
 
   if (initializing){
     return <Loading/>
-  } else{
+  } else {
     return (
       <ScrollView>
         <Container>
-        {console.log("Passando user em Home", user)}
+        {/* {console.log("Passando atividades em Home", allActivities)} */}
         <DivFlatListAtv>
           <TitleComponents>Ultimas Atividades:</TitleComponents>
-          <ListH{...props}/>
+          <ListH navigation={navigation} data={allActivities} type={"Activy"}/>
           <TitleComponents>Atividades Sugeridas:</TitleComponents>
-          <ListH/>
+          <ListH navigation={navigation} data={interestActivities} type={"Activy"}/>
         </DivFlatListAtv>
         <DivNews>
           <TitleComponents>O que há de novo?</TitleComponents>
         </DivNews>
         <DivBNCC>
-          <TitleComponents>BNCC:</TitleComponents>
+          <TitleComponents>Sobre BNCC:</TitleComponents>
         </DivBNCC>
       </Container>
   
