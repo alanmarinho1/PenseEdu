@@ -11,8 +11,9 @@
     ],
     "android": {
       "package": "com.compedu",
-      "versionCode":1,
+      "versionCode": 1,
       "googleServicesFile": "./android/app/google-services.json"
-    }
+    },
+    "description": ""
   }
 }
