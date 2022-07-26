@@ -222,10 +222,11 @@ export function DrawerComponent({navigation}){
             <Drawer.Screen name="Disciplinas" component={Disciplinas} options={{drawerLabel: "Disciplinas"}}/>
             <Drawer.Screen name="Profile" component={Perfil} options={{drawerLabel: "Glossario"}}/>
             <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
-              headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
+              headerLeft: () => <IconButton icon={'keyboard-backspace'} size={27} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
             })}/>
+           
             <Drawer.Screen name="DetalhesAtividade" component={Atividade} options={({ navigation }) => ({
-              headerLeft: () => <IconButton icon={'keyboard-backspace'} size={30} color={'white'} onPress={() => navigation.goBack()}/>
+              headerLeft: () => <IconButton icon={'keyboard-backspace'} size={27} color={'white'} onPress={() => navigation.goBack()}/>
             })}/>
             <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Glossario"}}/>
             </Drawer.Navigator>
