@@ -10,7 +10,7 @@ export default function ListV(props) {
 
       var renderItem = ({ item }) => {
 
-          return <ItemAtv id={item.id} title={item.title} author={item.author} created={item.when} navigation={props.navigation}/>
+          return <ItemAtv id={item.id} title={item.title} author={item.author} duration={item.duration} created={item.when} navigation={props.navigation}/>
 
       }
 
@@ -51,8 +51,9 @@ const ItemDisc = (props) => (
 const ItemAtv = (props) => (
 
   <DivItemAtv onPress={() => props.navigation.navigate("DetalhesAtividade", {name:props.title})}>
-    <Title>{props.title}</Title>
+    <Title style={{marginBottom: 5}}>{props.title}</Title>
     <Text>{props.author}</Text>
+    <Text>{props.duration} min</Text>
   </DivItemAtv>
 );
 

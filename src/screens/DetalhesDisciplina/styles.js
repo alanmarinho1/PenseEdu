@@ -78,7 +78,7 @@ export const Title = styled.Text`
 const PhotoComponent = styled.ImageBackground`
 
   width: 99%;
-  height: 100px;
+  height: 90px;
   
 
 `

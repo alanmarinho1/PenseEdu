@@ -77,7 +77,7 @@ export default function Disciplina({navigation, route}) {
       if (initializing) setInitializing(false)
     });
 
-    // return unsubscribe;
+    return unsubscribe;
   }, [discipline]);
   if (initializing){
     return <Loading/>
