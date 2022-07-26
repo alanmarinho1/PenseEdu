@@ -213,7 +213,9 @@ export function DrawerComponent({navigation}){
             headerTitle:'CompEdu',
             headerTintColor: 'white',
             headerShown: true,
+            drawerType:'slide',
             }}
+            
             id={userData}
             drawerContent={(props) => <CustomDrawer {...props}/>}
             backBehavior={'history'}>
