@@ -9,9 +9,9 @@ export const Container = styled.View`
 
 export const DivFlatListAtv = styled.View`
 
-  margin-top: 10px;
+  margin-top: 2%;
   padding: 10px;
-  width: 360px;
+  width: 92%;
   background-color: white;
   border: 1px #3CB371;
   border-radius: 10px;
@@ -19,7 +19,7 @@ export const DivFlatListAtv = styled.View`
 
 export const DivPhoto = styled.View`
 
-  width: 360px;
+  width: 92%;
   background-color: white;
   border: 1px #3CB371;
   border-radius: 10px;
@@ -30,9 +30,9 @@ export const DivPhoto = styled.View`
 
 export const DivAllAtv = styled.View`
 
-  margin-top: 20px;
-  width: 360px;
-  height: 400px;
+  margin-top: 2%;
+  width: 92%;
+  height: 25%;
   padding: 10px;
   background-color: white;
   border: 1px #3CB371;
@@ -44,9 +44,9 @@ export const DivRelPC = styled.View`
   background-color: white;
   border: 1px #3CB371;
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 2%;
   padding: 10px;
-  width: 360px;
+  width: 92%;
 `
 export const DivDescriptionRelPC = styled.View`
 

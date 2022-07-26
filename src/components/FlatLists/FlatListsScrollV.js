@@ -76,8 +76,8 @@ const DivItemAtv = styled.TouchableOpacity`
   border: 1px #3CB371;
   border-radius: 10px;
   background-color: rgba(224, 255, 255, 0.6);
-  width: 250px;
-  height: 80px;
+  /* width: 80%;
+  height: 45%; */
   margin: 0px 0px 10px 10px;
   padding: 5px; 
   align-items: center;

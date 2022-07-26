@@ -18,7 +18,7 @@ export const DivLogin = styled.View`
 export const DivInputLogin = styled.View`
 
     /* border: 1px red solid; */
-    width: 90%;
+    /* width: 100%; */
     margin: 5px;
     
 `
