@@ -17,6 +17,7 @@ import firestore from '@react-native-firebase/firestore'
 import { dateFormat } from '../utils/firestoreDateFormate';
 import { Loading } from './Loading';
 import Perfil from '../screens/Perfil';
+import PC from '../screens/PensamentoComputacional';
 
 
 const Drawer = createDrawerNavigator();
@@ -109,10 +110,10 @@ const CustomDrawer = (props) => {
             icon={"library"}
             label={"Pensamento Computacional"}
             func={() => {
-                if(getActiveRouteState(props.state.routes, props.state.index, 'Disciplinas')){
+                if(getActiveRouteState(props.state.routes, props.state.index, 'PensamentoComputacional')){
                     props.navigation.closeDrawer()
                 }else{
-                    props.navigation.navigate("Disciplinas")
+                    props.navigation.navigate("PensamentoComputacional")
                 }
             }}/>
             <DrawerItem
@@ -223,6 +224,7 @@ export function DrawerComponent({navigation}){
             <Drawer.Screen name="Principal" component={Home} options={{drawerLabel: "Home"}}/>
             <Drawer.Screen name="Disciplinas" component={Disciplinas} options={{drawerLabel: "Disciplinas"}}/>
             <Drawer.Screen name="Profile" component={Perfil} options={{drawerLabel: "Glossario"}}/>
+            <Drawer.Screen name="PensamentoComputacional" component={PC} options={{drawerLabel: "PensamentoComputacional"}}/>
             <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
               headerLeft: () => <IconButton icon={'keyboard-backspace'} size={27} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
             })}/>

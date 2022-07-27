@@ -1,11 +1,16 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { Container } from './styles'
+import { Container, DivIntro, TitleScreen } from './styles'
 
 export default function PC() {
   return (
     <Container>
-      <Text>index</Text>
+      <View>
+        <TitleScreen>Pensamento Computacional</TitleScreen>
+      </View>
+      <DivIntro>
+        
+      </DivIntro>
     </Container>
   )
 }
