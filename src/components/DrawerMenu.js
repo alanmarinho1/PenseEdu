@@ -155,7 +155,7 @@ const CustomDrawer = (props) => {
         </DivItems>
         <DivDebBy>
             <DevBy>Desenvolvido por</DevBy>
-            <Text>Alan Marinho</Text>
+            <Text style={{fontWeight: 'bold'}}>Alan Marinho</Text>
         </DivDebBy>
       </DivDrawer>
     )
@@ -272,7 +272,7 @@ const DivDebBy = styled.View`
 
     align-items: center;
     
-    top: 200px;
+    top: 18%;
     
 `
 const DevBy = styled.Text`

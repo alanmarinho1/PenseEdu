@@ -3,17 +3,18 @@ import React from 'react'
 import { Container, DivPC, PCImage, PCImage2, TextPC, Title, DivFonts } from './styles'
 import * as WebBrowser from 'expo-web-browser';
 import { IconButton, MD3Colors } from 'react-native-paper';
+import { PressableFontsButton } from '../../components/Button';
 
 
 export default function PC() {
 
-  openVideo = () => {
+  const openVideo = () => {
     WebBrowser.openBrowserAsync('https://youtu.be/yJlArskpu30');
   };
-  openSite = () => {
+  const openSite = () => {
     WebBrowser.openBrowserAsync('https://educadordofuturo.com.br/tecnologia-na-educacao/o-que-e-pensamento-computacional/');
   };
-  openPDF = () => {
+  const openPDF = () => {
     WebBrowser.openBrowserAsync('https://seer.ufrgs.br/index.php/renote/article/view/118533/64560');
   };
 
@@ -140,16 +141,18 @@ export default function PC() {
           </TextPC>
         </DivPC>
         <Title>Fontes:</Title>
-        <DivFonts>
-          <Text style={{fontWeight: 'bold', fontSize: 15}}>Definições de Pensamento Computacional</Text>
-        <IconButton
-            icon="youtube"
-            size={35}
-            color="red"
-            style={{borderWidth: 1, borderRadius: 10}}
-            onPress={() => console.log('Pressed')}
-          />
-        </DivFonts>
+        <PressableFontsButton 
+          title='Youtube: Definições de Pensamento Computacional'
+          onPress={() => openVideo()}
+        />
+        <PressableFontsButton 
+          title='Web: O que é pensamento computacional: a metodologia de solução de problemas complexos'
+          onPress={() => openSite()}
+        />
+        <PressableFontsButton 
+          title='PDF: Uma abordagem interdisciplinar para o pensamento computacional no ensino fundamental'
+          onPress={() => openPDF()}
+        />        
       </Container>
     </ScrollView>
     

@@ -62,10 +62,25 @@ const WellcomeButtonText = styled.Text`
   width: 100px;
   color: white;
   /* padding-bottom: 5px; */
-
-
-
 `;
+
+const DivFonts = styled.TouchableOpacity`
+
+  border: 1px #3CB371;
+  flex-direction: row;
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 90%;
+  padding: 0px 5px 0px 5px;
+`
+const TextFonts = styled.Text`
+
+  padding: 2%;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: justify;
+`
 
 export const PressableLoginButton = ({ onPress, bgColor, title }) => (
     <LoginButton onPress={onPress} bgColor={bgColor} >
@@ -85,4 +100,10 @@ export const PressableWellcomeButton = ({ onPress, bgColor, title }) => (
     <IconButton icon={"arrow-right"} color={'white'} size={25}/>
     {/* <Button icon={"arrow_forward"} /> */}
   </WellcomeButton>
+);
+
+export const PressableFontsButton = ({ onPress, bgColor, title }) => (
+  <DivFonts onPress={onPress} bgColor={bgColor}>
+    <TextFonts>{title}</TextFonts>
+  </DivFonts>
 );
