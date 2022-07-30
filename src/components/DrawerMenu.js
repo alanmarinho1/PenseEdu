@@ -18,6 +18,7 @@ import { dateFormat } from '../utils/firestoreDateFormate';
 import { Loading } from './Loading';
 import Perfil from '../screens/Perfil';
 import PC from '../screens/PensamentoComputacional';
+import BNCC from '../screens/BNCC';
 
 
 const Drawer = createDrawerNavigator();
@@ -67,6 +68,7 @@ const CustomDrawer = (props) => {
             <DrawerItem
             icon={"home"}
             label={"Home"}
+            
             func={() => {
                 if(getActiveRouteState(props.state.routes, props.state.index, 'Principal')){
                     props.navigation.closeDrawer()
@@ -120,10 +122,10 @@ const CustomDrawer = (props) => {
             icon={"book-outline"}
             label={"BNCC"}
             func={() => {
-                if(getActiveRouteState(props.state.routes, props.state.index, 'Disciplinas')){
+                if(getActiveRouteState(props.state.routes, props.state.index, 'BNCC')){
                     props.navigation.closeDrawer()
                 }else{
-                    props.navigation.navigate("Disciplinas")
+                    props.navigation.navigate("BNCC")
                 }
             }}/>
             <DrawerItem
@@ -208,31 +210,27 @@ export function DrawerComponent({navigation}){
             <Drawer.Navigator
             useLegacyImplementation
             screenOptions={{
-            headerStyle:{
-                backgroundColor:'#00875F',
-            },
-            headerTitle:'CompEdu',
-            headerTintColor: 'white',
-            headerShown: true,
-            drawerType:'slide',
+                headerStyle:{backgroundColor:'#00875F'},
+                headerTitle:'CompEdu',
+                headerTintColor: 'white',
+                headerShown: true,
+                drawerType:'slide',
             }}
-            
             id={userData}
             drawerContent={(props) => <CustomDrawer {...props}/>}
             backBehavior={'history'}>
-           
             <Drawer.Screen name="Principal" component={Home} options={{drawerLabel: "Home"}}/>
             <Drawer.Screen name="Disciplinas" component={Disciplinas} options={{drawerLabel: "Disciplinas"}}/>
-            <Drawer.Screen name="Profile" component={Perfil} options={{drawerLabel: "Glossario"}}/>
+            <Drawer.Screen name="Profile" component={Perfil} options={{drawerLabel: "Profile"}}/>
+            <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Glossario"}}/>
             <Drawer.Screen name="PensamentoComputacional" component={PC} options={{drawerLabel: "PensamentoComputacional"}}/>
+            <Drawer.Screen name="BNCC" component={BNCC} options={{drawerLabel: "BNCC"}}/>
             <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
               headerLeft: () => <IconButton icon={'keyboard-backspace'} size={27} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
             })}/>
-           
             <Drawer.Screen name="DetalhesAtividade" component={Atividade} options={({ navigation }) => ({
               headerLeft: () => <IconButton icon={'keyboard-backspace'} size={27} color={'white'} onPress={() => navigation.goBack()}/>
             })}/>
-            <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Glossario"}}/>
             </Drawer.Navigator>
         )
     }

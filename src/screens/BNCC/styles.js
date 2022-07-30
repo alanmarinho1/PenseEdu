@@ -7,7 +7,7 @@ export const Container = styled.View`
   background-color: rgba(224, 255, 255, 0.6);
 `;
  
-export const DivPC = styled.View`
+export const DivBNCC = styled.View`
 
   border: 1px #3CB371;
   margin-top: 10px;
@@ -16,16 +16,7 @@ export const DivPC = styled.View`
   padding: 0px 5px 0px 5px;
   background-color: white;
 `
-export const DivFonts = styled.View`
 
-  border: 1px #3CB371;
-  flex-direction: row;
-  margin-top: 10px;
-  border-radius: 10px;
-  width: 90%;
-  padding: 0px 5px 0px 5px;
-  background-color: white;
-`
 
 export const Title = styled.Text`
 
@@ -37,23 +28,17 @@ export const Title = styled.Text`
   
 `
 
-export const TextPC = styled.Text`
+export const TextBNCC = styled.Text`
 
   padding: 2%;
   font-size: 16px;
   text-align: justify;
 `
-export const PCImage = styled.ImageBackground`
+export const BNCCImage = styled.ImageBackground`
 
   margin-top: 3%;
-  width: 230px;
-  height: 200px;
-    
-`
-export const PCImage2 = styled.ImageBackground`
-
-  margin-top: 3%;
-  width: 230px;
-  height: 205px;
+  width: 90%;
+  height: 155px;
+  margin-left: 35px;
     
 `

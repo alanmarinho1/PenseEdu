@@ -50,7 +50,7 @@ export const DivAtvDetailsChildren = styled.View`
     border-radius: 10px;
     align-items: center;
     justify-content: center;
-    width: 100px;
+    width: 110px;
     height: 70px;
 
 `

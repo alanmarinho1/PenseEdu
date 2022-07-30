@@ -36,7 +36,7 @@ export default function Atividade() {
           </DivAtvDetailsParent>
           <DivAtvDetailsParent>
           <InfoComponent 
-              title={'Autor'}
+              title={'Autor ou Fonte'}
               detail={'Alan Marinho'}
             />
             <InfoComponent 
