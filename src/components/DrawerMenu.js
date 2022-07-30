@@ -193,13 +193,13 @@ export function DrawerComponent({navigation}){
                     when: dateFormat(created_at)
                 }
             });
-
+            
             setUserData(data)
-            if (initializing) setInitializing(false)
+            if (initializing)  setInitializing(false)
         })
         
         return unsubscriber;
-      }, []);
+      }, [userId]);
 
     if(initializing){
         return <Loading/>
@@ -220,7 +220,7 @@ export function DrawerComponent({navigation}){
             id={userData}
             drawerContent={(props) => <CustomDrawer {...props}/>}
             backBehavior={'history'}>
-            
+           
             <Drawer.Screen name="Principal" component={Home} options={{drawerLabel: "Home"}}/>
             <Drawer.Screen name="Disciplinas" component={Disciplinas} options={{drawerLabel: "Disciplinas"}}/>
             <Drawer.Screen name="Profile" component={Perfil} options={{drawerLabel: "Glossario"}}/>

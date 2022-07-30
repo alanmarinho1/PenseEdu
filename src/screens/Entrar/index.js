@@ -33,6 +33,7 @@ export default function Login({navigation}) {
         } else if (error.code === 'auth/user-disabled') {
           return Alert.alert('Acesso a conta', "Usuário desativado.");
         } else {
+          console.log(error)
           return Alert.alert('Acesso a conta', "Houve um erro ao tentar logar");
         }
        
