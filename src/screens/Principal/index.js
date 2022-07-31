@@ -1,6 +1,6 @@
 import { View, Text, Button, FlatList, ScrollView } from 'react-native'
 import React, {useState, useEffect} from 'react'
-import { Container, DivFlatListAtv, TitleComponents, DivNews, DivBNCC } from './styles'
+import { Container, DivFlatListAtv, TitleComponents, DivNews } from './styles'
 import ListH from '../../components/FlatLists/FlatListsScrollH'
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore'

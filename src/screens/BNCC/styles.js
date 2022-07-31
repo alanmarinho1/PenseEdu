@@ -17,7 +17,6 @@ export const DivBNCC = styled.View`
   background-color: white;
 `
 
-
 export const Title = styled.Text`
 
   width: 87%;
@@ -34,11 +33,20 @@ export const TextBNCC = styled.Text`
   font-size: 16px;
   text-align: justify;
 `
-export const BNCCImage = styled.ImageBackground`
+export const BNCCImage1 = styled.ImageBackground`
 
   margin-top: 3%;
   width: 90%;
   height: 155px;
   margin-left: 35px;
+    
+`
+export const BNCCImage2 = styled.ImageBackground`
+
+  /* margin-top: 3%; */
+  width: 101%;
+  height: 268px;
+  align-self: center;
+  margin-right: 6px;
     
 `

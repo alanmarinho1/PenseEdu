@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-native';
+import { Text } from 'react-native';
 import styled, {css} from 'styled-components/native';
 import { IconButton } from 'react-native-paper'
 
@@ -82,6 +82,21 @@ const TextFonts = styled.Text`
   text-align: justify;
 `
 
+const DivFontBNCC = styled.TouchableOpacity`
+  /* background-color: white; */
+  padding: 2%;
+  /* width: 90%; */
+`
+
+const TextFontBNCC = styled.Text`
+
+  font-size: 16px;
+  /* text-align: justify; */
+  color: blue;
+  text-decoration: underline;
+  
+`
+
 export const PressableLoginButton = ({ onPress, bgColor, title }) => (
     <LoginButton onPress={onPress} bgColor={bgColor} >
       <LoginButtonText>{title}</LoginButtonText>
@@ -106,4 +121,10 @@ export const PressableFontsButton = ({ onPress, bgColor, title }) => (
   <DivFonts onPress={onPress} bgColor={bgColor}>
     <TextFonts>{title}</TextFonts>
   </DivFonts>
+);
+
+export const PressableFontsBNCCButton = ({ onPress, bgColor, title, text }) => (
+  <DivFontBNCC onPress={onPress} bgColor={bgColor}>
+    <Text style={{fontWeight: 'bold'}}>{title}</Text><TextFontBNCC>{text}</TextFontBNCC>
+  </DivFontBNCC>
 );

@@ -151,7 +151,9 @@ const CustomDrawer = (props) => {
             <DrawerItem
             icon={"exit-run"}
             label={"Sair"}
-            func={() => {handleLogout(props.navigation)}}/>
+            func={() => {
+                handleLogout(props.navigation);
+                props.navigation.closeDrawer();}}/>
         </DivItems>
         <DivDebBy>
             <DevBy>Desenvolvido por</DevBy>
