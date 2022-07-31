@@ -19,6 +19,7 @@ import { Loading } from './Loading';
 import Perfil from '../screens/Perfil';
 import PC from '../screens/PensamentoComputacional';
 import BNCC from '../screens/BNCC';
+import Sobre from '../screens/Sobre';
 
 
 const Drawer = createDrawerNavigator();
@@ -132,10 +133,10 @@ const CustomDrawer = (props) => {
             icon={"information-outline"}
             label={"Sobre"}
             func={() => {
-                if(getActiveRouteState(props.state.routes, props.state.index, 'Disciplinas')){
+                if(getActiveRouteState(props.state.routes, props.state.index, 'Sobre')){
                     props.navigation.closeDrawer()
                 }else{
-                    props.navigation.navigate("Disciplinas")
+                    props.navigation.navigate("Sobre")
                 }
             }}/>
             <DrawerItem
@@ -227,6 +228,7 @@ export function DrawerComponent({navigation}){
             <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Glossario"}}/>
             <Drawer.Screen name="PensamentoComputacional" component={PC} options={{drawerLabel: "PensamentoComputacional"}}/>
             <Drawer.Screen name="BNCC" component={BNCC} options={{drawerLabel: "BNCC"}}/>
+            <Drawer.Screen name="Sobre" component={Sobre} options={{drawerLabel: "Sobre"}}/>
             <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
               headerLeft: () => <IconButton icon={'keyboard-backspace'} size={27} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
             })}/>

@@ -64,7 +64,7 @@ const WellcomeButtonText = styled.Text`
   /* padding-bottom: 5px; */
 `;
 
-const DivFonts = styled.TouchableOpacity`
+const FontsButton = styled.TouchableOpacity`
 
   border: 1px #3CB371;
   flex-direction: row;
@@ -74,7 +74,7 @@ const DivFonts = styled.TouchableOpacity`
   width: 90%;
   padding: 0px 5px 0px 5px;
 `
-const TextFonts = styled.Text`
+const TextFontsButton = styled.Text`
 
   padding: 2%;
   font-weight: bold;
@@ -82,19 +82,37 @@ const TextFonts = styled.Text`
   text-align: justify;
 `
 
-const DivFontBNCC = styled.TouchableOpacity`
+const FontBNCCButton = styled.TouchableOpacity`
   /* background-color: white; */
   padding: 2%;
   /* width: 90%; */
 `
 
-const TextFontBNCC = styled.Text`
+const TextFontBNCCButton = styled.Text`
 
   font-size: 16px;
   /* text-align: justify; */
   color: blue;
   text-decoration: underline;
   
+`
+
+const SendMessageButton = styled.TouchableOpacity`
+
+  align-self: flex-end;
+  margin: 0px 10px 10px 0px;
+  width: 100px;
+  height: 45px;
+  border-radius: 10px;
+  background-color: ${props => props.bgColor};
+`
+const TextSendMessageButton = styled.Text`
+
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+
 `
 
 export const PressableLoginButton = ({ onPress, bgColor, title }) => (
@@ -118,13 +136,19 @@ export const PressableWellcomeButton = ({ onPress, bgColor, title }) => (
 );
 
 export const PressableFontsButton = ({ onPress, bgColor, title }) => (
-  <DivFonts onPress={onPress} bgColor={bgColor}>
-    <TextFonts>{title}</TextFonts>
-  </DivFonts>
+  <FontsButton onPress={onPress} bgColor={bgColor}>
+    <TextFontsButton>{title}</TextFontsButton>
+  </FontsButton>
 );
 
 export const PressableFontsBNCCButton = ({ onPress, bgColor, title, text }) => (
-  <DivFontBNCC onPress={onPress} bgColor={bgColor}>
-    <Text style={{fontWeight: 'bold'}}>{title}</Text><TextFontBNCC>{text}</TextFontBNCC>
-  </DivFontBNCC>
+  <FontBNCCButton onPress={onPress} bgColor={bgColor}>
+    <Text style={{fontWeight: 'bold'}}>{title}</Text><TextFontBNCCButton>{text}</TextFontBNCCButton>
+  </FontBNCCButton>
+);
+
+export const PressableSendMessageButton = ({ onPress, bgColor, title }) => (
+  <SendMessageButton onPress={onPress} bgColor={bgColor} >
+    <TextSendMessageButton>{title}</TextSendMessageButton>
+  </SendMessageButton>
 );
