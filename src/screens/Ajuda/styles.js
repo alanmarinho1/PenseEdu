@@ -7,7 +7,7 @@ export const Container = styled.ScrollView`
   background-color: rgba(224, 255, 255, 0.6);
 `;
 
-export const DivAbout = styled.View`
+export const DivHelp = styled.View`
 
   border: 1px #3CB371;
   margin-top: 10px;
@@ -17,7 +17,7 @@ export const DivAbout = styled.View`
   background-color: white;
 `
 
-export const TextAbout = styled.Text`
+export const TextHelp = styled.Text`
 
   padding: 2%;
   font-size: 16px;
@@ -38,16 +38,4 @@ export const TitleScreen = styled.Text`
   font-weight: bold;
   margin-top: 10px;
   color: #00875F;
-`
-
-export const Message = styled.TextInput`
-
-  border: 1px #3CB371;
-  border-radius: 10px;
-  
-  /* width: 95%; */
-  /* height: 140px; */
-  padding: 5px;
-  margin: 10px;
-  
 `

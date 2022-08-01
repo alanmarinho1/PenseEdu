@@ -36,16 +36,16 @@ export const TextBNCC = styled.Text`
 export const BNCCImage1 = styled.ImageBackground`
 
   margin-top: 3%;
-  width: 90%;
+  width: 100%;
   height: 155px;
-  margin-left: 35px;
+  /* margin-left: 35px; */
     
 `
 export const BNCCImage2 = styled.ImageBackground`
 
   /* margin-top: 3%; */
   width: 101%;
-  height: 268px;
+  height: 240px;
   align-self: center;
   margin-right: 6px;
     

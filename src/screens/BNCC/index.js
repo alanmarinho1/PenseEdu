@@ -13,7 +13,7 @@ export default function BNCC() {
   return (
     <ScrollView>
         <Container>
-            <BNCCImage1 source={require('../../assets/bncc-logo.png')}/>
+            <BNCCImage1 source={require('../../assets/bncc-logo.png')} resizeMode="stretch"/>
             <DivBNCC>
               <TextBNCC>
               A <Text style={{fontWeight: 'bold'}}>Base Nacional Comum Curricular</Text> (BNCC) é um documento de caráter normativo que define o conjunto orgânico e progressivo de aprendizagens essenciais que todos os alunos devem desenvolver ao longo das etapas e modalidades da Educação Básica.
@@ -36,7 +36,7 @@ export default function BNCC() {
               Nos quadros que apresentam as unidades temáticas, os objetos de conhecimento e as habilidades definidas para cada ano (ou bloco de anos), 
               cada habilidade é identificada por um código alfanumérico cuja composição é a seguinte:
               </TextBNCC>
-              <BNCCImage2 source={require('../../assets/estrutura-habilidade.png')}/>
+              <BNCCImage2 source={require('../../assets/estrutura-habilidade.png')} resizeMode="stretch"/>
       
               <TextBNCC>
               Segundo esse critério, o código <Text style={{fontWeight: 'bold'}}>EF67EF01</Text>, por exemplo, refere-se à primeira habilidade proposta em Educação Física no bloco relativo ao 6º e 7º anos, 
