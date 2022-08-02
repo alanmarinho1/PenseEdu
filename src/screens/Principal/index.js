@@ -91,9 +91,7 @@ export default function Home({navigation}) {
           <DivNews>
             <TitleComponents>O que há de novo?</TitleComponents>
           </DivNews>
-          {/* <DivBNCC>
-            <TitleComponents>Sobre BNCC:</TitleComponents>
-          </DivBNCC> */}
+          
         </Container>
       </ScrollView>
       

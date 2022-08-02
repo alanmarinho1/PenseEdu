@@ -33,31 +33,33 @@ export default function Ajuda() {
       <Title>Disciplinas</Title>
       <DivHelp>
         <TextHelp>
-
+          No menu de disciplinas será o espaço reservado para visualização das suas disciplinas favoritas e todas as disciplinas disponiveis no aplicativo até o momento. 
+          Acessando cada uma você será direcionado a tela principal da disciplina, mostrando a sua relação com o PC e as atividades que por ventura voce criou ou as atividades disponiveis no aplicativo até o momento.
+          Acessando qualquer uma das atividades, voce será direcionado a uma tela contendo o título, publico alvo, autor, duração, disciplina, habilidade BNCC, descrição e o pilar de PC que essa atividade está relacionada.
         </TextHelp>
       </DivHelp>
       <Title>Glossário</Title>
       <DivHelp>
         <TextHelp>
-          
+          Tela de Glossário que serve como guia com significado para algumas palavras chaves utilizadas no ramo da Ciencia da Computação.
         </TextHelp>
       </DivHelp>
       <Title>Pensamento Computacional</Title>
       <DivHelp>
         <TextHelp>
-          
+          Area reservada para um resumo sobre o Pensamento Computacional, suas características, os seus principais pilares e por que utiliza-las em suas disciplinas
         </TextHelp>
       </DivHelp>
       <Title>BNCC</Title>
       <DivHelp>
         <TextHelp>
-          
+          Essa tela mostra um breve resumo sobre o que é a BNCC, como ela representa as habilidades estabelecidas e a sua relação com o Pensamento Computacional.
         </TextHelp>
       </DivHelp>
       <Title>Sobre</Title>
       <DivHelp>
         <TextHelp>
-          
+          A tela de Sobre indica algumas informações gerais do app, a sua motivação e objetivo. Alem de abrir um espaço para que usuarios mandem comentários e sugestões para melhoria do app.
         </TextHelp>
       </DivHelp>
     </Container>

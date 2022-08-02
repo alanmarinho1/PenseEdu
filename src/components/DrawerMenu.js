@@ -91,7 +91,7 @@ const CustomDrawer = (props) => {
             }}
             />
             <DrawerItem
-            icon={"animation-outline"}
+            icon={"animation"}
             label={"Disciplinas"}
             func={() => {
                 if(getActiveRouteState(props.state.routes, props.state.index, 'Disciplinas')){
@@ -121,7 +121,7 @@ const CustomDrawer = (props) => {
                 }
             }}/>
             <DrawerItem
-            icon={"book-outline"}
+            icon={"book"}
             label={"BNCC"}
             func={() => {
                 if(getActiveRouteState(props.state.routes, props.state.index, 'BNCC')){
@@ -131,7 +131,7 @@ const CustomDrawer = (props) => {
                 }
             }}/>
             <DrawerItem
-            icon={"information-outline"}
+            icon={"information"}
             label={"Sobre"}
             func={() => {
                 if(getActiveRouteState(props.state.routes, props.state.index, 'Sobre')){
@@ -141,7 +141,7 @@ const CustomDrawer = (props) => {
                 }
             }}/>
             <DrawerItem
-            icon={"help-circle-outline"}
+            icon={"help-circle"}
             label={"Ajuda"}
             func={() => {
                 if(getActiveRouteState(props.state.routes, props.state.index, 'Ajuda')){
