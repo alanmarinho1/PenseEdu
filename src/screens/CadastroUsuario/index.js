@@ -90,7 +90,7 @@ export default function Cadastro({navigation}) {
             />
         </DivInputForm>
         <DivInputForm>
-          <TextForm>Escolaridade:</TextForm>
+          <TextForm>Formação:</TextForm>
           <InputTextField 
             placeholder='Ex: Licenciado em Computação - UFRPE...'
             type="text"

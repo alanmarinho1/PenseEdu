@@ -17,6 +17,10 @@ import firestore from '@react-native-firebase/firestore'
 import { dateFormat } from '../utils/firestoreDateFormate';
 import { Loading } from './Loading';
 import Perfil from '../screens/Perfil';
+import PC from '../screens/PensamentoComputacional';
+import BNCC from '../screens/BNCC';
+import Sobre from '../screens/Sobre';
+import Ajuda from '../screens/Ajuda';
 
 
 const Drawer = createDrawerNavigator();
@@ -66,6 +70,7 @@ const CustomDrawer = (props) => {
             <DrawerItem
             icon={"home"}
             label={"Home"}
+            
             func={() => {
                 if(getActiveRouteState(props.state.routes, props.state.index, 'Principal')){
                     props.navigation.closeDrawer()
@@ -86,7 +91,7 @@ const CustomDrawer = (props) => {
             }}
             />
             <DrawerItem
-            icon={"animation-outline"}
+            icon={"animation"}
             label={"Disciplinas"}
             func={() => {
                 if(getActiveRouteState(props.state.routes, props.state.index, 'Disciplinas')){
@@ -109,50 +114,52 @@ const CustomDrawer = (props) => {
             icon={"library"}
             label={"Pensamento Computacional"}
             func={() => {
-                if(getActiveRouteState(props.state.routes, props.state.index, 'Disciplinas')){
+                if(getActiveRouteState(props.state.routes, props.state.index, 'PensamentoComputacional')){
                     props.navigation.closeDrawer()
                 }else{
-                    props.navigation.navigate("Disciplinas")
+                    props.navigation.navigate("PensamentoComputacional")
                 }
             }}/>
             <DrawerItem
-            icon={"book-outline"}
+            icon={"book"}
             label={"BNCC"}
             func={() => {
-                if(getActiveRouteState(props.state.routes, props.state.index, 'Disciplinas')){
+                if(getActiveRouteState(props.state.routes, props.state.index, 'BNCC')){
                     props.navigation.closeDrawer()
                 }else{
-                    props.navigation.navigate("Disciplinas")
+                    props.navigation.navigate("BNCC")
                 }
             }}/>
             <DrawerItem
-            icon={"information-outline"}
+            icon={"information"}
             label={"Sobre"}
             func={() => {
-                if(getActiveRouteState(props.state.routes, props.state.index, 'Disciplinas')){
+                if(getActiveRouteState(props.state.routes, props.state.index, 'Sobre')){
                     props.navigation.closeDrawer()
                 }else{
-                    props.navigation.navigate("Disciplinas")
+                    props.navigation.navigate("Sobre")
                 }
             }}/>
             <DrawerItem
-            icon={"help-circle-outline"}
+            icon={"help-circle"}
             label={"Ajuda"}
             func={() => {
-                if(getActiveRouteState(props.state.routes, props.state.index, 'Disciplinas')){
+                if(getActiveRouteState(props.state.routes, props.state.index, 'Ajuda')){
                     props.navigation.closeDrawer()
                 }else{
-                    props.navigation.navigate("Disciplinas")
+                    props.navigation.navigate("Ajuda")
                 }
             }}/>
             <DrawerItem
             icon={"exit-run"}
             label={"Sair"}
-            func={() => {handleLogout(props.navigation)}}/>
+            func={() => {
+                handleLogout(props.navigation);
+                props.navigation.closeDrawer();}}/>
         </DivItems>
         <DivDebBy>
             <DevBy>Desenvolvido por</DevBy>
-            <Text>Alan Marinho</Text>
+            <Text style={{fontWeight: 'bold'}}>Alan Marinho</Text>
         </DivDebBy>
       </DivDrawer>
     )
@@ -192,13 +199,13 @@ export function DrawerComponent({navigation}){
                     when: dateFormat(created_at)
                 }
             });
-
+            
             setUserData(data)
-            if (initializing) setInitializing(false)
+            if (initializing)  setInitializing(false)
         })
         
         return unsubscriber;
-      }, []);
+      }, [userId]);
 
     if(initializing){
         return <Loading/>
@@ -207,20 +214,23 @@ export function DrawerComponent({navigation}){
             <Drawer.Navigator
             useLegacyImplementation
             screenOptions={{
-            headerStyle:{
-                backgroundColor:'#00875F',
-            },
-            headerTitle:'CompEdu',
-            headerTintColor: 'white',
-            headerShown: true,
+                headerStyle:{backgroundColor:'#00875F'},
+                headerTitle:'CompEdu',
+                headerTintColor: 'white',
+                headerShown: true,
+                drawerType:'slide',
             }}
             id={userData}
             drawerContent={(props) => <CustomDrawer {...props}/>}
             backBehavior={'history'}>
-            
             <Drawer.Screen name="Principal" component={Home} options={{drawerLabel: "Home"}}/>
             <Drawer.Screen name="Disciplinas" component={Disciplinas} options={{drawerLabel: "Disciplinas"}}/>
-            <Drawer.Screen name="Profile" component={Perfil} options={{drawerLabel: "Glossario"}}/>
+            <Drawer.Screen name="Profile" component={Perfil} options={{drawerLabel: "Profile"}}/>
+            <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Glossario"}}/>
+            <Drawer.Screen name="PensamentoComputacional" component={PC} options={{drawerLabel: "PensamentoComputacional"}}/>
+            <Drawer.Screen name="BNCC" component={BNCC} options={{drawerLabel: "BNCC"}}/>
+            <Drawer.Screen name="Sobre" component={Sobre} options={{drawerLabel: "Sobre"}}/>
+            <Drawer.Screen name="Ajuda" component={Ajuda} options={{drawerLabel: "Ajuda"}}/>
             <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
               headerLeft: () => <IconButton icon={'keyboard-backspace'} size={27} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
             })}/>
@@ -228,7 +238,6 @@ export function DrawerComponent({navigation}){
             <Drawer.Screen name="DetalhesAtividade" component={Atividade} options={({ navigation }) => ({
               headerLeft: () => <IconButton icon={'keyboard-backspace'} size={27} color={'white'} onPress={() => navigation.goBack()}/>
             })}/>
-            <Drawer.Screen name="Glossario" component={Glossario} options={{drawerLabel: "Glossario"}}/>
             </Drawer.Navigator>
         )
     }
@@ -270,7 +279,7 @@ const DivDebBy = styled.View`
 
     align-items: center;
     
-    top: 200px;
+    top: 18%;
     
 `
 const DevBy = styled.Text`

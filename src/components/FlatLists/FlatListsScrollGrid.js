@@ -5,7 +5,11 @@ import styled from "styled-components";
 export default function ListGrid(props) {
 
     const renderItem = ({ item }) => (
+<<<<<<< HEAD
+        <Item id={item.id} title={item.name} rel={item.rel} photo={item.photo} icon={item.icon} navigation={props.navigation} />
+=======
         <Item id={item.id} title={item.name} icon={item.icon} navigation={props.navigation} />
+>>>>>>> master
       );
       
     return(
@@ -19,7 +23,12 @@ export default function ListGrid(props) {
 }
 
 const Item = (props) => (
+<<<<<<< HEAD
+
+  <DivItem onPress={() => props.navigation.navigate("DetalhesDisciplina", {name:props.title, rel: props.rel, photo:props.photo})}>
+=======
   <DivItem onPress={() => props.navigation.navigate("Disciplina", {id:id})}>
+>>>>>>> master
     
     <DivTitle>
       <Title>{props.title}</Title>
@@ -31,7 +40,11 @@ const Item = (props) => (
 </DivItem>
   );
 
+<<<<<<< HEAD
+const DivItem = styled.TouchableOpacity`
+=======
 const DivItem = styled.View`
+>>>>>>> master
 
     border: 1px #3CB371;
     border-radius: 10px;
@@ -54,6 +67,25 @@ const DivIcon = styled.View`
   align-items: center;
   justify-content: center;
 `
+<<<<<<< HEAD
+
+const Title = styled.Text`
+  font-weight: bold;
+  font-size: 20px;
+  color: #00875F;
+`
+const IconComponent = styled.Image`
+
+  width: 60px;
+  height: 60px;
+`
+const Icon = ({source}) => (
+
+  <IconComponent source={{uri: source}}/>
+    
+);
+
+=======
 
 const Title = styled.Text`
   font-weight: bold;
@@ -94,3 +126,4 @@ const DATA = [
     title: 'Fifthy Item',
   },
 ];
+>>>>>>> master

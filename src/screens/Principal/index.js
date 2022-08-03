@@ -1,6 +1,6 @@
 import { View, Text, Button, FlatList, ScrollView } from 'react-native'
 import React, {useState, useEffect} from 'react'
-import { Container, DivFlatListAtv, TitleComponents, DivNews, DivBNCC } from './styles'
+import { Container, DivFlatListAtv, TitleComponents, DivNews } from './styles'
 import ListH from '../../components/FlatLists/FlatListsScrollH'
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore'
@@ -81,6 +81,20 @@ export default function Home({navigation}) {
     return (
       <ScrollView>
         <Container>
+<<<<<<< HEAD
+          {/* {console.log("Passando atividades em Home", allActivities)} */}
+          <DivFlatListAtv>
+            <TitleComponents>Ultimas Atividades:</TitleComponents>
+            <ListH navigation={navigation} data={allActivities} type={"Activy"}/>
+            <TitleComponents>Atividades Sugeridas:</TitleComponents>
+            <ListH navigation={navigation} data={interestActivities} type={"Activy"}/>
+          </DivFlatListAtv>
+          <DivNews>
+            <TitleComponents>O que há de novo?</TitleComponents>
+          </DivNews>
+          
+        </Container>
+=======
         {/* {console.log("Passando atividades em Home", allActivities)} */}
         <DivFlatListAtv>
           <TitleComponents>Ultimas Atividades:</TitleComponents>
@@ -96,6 +110,7 @@ export default function Home({navigation}) {
         </DivBNCC>
       </Container>
   
+>>>>>>> master
       </ScrollView>
       
     )

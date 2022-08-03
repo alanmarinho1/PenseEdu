@@ -4,6 +4,7 @@ import { Drawer, IconButton } from "react-native-paper";
 
 
 const DrawerItem = ({icon, label, func}) => {
+      
     return(
         <Drawer.Item
         icon={icon}

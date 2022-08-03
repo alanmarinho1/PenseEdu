@@ -15,7 +15,7 @@ export default function Wellcome({route, navigation}) {
       <DivWellcome>
         <DivWellcomeOne>
         {console.log("Passando ID por rota em Bem Vindo", id)}
-          <TitleComponent>Seja bem vindo! </TitleComponent>
+          <TitleComponent>Seja bem-vindo(a)! </TitleComponent>
           <TextComponent>
             Olá! Vamos aprender de forma prática que a computação 
             faz parte do cotidiano social e o pensamento computacional é desenvolvido de maneira multidisciplinar.

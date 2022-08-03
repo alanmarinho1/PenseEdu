@@ -29,6 +29,8 @@ export const DivFlatListAtv = styled.View`
     background-color: white;
     border-radius: 10px;
 `
+<<<<<<< HEAD
+=======
 export const DivBNCC = styled.View`
 
     margin-top: 20px;
@@ -41,6 +43,7 @@ export const DivBNCC = styled.View`
     border-radius: 10px;
 `
 
+>>>>>>> master
 export const TitleComponents = styled.Text`
 
     font-size: 18px;

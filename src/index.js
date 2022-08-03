@@ -39,36 +39,23 @@ export default function App() {
             <Stack.Screen name="Home" component={DrawerComponent} />
             <Stack.Screen name="Cadastro" component={Cadastro} />
             <Stack.Screen name="Wellcome" component={Wellcome} />
-            <Stack.Screen name="Perfil" component={Perfil} />
+            {/* <Stack.Screen name="Perfil" component={Perfil} />
             <Stack.Screen name="Disciplinas" component={Disciplinas} />
             <Stack.Screen name="Disciplina" component={Disciplina} />
-            <Stack.Screen name="Atividade" component={Atividade} />
+            <Stack.Screen name="Atividade" component={Atividade} /> */}
           </Stack.Navigator> : 
           <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Home" component={DrawerComponent} />
           <Stack.Screen name="Cadastro" component={Cadastro} />
           <Stack.Screen name="Wellcome" component={Wellcome} />
-          <Stack.Screen name="Perfil" component={Perfil} />
+          {/* <Stack.Screen name="Perfil" component={Perfil} />
           <Stack.Screen name="Disciplinas" component={Disciplinas} />
           <Stack.Screen name="Disciplina" component={Disciplina} />
-          <Stack.Screen name="Atividade" component={Atividade} />
+          <Stack.Screen name="Atividade" component={Atividade} /> */}
         </Stack.Navigator>}
-          
         </NavigationContainer> : <Loading/>}
       </NativeBaseProvider>
-      
-      {/* // <NavigationContainer>
-      //   <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
-      //     <Stack.Screen name="Login" component={Login} />
-      //     <Stack.Screen name="Home" component={DrawerComponent} />
-      //     <Stack.Screen name="Cadastro" component={Cadastro} />
-      //     <Stack.Screen name="Wellcome" component={Wellcome} />
-      //     <Stack.Screen name="Disciplinas" component={Disciplinas} />
-      //     <Stack.Screen name="Disciplina" component={Disciplina} />
-      //     <Stack.Screen name="Atividade" component={Atividade} />
-      //   </Stack.Navigator>
-      // </NavigationContainer> */}
     </PaperProvider>
   )
 }
