@@ -20,14 +20,22 @@ export default function Disciplinas({navigation}) {
     .where("name", "in", ["Matemática", "Ciências"])
     .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
+<<<<<<< HEAD
             const { icon, name, photo, rel } = doc.data();
+=======
+            const { icon, name, photo } = doc.data();
+>>>>>>> master
 
             return {
                 id: doc.id,
                 icon,
                 name,
+<<<<<<< HEAD
                 photo,
                 rel
+=======
+                photo
+>>>>>>> master
             }
         });
         
@@ -41,14 +49,22 @@ export default function Disciplinas({navigation}) {
     .collection("disciplines")
     .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
+<<<<<<< HEAD
             const { icon, name, photo, rel } = doc.data();
+=======
+            const { icon, name, photo } = doc.data();
+>>>>>>> master
 
             return {
                 id: doc.id,
                 icon,
                 name,
+<<<<<<< HEAD
                 photo,
                 rel
+=======
+                photo
+>>>>>>> master
             }
         });
         setAllDisciplines(data)

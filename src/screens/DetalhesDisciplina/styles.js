@@ -9,6 +9,7 @@ export const Container = styled.View`
 
 export const DivFlatListAtv = styled.View`
 
+<<<<<<< HEAD
   margin-top: 2%;
   padding: 10px;
   width: 92%;
@@ -26,6 +27,14 @@ export const DivPhoto = styled.View`
   margin-top: 10px;
   align-items: center;
 
+=======
+    margin-top: 10px;
+    padding: 10px;
+    width: 360px;
+    background-color: white;
+    border: 1px #3CB371;
+    border-radius: 10px;
+>>>>>>> master
 `
 
 export const DivAllAtv = styled.View`
@@ -46,7 +55,23 @@ export const DivRelPC = styled.View`
   border-radius: 10px;
   margin-top: 2%;
   padding: 10px;
+<<<<<<< HEAD
   width: 92%;
+=======
+  background-color: white;
+  border: 1px #3CB371;
+  border-radius: 10px;
+`
+
+export const DivRelPC = styled.View`
+
+  background-color: white;
+  border: 1px #3CB371;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  width: 360px;
+>>>>>>> master
 `
 export const DivDescriptionRelPC = styled.View`
 
@@ -74,6 +99,7 @@ export const Title = styled.Text`
     font-weight: bold;
     margin-bottom: 10px;
     color: #00875F;
+<<<<<<< HEAD
 `
 const PhotoComponent = styled.ImageBackground`
 
@@ -81,6 +107,8 @@ const PhotoComponent = styled.ImageBackground`
   height: 90px;
   
 
+=======
+>>>>>>> master
 `
 
 export const Photo = ({source}) => (
