@@ -29,21 +29,6 @@ export const DivFlatListAtv = styled.View`
     background-color: white;
     border-radius: 10px;
 `
-<<<<<<< HEAD
-=======
-export const DivBNCC = styled.View`
-
-    margin-top: 20px;
-    margin-bottom: 15px;
-    width: 93%;
-    height: 300px;
-    padding: 10px;
-    background-color: white;
-    border: 1px #3CB371;
-    border-radius: 10px;
-`
-
->>>>>>> master
 export const TitleComponents = styled.Text`
 
     font-size: 18px;

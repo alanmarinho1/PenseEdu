@@ -81,7 +81,6 @@ export default function Home({navigation}) {
     return (
       <ScrollView>
         <Container>
-<<<<<<< HEAD
           {/* {console.log("Passando atividades em Home", allActivities)} */}
           <DivFlatListAtv>
             <TitleComponents>Ultimas Atividades:</TitleComponents>
@@ -94,23 +93,6 @@ export default function Home({navigation}) {
           </DivNews>
           
         </Container>
-=======
-        {/* {console.log("Passando atividades em Home", allActivities)} */}
-        <DivFlatListAtv>
-          <TitleComponents>Ultimas Atividades:</TitleComponents>
-          <ListH navigation={navigation} data={allActivities} type={"Activy"}/>
-          <TitleComponents>Atividades Sugeridas:</TitleComponents>
-          <ListH navigation={navigation} data={interestActivities} type={"Activy"}/>
-        </DivFlatListAtv>
-        <DivNews>
-          <TitleComponents>O que há de novo?</TitleComponents>
-        </DivNews>
-        <DivBNCC>
-          <TitleComponents>Sobre BNCC:</TitleComponents>
-        </DivBNCC>
-      </Container>
-  
->>>>>>> master
       </ScrollView>
       
     )
