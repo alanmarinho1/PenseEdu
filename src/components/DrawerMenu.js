@@ -234,7 +234,6 @@ export function DrawerComponent({navigation}){
             <Drawer.Screen name="DetalhesDisciplina" component={Disciplina} options={({ navigation }) => ({
               headerLeft: () => <IconButton icon={'keyboard-backspace'} size={27} color={'white'} onPress={() => navigation.jumpTo('Disciplinas')}/>
             })}/>
-           
             <Drawer.Screen name="DetalhesAtividade" component={Atividade} options={({ navigation }) => ({
               headerLeft: () => <IconButton icon={'keyboard-backspace'} size={27} color={'white'} onPress={() => navigation.goBack()}/>
             })}/>
