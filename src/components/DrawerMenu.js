@@ -215,7 +215,7 @@ export function DrawerComponent({navigation}){
             useLegacyImplementation
             screenOptions={{
                 headerStyle:{backgroundColor:'#00875F'},
-                headerTitle:'CompEdu',
+                headerTitle:'PenseEdu',
                 headerTintColor: 'white',
                 headerShown: true,
                 drawerType:'slide',

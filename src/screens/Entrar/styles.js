@@ -7,7 +7,7 @@ export const DivLogin = styled.View`
     height: 300px;
     width: 90%;
     padding: 3%;
-    margin-bottom: 10%;
+    margin-bottom: 18%;
     border: 0.5px gray;
     align-items: center;
     background-color: white;

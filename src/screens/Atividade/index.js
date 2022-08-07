@@ -1,5 +1,6 @@
-import { View, Text, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 import React from 'react'
+
 import { Container, 
   PCImage, 
   DivAtvInfo, 
@@ -12,36 +13,46 @@ import { Container,
   DivAtvDescription,
   AtvDescription } from './styles'
 
-export default function Atividade() {
+
+export default function Atividade({route}) {
+
+  const title = route.params.title
+  const author = route.params.author
+  const target = route.params.target
+  const duration = route.params.duration
+  const hability = route.params.hability
+  const discipline = route.params.discipline
+  const description = route.params.description
+  
   return (
     <Container>
         <PCImage source={require('../../assets/classe.png')}/>
         <DivAtvInfo>
           <DivAtvTitle>
-            <AtvTitle>Titulo da Atividade Aqui! Lorem Ipsum</AtvTitle>
+            <AtvTitle>{title}</AtvTitle>
           </DivAtvTitle>
           <DivAtvDetailsParent>
             <InfoComponent 
               title={'Público alvo'}
-              detail={'5° ano'}
+              detail={target + '° ano'}
             />
             <InfoComponent 
               title={'Duração'}
-              detail={'45 min'}
+              detail={duration +' min'}
             />
             <InfoComponent 
               title={'Habilidade (BNCC)'}
-              detail={'EM13LGG701'}
+              detail={hability}
             />
           </DivAtvDetailsParent>
           <DivAtvDetailsParent>
           <InfoComponent 
               title={'Autor ou Fonte'}
-              detail={'Alan Marinho'}
+              detail={author}
             />
             <InfoComponent 
               title={'Disciplina'}
-              detail={'Matemática'}
+              detail={discipline}
             />
             <InfoComponent 
               title={'Pilar do PC'}
@@ -50,13 +61,8 @@ export default function Atividade() {
           </DivAtvDetailsParent>
           <DivAtvDescription>
             <ScrollView>
-              <AtvDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer molestie luctus egestas. 
-                Pellentesque luctus fringilla hendrerit. In at felis porta, eleifend mauris eu, venenatis dolor. Curabitur sit amet nisi egestas, varius ex at, fringilla lacus. 
-                Nunc sit amet accumsan diam. Aenean tincidunt dapibus velit, iaculis posuere ipsum tempus id. 
-                Aliquam sagittis quam tempor sem efficitur, quis accumsan enim eleifend. Nullam posuere nisl enim, et gravida massa condimentum egestas. 
-                Sed tincidunt, odio vitae vestibulum dapibus, nisl ligula efficitur odio, sit amet rhoncus ipsum nisi sit amet justo.</AtvDescription>
+              <AtvDescription>{description}</AtvDescription>
             </ScrollView>
-            
           </DivAtvDescription>
         </DivAtvInfo>
     </Container>

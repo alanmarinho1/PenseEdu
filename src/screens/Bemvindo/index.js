@@ -25,7 +25,7 @@ export default function Wellcome({route, navigation}) {
           <TitleComponent>Nosso principal objetivo:</TitleComponent>
             <TextComponent>
               Todas as atividades serão de cunho tecnológico ou desplugado, com o objetivo de despertar no aluno o interesse no desenvolvimento na disciplina que você estiver lecionando como primórdio, utilizando os pilares básicos do Pensamento Computacional.
-              Aqui você será direcionado à aplicação do Pensamento Computacional para atividades praticas como ponte da multidisciplinaridade!
+              Aqui você será direcionado à aplicação do Pensamento Computacional para atividades praticas como ponte da interdisciplinaridade!
             </TextComponent>
         </DivWellcomeTwo>
       </DivWellcome>

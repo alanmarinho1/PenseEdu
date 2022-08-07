@@ -35,7 +35,16 @@ export default function ListH(props) {
           // LoadAuthor(item.author)
           // if(initializing) return <Loading />
             
-            return <ItemAtv id={item.id} title={item.title} author={item.author} disc={item.discipline} created={item.when} navigation={props.navigation}/>
+            return <ItemAtv id={item.id} 
+            title={item.title} 
+            author={item.author} 
+            disc={item.discipline} 
+            description={item.description} 
+            created={item.when} 
+            hability={item.hability}
+            target={item.target}
+            duration={item.duration}
+            navigation={props.navigation}/>
           
         }
         
@@ -89,8 +98,15 @@ const ItemDisc = (props) => (
 
 const ItemAtv = (props) => (
     
-    <DivItem onPress={() => props.navigation.navigate("DetalhesAtividade",  {id:props.id})}>
-      {/* {console.log(props)} */}
+    <DivItem onPress={() => props.navigation.navigate("DetalhesAtividade",  {title:props.title, 
+    author:props.author, 
+    description:props.description, 
+    discipline:props.disc,
+    hability:props.hability,
+    target:props.target,
+    duration:props.duration
+    })}>
+
       <DivTitleAtv>
         <Title>{props.title}</Title>
       </DivTitleAtv>
@@ -110,7 +126,7 @@ const DivItem = styled.TouchableOpacity`
     background-color: rgba(224, 255, 255, 0.6);
     width: 200px;
     height: 100px;
-    margin-left: 10px;
+    margin-right: 10px;
     justify-content: space-between;
     /* background-color: rgba(224, 255, 255, 0.5); */
     border-radius: 10px;

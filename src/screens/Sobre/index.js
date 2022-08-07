@@ -19,7 +19,7 @@ export default function Sobre() {
       <TitleScreen>Sobre</TitleScreen>
       <DivAbout>
           <TextAbout>
-              O CompEdu foi desenvolvido por <Text style={{fontWeight: 'bold'}}>Alan José Pavão Marinho</Text>, aluno da <Text style={{fontWeight: 'bold'}}>Universidade Federal
+              O PenseEdu foi desenvolvido por <Text style={{fontWeight: 'bold'}}>Alan José Pavão Marinho</Text>, aluno da <Text style={{fontWeight: 'bold'}}>Universidade Federal
               Rural de Pernambuco</Text>, sendo este um artefato tecnológico vinculado ao <Text style={{fontWeight: 'bold'}}>Trabalho de Conclusão de Curso (TCC) </Text> 
               no semestre de 2021.2, sem fins lucrativos.
           </TextAbout>
@@ -32,7 +32,7 @@ export default function Sobre() {
       </DivAbout>
       <Title>Contato:</Title>
       <DivAbout>
-          <TextAbout>Nos ajude a melhorar: Envie seu comentário ou sugestão para melhoria do <Text style={{fontWeight: 'bold'}}>CompEdu</Text></TextAbout>
+          <TextAbout>Nos ajude a melhorar: Envie seu comentário ou sugestão para melhoria do <Text style={{fontWeight: 'bold'}}>PenseEdu</Text></TextAbout>
           <Message 
           multiline={true}
           type="text"

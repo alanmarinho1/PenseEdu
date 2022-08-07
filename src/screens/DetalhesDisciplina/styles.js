@@ -48,9 +48,10 @@ export const DivRelPC = styled.View`
   padding: 10px;
   width: 92%;
 `
-export const DivDescriptionRelPC = styled.View`
+export const DivDescriptionRelPC = styled.ScrollView`
 
   border: 1px #3CB371;
+  height: 23%;
   border-radius: 10px;
   background-color: rgba(224, 255, 255, 0.6);
 `
@@ -79,7 +80,6 @@ const PhotoComponent = styled.ImageBackground`
 
   width: 99%;
   height: 90px;
-  
 
 `
 

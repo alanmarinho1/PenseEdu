@@ -47,7 +47,7 @@ export default function Login({navigation}) {
       style={styles.container}
     >
       {console.log("Xablau")}
-      <TextNameApp>CompEdu</TextNameApp>
+      <TextNameApp>PenseEdu</TextNameApp>
       <DivLogin>
         {/* <FormElements
         texto = 'Xablau'
