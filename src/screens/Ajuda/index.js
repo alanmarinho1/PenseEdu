@@ -9,7 +9,7 @@ export default function Ajuda() {
     contentContainerStyle={{alignItems: 'center'}}>
       <TitleScreen>Ajuda</TitleScreen>
       <DivHelp>
-        <TextHelp>Bem vindo ao guia completo do <Text style={{fontWeight: 'bold'}}>CompEdu!</Text></TextHelp>
+        <TextHelp>Bem vindo ao guia completo do <Text style={{fontWeight: 'bold'}}>PenseEdu!</Text></TextHelp>
         <TextHelp>Essa seção é destinada para lhe ajudar na navegação deste app</TextHelp>
       </DivHelp>
       <Title>Home</Title>
@@ -21,7 +21,7 @@ export default function Ajuda() {
           A área de <Text style={{fontWeight: 'bold'}}>"Atividades Sugeridas"</Text> serve como atalho para atividades das disciplinas que voce tem interesse.
         </TextHelp>
         <TextHelp>
-          Em <Text style={{fontWeight: 'bold'}}>"O que há de novo"</Text> você encontra novidades no ramo da educação com utilização da interdisciplinaridade do Pensamento Computacional.
+          Em <Text style={{fontWeight: 'bold'}}>"Feed - Educação e Tecnologia"</Text> você encontra as ultimas novidades no ramo da educação e tecnologia.
         </TextHelp>
       </DivHelp>
       <Title>Perfil</Title>

@@ -4,7 +4,7 @@ export const Container = styled.View`
 
   flex: 1;
   align-items: center;
-
+  background-color: rgba(224, 255, 255, 0.6);
 `;
 
 export const PCImage = styled.ImageBackground`
@@ -22,7 +22,8 @@ export const DivAtvInfo = styled.View`
     align-items: center;
     /* justify-items: center; */
     width: 360px;
-    height: 65%;
+    height: 64%;
+    background-color: rgb(255, 255, 255);
     /* margin-bottom: 1%; */
 
 `
@@ -50,6 +51,7 @@ export const DivAtvDetailsChildren = styled.View`
     border-radius: 10px;
     align-items: center;
     justify-content: center;
+    background-color: rgba(224, 255, 255, 0.6);
     width: 110px;
     height: 70px;
 
@@ -57,11 +59,12 @@ export const DivAtvDetailsChildren = styled.View`
 
 export const DivAtvDescription = styled.View`
 
+    background-color: rgba(224, 255, 255, 0.6);
     border: 1px #3CB371;
     border-radius: 10px;
     width: 350px;
-    height: 40%;
-    margin-top: 3%;
+    height: 35%;
+    margin-top: 5px;
 `
 
 export const AtvDetailsTitle = styled.Text`
@@ -69,6 +72,7 @@ export const AtvDetailsTitle = styled.Text`
     font-weight: bold;
     text-align: center;
     font-size: 15px;
+    color: #00875F;
 `
 export const AtvDetails = styled.Text`
 
@@ -80,6 +84,7 @@ export const AtvTitle = styled.Text`
     font-size: 30px;
     font-weight: bold;
     text-align: center;
+    color: #00875F;
 `
 
 export const AtvDescription = styled.Text`

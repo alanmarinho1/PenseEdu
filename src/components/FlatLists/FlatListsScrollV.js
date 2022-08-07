@@ -1,6 +1,8 @@
 import React from "react";
-import { FlatList, Text } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import styled from "styled-components";
+import * as WebBrowser from 'expo-web-browser';
+import { dateFormat } from "../../utils/firestoreDateFormate";
 
 export default function ListV(props) {
 
@@ -10,7 +12,16 @@ export default function ListV(props) {
 
       var renderItem = ({ item }) => {
 
-          return <ItemAtv id={item.id} title={item.title} author={item.author} duration={item.duration} created={item.when} navigation={props.navigation}/>
+        return <ItemAtv id={item.id} 
+        title={item.title} 
+        author={item.author} 
+        disc={item.discipline} 
+        description={item.description} 
+        created={item.when} 
+        hability={item.hability}
+        target={item.target}
+        duration={item.duration}
+        navigation={props.navigation}/>
 
       }
 
@@ -19,6 +30,12 @@ export default function ListV(props) {
 
         <ItemDisc id={item.id} title={item.name} photo={item.photo} rel={item.rel} icon={item.icon} navigation={props.navigation} />
 
+        )
+    } else if (props.type == "News"){
+      var renderItem = ({ item }) => (
+        
+        <ItemNews title={item.title} created_at={item.publishedAt} image={item.urlToImage} url={item.url}></ItemNews>
+        
         )
     }
 
@@ -44,21 +61,55 @@ const ItemDisc = (props) => (
     <DivTitle>
       <Title>{props.title}</Title>
     </DivTitle>
-    
   </DivItem>
 );
 
 const ItemAtv = (props) => (
 
-  <DivItemAtv onPress={() => props.navigation.navigate("DetalhesAtividade", {name:props.title})}>
+  <DivItemAtv onPress={() => props.navigation.navigate("DetalhesAtividade", {title:props.title, 
+    author:props.author, 
+    description:props.description, 
+    discipline:props.disc,
+    hability:props.hability,
+    target:props.target,
+    duration:props.duration
+    })}>
+
     <Title style={{marginBottom: 5}}>{props.title}</Title>
     <Text>{props.author}</Text>
     <Text>{props.duration} min</Text>
   </DivItemAtv>
 );
 
+const ItemNews = (props) => (
+
+  <DivItemNew onPress={() => WebBrowser.openBrowserAsync(props.url)}>
+    <View>
+      <IconNews source={props.image} />
+    </View>
+    <View style={{ width:220, flexDirection: 'column', justifyContent: 'space-between'}}>
+      <Text style={{fontWeight: 'bold', fontSize:13, color: '#00875F'}}>{props.title}</Text>
+      <Text>{props.created_at}</Text>
+    </View>
+  </DivItemNew>
+);
 
 
+const DivItemNew = styled.TouchableOpacity`
+
+  border: 1px #3CB371;
+  border-radius: 10px;
+  background-color: rgba(224, 255, 255, 0.6);
+  /* width: 80%;
+  height: 45%; */
+  margin-bottom: 10px;
+  padding: 5px; 
+  flex-direction: row; 
+  justify-content: space-around;
+  /* align-items: center;
+  justify-content: center */
+
+`
 const DivItem = styled.TouchableOpacity`
 
   border: 1px #3CB371;
@@ -115,6 +166,17 @@ const IconComponent = styled.Image`
 const Icon = ({source}) => (
 
   <IconComponent source={{uri: source}}/>
+    
+);
+
+const IconNewsComponent = styled.Image`
+
+  width: 100px;
+  height: 90px;
+`
+const IconNews = ({source}) => (
+
+  <IconNewsComponent source={{uri: source}}/>
     
 );
 const DATA = [

@@ -30,7 +30,7 @@ export default function BNCC() {
               A Base deverá nortear a formulação dos currículos dos sistemas e das redes escolares de todo o Brasil, 
               indicando as competências e habilidades que se espera que todos os estudantes desenvolvam ao longo da escolaridade.
               </TextBNCC>
-              <TextBNCC>As <Text style={{fontWeight: 'bold'}}>habilidades</Text> expressam as aprendizagens essenciais que devem ser asseguradas aos alunos nos diferentes 
+              <TextBNCC>As <Text style={{fontWeight: 'bold'}}>competências e habilidades</Text> expressam as aprendizagens essenciais que devem ser asseguradas aos alunos nos diferentes 
               contextos escolares. Para tanto, elas são descritas de acordo com uma determinada estrutura</TextBNCC>
               <TextBNCC>
               Nos quadros que apresentam as unidades temáticas, os objetos de conhecimento e as habilidades definidas para cada ano (ou bloco de anos), 
