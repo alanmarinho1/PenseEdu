@@ -69,7 +69,7 @@ const FontsButton = styled.TouchableOpacity`
   border: 1px #3CB371;
   flex-direction: row;
   background-color: white;
-  margin-top: 10px;
+  margin-bottom: 10px;
   border-radius: 10px;
   width: 90%;
   padding: 0px 5px 0px 5px;

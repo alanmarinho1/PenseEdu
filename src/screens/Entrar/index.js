@@ -80,7 +80,9 @@ export default function Login({navigation}) {
             title='Entrar'
             bgColor='#3CB371' /> 
           <PressableRegisterButton
-            onPress={() => navigation.navigate('Cadastro')}
+            onPress={() => {navigation.navigate('Cadastro');
+                            setEmail("");
+                            setPassword("")}}
             title='Cadastrar'
             bgColor='white'
              />

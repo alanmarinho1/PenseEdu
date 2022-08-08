@@ -21,7 +21,7 @@ export const DivAtvInfo = styled.View`
     border-radius: 10px;
     align-items: center;
     /* justify-items: center; */
-    width: 360px;
+    width: 98%;
     height: 64%;
     background-color: rgb(255, 255, 255);
     /* margin-bottom: 1%; */

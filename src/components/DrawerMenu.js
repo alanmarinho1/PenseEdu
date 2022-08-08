@@ -278,7 +278,7 @@ const DivDebBy = styled.View`
 
     align-items: center;
     
-    top: 18%;
+    top: 13%;
     
 `
 const DevBy = styled.Text`

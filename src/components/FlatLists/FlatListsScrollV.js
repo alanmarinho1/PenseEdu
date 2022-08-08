@@ -87,10 +87,10 @@ const ItemNews = (props) => (
     <View>
       <IconNews source={props.image} />
     </View>
-    <View style={{ width:220, flexDirection: 'column', justifyContent: 'space-between'}}>
+    <DivNewsText>
       <Text style={{fontWeight: 'bold', fontSize:13, color: '#00875F'}}>{props.title}</Text>
       <Text>{props.created_at}</Text>
-    </View>
+    </DivNewsText>
   </DivItemNew>
 );
 
@@ -109,6 +109,12 @@ const DivItemNew = styled.TouchableOpacity`
   /* align-items: center;
   justify-content: center */
 
+`
+const DivNewsText = styled.View`
+  width: 60%;
+  justify-content: space-between;
+  /* flex-direction: column;  */
+  /* justify-content: 'space-between'; */
 `
 const DivItem = styled.TouchableOpacity`
 

@@ -65,7 +65,7 @@ export default function BNCC() {
               text='https://blog.layers.education/o-que-significa-pensamento-computacional-no-texto-da-bncc'
               onPress={() => openURL('https://blog.layers.education/o-que-significa-pensamento-computacional-no-texto-da-bncc')}/>
             </DivBNCC>
-            <DivBNCC>
+            <DivBNCC style={{marginBottom: 15}}>
               <TextBNCC>
               Alinhado à BNCC, foram publicadas documentos para orientar a formação dos professores contemplando, dentre outros aspectos, o pensamento computacional e as tecnologias digitais:
               </TextBNCC>

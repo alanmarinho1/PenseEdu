@@ -12,7 +12,7 @@ export const DivNews = styled.View`
 
     margin-top: 20px;
     width: 93%;
-    height: 300px;
+    height: 50%;
     padding: 10px;
     border: 1px #3CB371;
     background-color: white;

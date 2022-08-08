@@ -57,7 +57,7 @@ export default function Ajuda() {
         </TextHelp>
       </DivHelp>
       <Title>Sobre</Title>
-      <DivHelp>
+      <DivHelp style={{marginBottom: 15}}>
         <TextHelp>
           A tela de Sobre indica algumas informações gerais do app, a sua motivação e objetivo. Alem de abrir um espaço para que usuarios mandem comentários e sugestões para melhoria do app.
         </TextHelp>

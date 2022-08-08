@@ -140,7 +140,7 @@ export default function PC() {
           pode ser transposto para diferentes domínios do conhecimento.
           </TextPC>
         </DivPC>
-        <Title>Fontes:</Title>
+        <Title style={{marginBottom: 5}}>Fontes:</Title>
         <PressableFontsButton 
           title='Youtube: Definições de Pensamento Computacional'
           onPress={() => openVideo()}

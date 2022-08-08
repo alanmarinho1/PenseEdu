@@ -9,7 +9,7 @@ export const Container = styled.View`
 
 export const DivFlatListAtv = styled.View`
 
-  margin-top: 2%;
+  margin-top: 4%;
   padding: 10px;
   width: 92%;
   background-color: white;
@@ -30,7 +30,7 @@ export const DivPhoto = styled.View`
 
 export const DivAllAtv = styled.View`
 
-  margin-top: 2%;
+  margin-top: 4%;
   width: 92%;
   height: 25%;
   padding: 10px;
