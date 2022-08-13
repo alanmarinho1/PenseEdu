@@ -21,7 +21,7 @@ export const DivNews = styled.View`
 
 export const DivFlatListAtv = styled.View`
 
-    margin-top: 20px;
+    margin-top: 3%;
     width: 93%;
     height: 300px;
     padding: 10px;

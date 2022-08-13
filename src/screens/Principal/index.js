@@ -49,13 +49,15 @@ export default function Home(props) {
     .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
           const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar } = doc.data();
-
-          firestore()
+          
+            
+            firestore()
             .collection('users')
             .doc(author)
             .onSnapshot(snapshot => {
               setLastAuthor(snapshot.data())
             })
+
             return {
                 id: doc.id,
                 author: lastAuthor.name,
@@ -83,13 +85,14 @@ export default function Home(props) {
         const data = snapshot.docs.map(doc => {
 
             const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar } = doc.data();
-            
-            firestore()
-            .collection('users')
-            .doc(author)
-            .onSnapshot(snapshot => {
-              setInterestAuthor(snapshot.data())
+
+              firestore()
+              .collection('users')
+              .doc(author)
+              .onSnapshot(snapshot => {
+                setInterestAuthor(snapshot.data())
             })
+            
             return {
                 id: doc.id,
                 author: interestAuthor.name,
@@ -111,25 +114,24 @@ export default function Home(props) {
 
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(user => {
-      setUser(user)
+      
+      setUser(user);
       LoadAllActivities();
       LoadInterestActivities();
       LoadNews();
-      if (initializing) setInitializing(false)
+      if (initializing) setInitializing(false);
     });
 
     return unsubscribe;
-  }, [interestAuthor]);
+  }, [lastAuthor.name, interestAuthor.name]);
 
   if (initializing){
     return <Loading/>
   } else {
     return (
-      // <ScrollView>
+      
         <Container>
-          {/* {console.log(authorAll)} */}
-          {/* {console.log("User Props: ", props.navigation.getId())}
-          {console.log("User: ", user)} */}
+          
           <DivFlatListAtv>
             <TitleComponents>Ultimas Atividades:</TitleComponents>
             <ListH navigation={props.navigation} data={allActivities} type={"Activy"}/>

@@ -14,7 +14,6 @@ export default function ListH(props) {
 
       var renderItem = ({ item }) => {
 
-        
         if (item.author == null){
           return <Loading/>
         } else {  
