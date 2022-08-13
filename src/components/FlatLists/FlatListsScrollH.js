@@ -6,77 +6,49 @@ import { Loading } from "../Loading";
 
 export default function ListH(props) {
 
-  // const [initializing, setInitializing] = useState(true)
-  // const [author, setAuthor] = useState()
+  const [initializing, setInitializing] = useState(true);
 
-  // function LoadAuthor(author){
-  //   firestore()
-  //   .collection("user")
-  //   .where("user_id", "==", author)
-  //   .onSnapshot(snapshot => {
-  //       const data = snapshot.docs.map(doc => {
-  //           const {name} = doc.data();
-  //           return {
-  //               id: doc.id,
-  //               name
-  //           }
-  //       });
-  //       setAuthor(data)
-  //       if (initializing) setInitializing(false)
-  //     })
-      
-  // }
+  function returnComponent(){
+    // const [user, setUser] = useState()
+    if (props.type == "Activy"){
 
-    function returnComponent(){
+      var renderItem = ({ item }) => {
 
-      if (props.type == "Activy"){
-
-        var renderItem = ({ item }) => {
-          // LoadAuthor(item.author)
-          // if(initializing) return <Loading />
-            
-            return <ItemAtv id={item.id} 
-            title={item.title} 
-            author={item.author} 
-            disc={item.discipline} 
-            description={item.description} 
-            created={item.when} 
-            hability={item.hability}
-            target={item.target}
-            duration={item.duration}
-            navigation={props.navigation}/>
-          
-        }
         
-        // var renderItem = ({ item }) => (
-
-        //   <ItemAtv title={item.title} author={author} navigation={props.navigation}/>
-
-        //   )
-      } else if (props.type == "Discipline"){
-        var renderItem = ({ item }) => (
-          <ItemDisc id={item.id} title={item.name} icon={item.icon} navigation={props.navigation} />
-          )
-      }
-
-      return (renderItem);
+        if (item.author == null){
+          return <Loading/>
+        } else {  
+          return <ItemAtv id={item.id} 
+          title={item.title} 
+          author={item.author} 
+          disc={item.discipline} 
+          description={item.description} 
+          created={item.when} 
+          hability={item.hability}
+          objective={item.objective}
+          pilar={item.pilar}
+          resources={item.resources}
+          scenario={item.scenario}
+          type={item.type}
+          navigation={props.navigation}/> 
+        }
+      } 
+    } else if (props.type == "Discipline"){
+      var renderItem = ({ item }) => (
+        <ItemDisc id={item.id} title={item.name} icon={item.icon} navigation={props.navigation} />
+        )
     }
-
-    // useEffect(() => {
-      // console.log("useEffect", props.data[0].author)
-      // const unsubscribe = LoadAuthor(props.data.author)
-  
-      // return unsubscribe;
-    // }, []);
+    return (renderItem);
+  }
       
-    return(
-   
-      <FlatList 
-        data={props.data}
-        renderItem={returnComponent()}
-        keyExtractor={item => item.id}
-        horizontal={true}/> 
-    )
+  return(
+  
+    <FlatList 
+      data={props.data}
+      renderItem={returnComponent()}
+      keyExtractor={item => item.id}
+      horizontal={true}/> 
+  )
 }
 
 const ItemDisc = (props) => (
@@ -103,8 +75,11 @@ const ItemAtv = (props) => (
     description:props.description, 
     discipline:props.disc,
     hability:props.hability,
-    target:props.target,
-    duration:props.duration
+    objective:props.objective,
+    pilar:props.pilar,
+    resources:props.resources,
+    scenario:props.scenario,
+    type:props.type
     })}>
 
       <DivTitleAtv>
@@ -116,7 +91,7 @@ const ItemAtv = (props) => (
       <Text>{props.created}</Text>
       </DivInfoAtv>
 
-      
+
     </DivItem>
   );
 
@@ -128,7 +103,6 @@ const DivItem = styled.TouchableOpacity`
     height: 100px;
     margin-right: 10px;
     justify-content: space-between;
-    /* background-color: rgba(224, 255, 255, 0.5); */
     border-radius: 10px;
     padding: 5px;
 
@@ -158,25 +132,3 @@ const Title = styled.Text`
 const InfoAtv = styled.Text`
   color: #00875F;
 `
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d75',
-    title: 'Forthy Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d71',
-    title: 'Fifthy Item',
-  },
-];

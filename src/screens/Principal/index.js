@@ -10,10 +10,12 @@ import { newsapi } from '../../utils/news';
 import ListV from '../../components/FlatLists/FlatListsScrollV';
 
 
-export default function Home({navigation}) {
+export default function Home(props) {
 
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
+  const [interestAuthor, setInterestAuthor] = useState({});
+  const [lastAuthor, setLastAuthor] = useState({});
   const [news, setNews] = useState();
   const [allActivities, setAllActivities] = useState();
   const [interestActivities, setInterestActivities] = useState();
@@ -23,16 +25,9 @@ export default function Home({navigation}) {
       q: '"pensamento computacional"OR"educação digital"',
   
   }).then(response => {
-    // setNews(response.articles)
-    
+
       const data = response.articles.map( item => {
       const {title, publishedAt, urlToImage, url} = item;
-
-      // var dia = new Date(publishedAt);
-      // dia = dia.toLocaleString()
-      // // var dataFormat = dia.toLocaleTimeString().format("HH/MM")
-      // var dataFormat = Date.parse(dia)
-      // var dataFormat = publishedAt.substr(0, 10)
       var date = new Date(publishedAt);
       var dateFormat = (date.toLocaleDateString().substring(3,5) + "/" + date.toLocaleDateString().substring(0,2) + 
       "/" + (date.getFullYear()) + " às " + date.toLocaleTimeString().substring(0,5))
@@ -53,17 +48,26 @@ export default function Home({navigation}) {
     .orderBy("created_at", "desc")
     .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
-            const { author, description, discipline, duration, hability, created_at, target, title } = doc.data();
+          const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar } = doc.data();
 
+          firestore()
+            .collection('users')
+            .doc(author)
+            .onSnapshot(snapshot => {
+              setLastAuthor(snapshot.data())
+            })
             return {
                 id: doc.id,
-                author,
+                author: lastAuthor.name,
                 description,
                 discipline,
-                duration,
                 hability,
-                target,
+                objective,
                 title,
+                resources,
+                scenario,
+                type,
+                pilar,
                 when: dateFormat(created_at)
             }
         });
@@ -74,27 +78,36 @@ export default function Home({navigation}) {
   function LoadInterestActivities(){
     firestore()
     .collection("activities")
-    .where("discipline", "in", ["Matemática", "Ciências"])
+    .where("discipline", "in", props.navigation.getId()[0].disciplines)
     .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
-            const { author, description, discipline, duration, hability, created_at, target, title } = doc.data();
 
+            const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar } = doc.data();
+            
+            firestore()
+            .collection('users')
+            .doc(author)
+            .onSnapshot(snapshot => {
+              setInterestAuthor(snapshot.data())
+            })
             return {
                 id: doc.id,
-                author,
+                author: interestAuthor.name,
                 description,
                 discipline,
-                duration,
                 hability,
-                target,
+                objective,
                 title,
+                resources,
+                scenario,
+                type,
+                pilar,
                 when: dateFormat(created_at)
             }
         });
         setInterestActivities(data)
       })
   }
-
 
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(user => {
@@ -106,7 +119,7 @@ export default function Home({navigation}) {
     });
 
     return unsubscribe;
-  }, []);
+  }, [interestAuthor]);
 
   if (initializing){
     return <Loading/>
@@ -114,12 +127,14 @@ export default function Home({navigation}) {
     return (
       // <ScrollView>
         <Container>
-          {/* {console.log("Passando atividades em Home", allActivities)} */}
+          {/* {console.log(authorAll)} */}
+          {/* {console.log("User Props: ", props.navigation.getId())}
+          {console.log("User: ", user)} */}
           <DivFlatListAtv>
             <TitleComponents>Ultimas Atividades:</TitleComponents>
-            <ListH navigation={navigation} data={allActivities} type={"Activy"}/>
+            <ListH navigation={props.navigation} data={allActivities} type={"Activy"}/>
             <TitleComponents>Atividades Sugeridas:</TitleComponents>
-            <ListH navigation={navigation} data={interestActivities} type={"Activy"}/>
+            <ListH navigation={props.navigation} data={interestActivities} type={"Activy"}/>
           </DivFlatListAtv>
           <DivNews>
             <TitleComponents>Feed - Educação e Tecnologia</TitleComponents>
