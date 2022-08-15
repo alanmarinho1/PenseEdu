@@ -1,9 +1,9 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
 
   flex: 1;
-  align-items: center;
+  /* align-items: center; */
   background-color: rgba(224, 255, 255, 0.6);
 `;
 
@@ -22,7 +22,8 @@ export const DivAtvInfo = styled.View`
     align-items: center;
     /* justify-items: center; */
     width: 98%;
-    height: 64%;
+    /* height: 64%; */
+    margin-left: 1%;
     background-color: rgb(255, 255, 255);
     /* margin-bottom: 1%; */
 
@@ -30,10 +31,10 @@ export const DivAtvInfo = styled.View`
 
 export const DivAtvTitle = styled.View`
 
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
     width: 350px;
-    height: 100px;
+    /* height: 110px; */
 `
 
 export const DivAtvDetailsParent = styled.View`
@@ -43,6 +44,7 @@ export const DivAtvDetailsParent = styled.View`
     align-items: center;
     width: 350px;
     height: 80px;
+    margin-bottom: 1%;
 `
 
 export const DivAtvDetailsChildren = styled.View`
@@ -62,9 +64,12 @@ export const DivAtvDescription = styled.View`
     background-color: rgba(224, 255, 255, 0.6);
     border: 1px #3CB371;
     border-radius: 10px;
-    width: 350px;
-    height: 35%;
-    margin-top: 5px;
+    width: 97%;
+    /* height: 35%; */
+    margin-top: 2%;
+    margin-bottom: 3%;
+    /* margin-left: 2%;
+    margin-right: 2%; */
 `
 
 export const AtvDetailsTitle = styled.Text`
@@ -92,4 +97,10 @@ export const AtvDescription = styled.Text`
     font-size: 16px;
     text-align: justify;
     padding: 2%;
+`
+export const AtvSubTitle = styled.Text`
+
+    font-size: 20px;
+    font-weight: bold;
+    color: #00875F;
 `

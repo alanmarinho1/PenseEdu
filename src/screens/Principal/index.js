@@ -48,7 +48,7 @@ export default function Home(props) {
     .orderBy("created_at", "desc")
     .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
-          const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar } = doc.data();
+          const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar, attachment } = doc.data();
           
             
             firestore()
@@ -70,6 +70,7 @@ export default function Home(props) {
                 scenario,
                 type,
                 pilar,
+                attachment,
                 when: dateFormat(created_at)
             }
         });
@@ -84,7 +85,7 @@ export default function Home(props) {
     .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
 
-            const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar } = doc.data();
+            const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar, attachment } = doc.data();
 
               firestore()
               .collection('users')
@@ -105,6 +106,7 @@ export default function Home(props) {
                 scenario,
                 type,
                 pilar,
+                attachment,
                 when: dateFormat(created_at)
             }
         });
@@ -140,7 +142,6 @@ export default function Home(props) {
           </DivFlatListAtv>
           <DivNews>
             <TitleComponents>Feed - Educação e Tecnologia</TitleComponents>
-            {/* {console.log(news)} */}
             <ListV data={news} type={"News"}/>
           </DivNews>
         </Container>

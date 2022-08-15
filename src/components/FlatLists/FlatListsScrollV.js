@@ -3,6 +3,7 @@ import { FlatList, Text, View } from "react-native";
 import styled from "styled-components";
 import * as WebBrowser from 'expo-web-browser';
 import { dateFormat } from "../../utils/firestoreDateFormate";
+import { Loading } from "../Loading";
 
 export default function ListV(props) {
 
@@ -35,11 +36,10 @@ export default function ListV(props) {
 
         )
     } else if (props.type == "News"){
+      
       var renderItem = ({ item }) => (
-        
         <ItemNews title={item.title} created_at={item.publishedAt} image={item.urlToImage} url={item.url}></ItemNews>
-        
-        )
+      )
     }
 
     return (renderItem);

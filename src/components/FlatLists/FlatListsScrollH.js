@@ -29,6 +29,7 @@ export default function ListH(props) {
           resources={item.resources}
           scenario={item.scenario}
           type={item.type}
+          attachment={item.attachment}
           navigation={props.navigation}/> 
         }
       } 
@@ -78,7 +79,9 @@ const ItemAtv = (props) => (
     pilar:props.pilar,
     resources:props.resources,
     scenario:props.scenario,
-    type:props.type
+    type:props.type,
+    created:props.created,
+    attachment:props.attachment
     })}>
 
       <DivTitleAtv>
