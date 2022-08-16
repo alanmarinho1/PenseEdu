@@ -7,9 +7,11 @@ import { Loading } from "../Loading";
 export default function ListH(props) {
 
   const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
+  
 
-  function returnComponent(){
-    // const [user, setUser] = useState()
+  function  returnComponent(){
+    
     if (props.type == "Activy"){
 
       var renderItem = ({ item }) => {
@@ -38,8 +40,11 @@ export default function ListH(props) {
         <ItemDisc id={item.id} title={item.name} icon={item.icon} navigation={props.navigation} />
         )
     }
+    
     return (renderItem);
   }
+
+  
       
   return(
   
@@ -69,7 +74,7 @@ const ItemDisc = (props) => (
 );
 
 const ItemAtv = (props) => (
-    
+
     <DivItem onPress={() => props.navigation.navigate("DetalhesAtividade",  {title:props.title, 
     author:props.author, 
     description:props.description, 
@@ -83,7 +88,6 @@ const ItemAtv = (props) => (
     created:props.created,
     attachment:props.attachment
     })}>
-
       <DivTitleAtv>
         <Title>{props.title}</Title>
       </DivTitleAtv>
@@ -92,8 +96,6 @@ const ItemAtv = (props) => (
       <Text>{props.disc}</Text>
       <Text>{props.created}</Text>
       </DivInfoAtv>
-
-
     </DivItem>
   );
 

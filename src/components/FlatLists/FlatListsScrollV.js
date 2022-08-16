@@ -14,18 +14,19 @@ export default function ListV(props) {
       var renderItem = ({ item }) => {
 
         return <ItemAtv id={item.id} 
-          title={item.title} 
-          author={item.author} 
-          disc={item.discipline} 
-          description={item.description} 
-          created={item.when} 
-          hability={item.hability}
-          objective={item.objective}
-          pilar={item.pilar}
-          resources={item.resources}
-          scenario={item.scenario}
-          type={item.type}
-          navigation={props.navigation}/> 
+        title={item.title} 
+        author={item.author} 
+        disc={item.discipline} 
+        description={item.description} 
+        created={item.when} 
+        hability={item.hability}
+        objective={item.objective}
+        pilar={item.pilar}
+        resources={item.resources}
+        scenario={item.scenario}
+        type={item.type}
+        attachment={item.attachment}
+        navigation={props.navigation}/>  
 
       }
 
@@ -78,12 +79,14 @@ const ItemAtv = (props) => (
     pilar:props.pilar,
     resources:props.resources,
     scenario:props.scenario,
-    type:props.type
+    type:props.type,
+    created:props.created,
+    attachment:props.attachment
     })}>
 
     <Title style={{marginBottom: 5}}>{props.title}</Title>
     <Text>{props.author}</Text>
-    <Text>{props.duration} min</Text>
+    <Text>{props.type}</Text>
   </DivItemAtv>
 );
 

@@ -14,8 +14,7 @@ export default function Home(props) {
 
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
-  const [interestAuthor, setInterestAuthor] = useState({});
-  const [lastAuthor, setLastAuthor] = useState({});
+  const [newAuthor, setNewAuthor] = useState();
   const [news, setNews] = useState();
   const [allActivities, setAllActivities] = useState();
   const [interestActivities, setInterestActivities] = useState();
@@ -50,17 +49,9 @@ export default function Home(props) {
         const data = snapshot.docs.map(doc => {
           const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar, attachment } = doc.data();
           
-            
-            firestore()
-            .collection('users')
-            .doc(author)
-            .onSnapshot(snapshot => {
-              setLastAuthor(snapshot.data())
-            })
-
             return {
                 id: doc.id,
-                author: lastAuthor.name,
+                author,
                 description,
                 discipline,
                 hability,
@@ -73,30 +64,26 @@ export default function Home(props) {
                 attachment,
                 when: dateFormat(created_at)
             }
+          
         });
+        
         setAllActivities(data)
       })
   }
 
-  function LoadInterestActivities(){
-    firestore()
+    function LoadInterestActivities(){
+     firestore()
     .collection("activities")
     .where("discipline", "in", props.navigation.getId()[0].disciplines)
     .onSnapshot(snapshot => {
-        const data = snapshot.docs.map(doc => {
+      
+        const data = snapshot.docs.map(doc =>  {
 
-            const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar, attachment } = doc.data();
+            const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar, attachment } =  doc.data();
 
-              firestore()
-              .collection('users')
-              .doc(author)
-              .onSnapshot(snapshot => {
-                setInterestAuthor(snapshot.data())
-            })
-            
             return {
                 id: doc.id,
-                author: interestAuthor.name,
+                author,
                 description,
                 discipline,
                 hability,
@@ -116,7 +103,6 @@ export default function Home(props) {
 
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(user => {
-      
       setUser(user);
       LoadAllActivities();
       LoadInterestActivities();
@@ -125,16 +111,15 @@ export default function Home(props) {
     });
 
     return unsubscribe;
-  }, [lastAuthor.name, interestAuthor.name]);
+  }, []);
 
   if (initializing){
     return <Loading/>
   } else {
     return (
-      
         <Container>
-          
           <DivFlatListAtv>
+            {/* {console.log(interestActivities)} */}
             <TitleComponents>Ultimas Atividades:</TitleComponents>
             <ListH navigation={props.navigation} data={allActivities} type={"Activy"}/>
             <TitleComponents>Atividades Sugeridas:</TitleComponents>
@@ -145,7 +130,6 @@ export default function Home(props) {
             <ListV data={news} type={"News"}/>
           </DivNews>
         </Container>
-      // </ScrollView>
       
     )
   }
