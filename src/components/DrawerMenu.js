@@ -186,7 +186,7 @@ export function DrawerComponent({navigation}){
         .where('user_id', '==', userId)
         .onSnapshot(snapshot => {
             const data = snapshot.docs.map(doc => {
-                const { name, email, user_id, graduation, photo, created_at, contact } = doc.data();
+                const { name, email, user_id, graduation, photo, created_at, contact, disciplines } = doc.data();
 
                 return {
                     id: doc.id,
@@ -196,6 +196,7 @@ export function DrawerComponent({navigation}){
                     graduation,
                     photo,
                     contact,
+                    disciplines,
                     when: dateFormat(created_at)
                 }
             });

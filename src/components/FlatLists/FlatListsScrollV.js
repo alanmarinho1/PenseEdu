@@ -3,6 +3,7 @@ import { FlatList, Text, View } from "react-native";
 import styled from "styled-components";
 import * as WebBrowser from 'expo-web-browser';
 import { dateFormat } from "../../utils/firestoreDateFormate";
+import { Loading } from "../Loading";
 
 export default function ListV(props) {
 
@@ -19,9 +20,13 @@ export default function ListV(props) {
         description={item.description} 
         created={item.when} 
         hability={item.hability}
-        target={item.target}
-        duration={item.duration}
-        navigation={props.navigation}/>
+        objective={item.objective}
+        pilar={item.pilar}
+        resources={item.resources}
+        scenario={item.scenario}
+        type={item.type}
+        attachment={item.attachment}
+        navigation={props.navigation}/>  
 
       }
 
@@ -32,11 +37,10 @@ export default function ListV(props) {
 
         )
     } else if (props.type == "News"){
+      
       var renderItem = ({ item }) => (
-        
         <ItemNews title={item.title} created_at={item.publishedAt} image={item.urlToImage} url={item.url}></ItemNews>
-        
-        )
+      )
     }
 
     return (renderItem);
@@ -71,13 +75,18 @@ const ItemAtv = (props) => (
     description:props.description, 
     discipline:props.disc,
     hability:props.hability,
-    target:props.target,
-    duration:props.duration
+    objective:props.objective,
+    pilar:props.pilar,
+    resources:props.resources,
+    scenario:props.scenario,
+    type:props.type,
+    created:props.created,
+    attachment:props.attachment
     })}>
 
     <Title style={{marginBottom: 5}}>{props.title}</Title>
     <Text>{props.author}</Text>
-    <Text>{props.duration} min</Text>
+    <Text>{props.type}</Text>
   </DivItemAtv>
 );
 

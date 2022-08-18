@@ -14,6 +14,7 @@ export default function Disciplina({navigation, route}) {
   const [allActivities, setAllActivities] = useState();
   const [myActivities, setMyActivities] = useState();
   const [initializing, setInitializing] = useState(true);
+  const [authors, setAuthor] = useState({});
   const [user, setUser] = useState(navigation.getId()[0]);
   const discipline = route.params.name
   const rel = route.params.rel
@@ -25,17 +26,28 @@ export default function Disciplina({navigation, route}) {
     .where("discipline", "==", discipline)
     .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
-            const { author, description, discipline, duration, hability, created_at, target, title } = doc.data();
+            const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar, attachment  } = doc.data();
+
+            firestore()
+            .collection('users')
+            .doc(author)
+            .onSnapshot(snapshot => {
+              setAuthor(snapshot.data())
+            })
 
             return {
                 id: doc.id,
-                author,
+                author: authors.name,
                 description,
                 discipline,
-                duration,
                 hability,
-                target,
+                objective,
                 title,
+                resources,
+                scenario,
+                type,
+                pilar,
+                attachment,
                 when: dateFormat(created_at)
             }
         });
@@ -51,17 +63,21 @@ export default function Disciplina({navigation, route}) {
     .where("author", "==", user.name)
     .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
-            const { author, description, discipline, duration, hability, created_at, target, title } = doc.data();
-
+            const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar, attachment } = doc.data();
+            
             return {
                 id: doc.id,
-                author,
+                author: user.name,
                 description,
                 discipline,
-                duration,
                 hability,
-                target,
+                objective,
                 title,
+                resources,
+                scenario,
+                type,
+                pilar,
+                attachment,
                 when: dateFormat(created_at)
             }
         });
@@ -84,7 +100,7 @@ export default function Disciplina({navigation, route}) {
   } else {
   return (
     <Container>
-      {/* <TitleScreen>{discipline}</TitleScreen> */}
+      {console.log(myActivities)}
       <DivPhoto>
         <Photo source={photo}/>
       </DivPhoto>
