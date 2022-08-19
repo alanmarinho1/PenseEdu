@@ -44,8 +44,6 @@ export default function ListH(props) {
     return (renderItem);
   }
 
-  
-      
   return(
   
     <FlatList 
@@ -69,7 +67,6 @@ const ItemDisc = (props) => (
     source={props.icon}
     />
     </DivDiscIcon>
-    
   </DivItem>
 );
 

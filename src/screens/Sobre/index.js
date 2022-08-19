@@ -2,12 +2,22 @@ import { View, Text, KeyboardAvoidingView, StyleSheet, Alert, ScrollView } from 
 import React, {useState} from 'react'
 import { Container, DivAbout, Message, TextAbout, Title, TitleScreen } from './styles'
 import { PressableSendMessageButton } from '../../components/Button'
+import firestore from '@react-native-firebase/firestore'
 
 
-export default function Sobre() {
+export default function Sobre({navigation}) {
 
     const [email, setEmail] = useState("")
     const [message, setMessage] = useState("")
+
+    function handleSugestion(){
+      firestore()
+      .collection('sugestions')
+      .add({
+        sugestion: message,
+        user: navigation.getId()[0].name,
+      })
+    }
 
   return (
           
@@ -21,7 +31,7 @@ export default function Sobre() {
           <TextAbout>
               O PenseEdu foi desenvolvido por <Text style={{fontWeight: 'bold'}}>Alan José Pavão Marinho</Text>, aluno da <Text style={{fontWeight: 'bold'}}>Universidade Federal
               Rural de Pernambuco</Text>, sendo este um artefato tecnológico vinculado ao <Text style={{fontWeight: 'bold'}}>Trabalho de Conclusão de Curso (TCC) </Text> 
-              no semestre de 2021.2, sem fins lucrativos.
+              no semestre de 2021.2, sem fins lucrativos. O app ainda se encontra com alguns detalhes não finalizados, porém a principal idéia foi estabelecida.
           </TextAbout>
       </DivAbout>
       <DivAbout>
@@ -42,7 +52,8 @@ export default function Sobre() {
           onPress={() => {
               
               Alert.alert('Mensagem enviada!', 'Agradecemos seu contato, sua contribuição é de grande valia para nós!');
-              setMessage("")
+              setMessage("");
+              handleSugestion();
           }}
           title='Enviar'
           bgColor='#3CB371' />

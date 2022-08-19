@@ -278,8 +278,7 @@ const EmailDrawer = styled.Text`
 const DivDebBy = styled.View`
 
     align-items: center;
-    
-    top: 13%;
+    top: 10%;
     
 `
 const DevBy = styled.Text`
