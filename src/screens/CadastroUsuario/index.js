@@ -31,8 +31,8 @@ export default function Cadastro({navigation}) {
   const hideDialog = () => setVisible(false);
 
   function handleSignUp() {
-    if(email.trim() === '' || password.trim() === '' || name.trim() === ''){
-      return Alert.alert("Registrar", "Existe campo vazio, favor preencher")
+    if(email.trim() === '' || password.trim() === '' || name.trim() === '' || disciplines.trim() === ''){
+      return Alert.alert("Registrar", "Existe campo obrigatório vazio, favor preencher")
     } else {
       auth()
      .createUserWithEmailAndPassword(email, password)
@@ -88,12 +88,12 @@ export default function Cadastro({navigation}) {
         behavior="padding"
         style={{alignItems: 'center',
         justifyContent: 'center',
-      marginBottom: 0}}
+      marginBottom: 40}}
       >
         <DivFormRegister>
         <TextRegisterApp>Crie sua conta</TextRegisterApp>
           <DivInputForm>
-            <TextForm>Nome:</TextForm>
+            <TextForm>Nome*:</TextForm>
             <InputTextField 
               placeholder='Ex: Alan Marinho...'
               type="text"
@@ -111,7 +111,7 @@ export default function Cadastro({navigation}) {
               />
           </DivInputForm>
           <DivInputForm>
-            <TextForm>Disciplinas de interesse:</TextForm>
+            <TextForm>Disciplinas de interesse*:</TextForm>
             <Pressable 
             style={{backgroundColor: 'rgba(0, 0, 0, 0.1)',borderRadius: 5, borderWidth: 1, borderColor: 'grey', height: 35, width: 300, flexDirection: 'row'}}
             onPress={() => setVisible(!visible)}
@@ -122,7 +122,6 @@ export default function Cadastro({navigation}) {
             </Pressable>
           </DivInputForm>
           <Portal>
-            
             <Dialog visible={visible} onDismiss={hideDialog} style={{width: 200, marginLeft: 100}}>
               <Dialog.Actions style={{flexDirection: 'column', width: 200}}>
                 <View style={{marginBottom: 20}}>
@@ -212,7 +211,6 @@ export default function Cadastro({navigation}) {
                     }}>Cancel</Button>
                   <Button onPress={() => hideDialog()}>Ok</Button>
                 </View>
-                
               </Dialog.Actions>
             </Dialog>
           </Portal>
@@ -226,7 +224,7 @@ export default function Cadastro({navigation}) {
               />
           </DivInputForm>
           <DivInputForm>
-            <TextForm>Email:</TextForm>
+            <TextForm>Email*:</TextForm>
             <InputTextField 
               placeholder='Ex: alan.marinho@...'
               type="text"
@@ -234,7 +232,7 @@ export default function Cadastro({navigation}) {
               value={email}/>
           </DivInputForm>
           <DivInputForm>
-            <TextForm>Senha:</TextForm>
+            <TextForm>Senha*:</TextForm>
             <InputTextField 
               placeholder=''
               type="text"
@@ -243,7 +241,7 @@ export default function Cadastro({navigation}) {
               value={password}/>
           </DivInputForm>
           <DivInputForm>
-            <TextForm>Confirme sua senha:</TextForm>
+            <TextForm>Confirme sua senha*:</TextForm>
             <InputTextField 
               placeholder=''
               type="text"
@@ -276,7 +274,7 @@ export default function Cadastro({navigation}) {
 
 export const styles = StyleSheet.create({
   container: {
-   
+
     backgroundColor: '#E0FFFF',
   }
 })

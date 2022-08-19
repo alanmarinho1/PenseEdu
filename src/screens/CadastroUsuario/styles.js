@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const DivFormRegister = styled.View`
     /* flex: 1; */
-    height: 96%;
+    height: 97%;
     width: 90%;
     border: 0.5px gray;
     /* align-self: center; */
