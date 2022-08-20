@@ -31,7 +31,7 @@ export default function Cadastro({navigation}) {
   const hideDialog = () => setVisible(false);
 
   function handleSignUp() {
-    if(email.trim() === '' || password.trim() === '' || name.trim() === '' || disciplines.trim() === ''){
+    if(email.trim() === '' || password.trim() === '' || name.trim() === '' || !disciplines.length == true){
       return Alert.alert("Registrar", "Existe campo obrigatório vazio, favor preencher")
     } else {
       auth()
@@ -87,8 +87,8 @@ export default function Cadastro({navigation}) {
         <KeyboardAvoidingView 
         behavior="padding"
         style={{alignItems: 'center',
-        justifyContent: 'center',
-      marginBottom: 40}}
+        
+      marginBottom: 10}}
       >
         <DivFormRegister>
         <TextRegisterApp>Crie sua conta</TextRegisterApp>
@@ -99,6 +99,7 @@ export default function Cadastro({navigation}) {
               type="text"
               onChangeText={(text) => setName(text)}
               value={name}
+              autoComplete={"name"}
               />
           </DivInputForm>
           <DivInputForm>
@@ -111,13 +112,26 @@ export default function Cadastro({navigation}) {
               />
           </DivInputForm>
           <DivInputForm>
-            <TextForm>Disciplinas de interesse*:</TextForm>
+            <TextForm>Disciplina(s) de interesse*:</TextForm>
             <Pressable 
             style={{backgroundColor: 'rgba(0, 0, 0, 0.1)',borderRadius: 5, borderWidth: 1, borderColor: 'grey', height: 35, width: 300, flexDirection: 'row'}}
             onPress={() => setVisible(!visible)}
             >
-              {disciplines.map((element) =>
-          <Text style={{marginTop: 6, paddingLeft: 5, fontSize: 15, color: 'rgba(0, 0, 0, 1)'}}>{element + ','}</Text>
+              {disciplines.map((element) => { 
+                
+                if(disciplines.length == 1) {
+                  return(
+                    <Text style={{marginTop: 6, paddingLeft: 5, fontSize: 15, color: 'rgba(0, 0, 0, 1)'}}>{element}</Text>
+                  )
+                
+              } else {
+                return(
+                  <Text style={{marginTop: 6, paddingLeft: 5, fontSize: 15, color: 'rgba(0, 0, 0, 1)'}}>{element + ','}</Text>
+                )
+                
+              }
+            }
+          
         )}
             </Pressable>
           </DivInputForm>
@@ -199,7 +213,7 @@ export default function Cadastro({navigation}) {
                 </DivItemSelection>
                 </View>
                 <View style={{flexDirection: 'row-reverse'}}>
-                  <Button onPress={() => {
+                  <Button style={{borderColor: '#3CB371', borderWidth: 1, marginLeft: 4}} color={'#3CB371'} onPress={() => {
                     setDisciplines([]);
                     setChecked1(false);
                     setChecked2(false);
@@ -209,7 +223,7 @@ export default function Cadastro({navigation}) {
                     setChecked6(false);
                     hideDialog();
                     }}>Cancel</Button>
-                  <Button onPress={() => hideDialog()}>Ok</Button>
+                  <Button style={{backgroundColor: '#3CB371', marginRight: 4}} color={'white'} onPress={() => hideDialog()}>Ok</Button>
                 </View>
               </Dialog.Actions>
             </Dialog>
@@ -221,6 +235,8 @@ export default function Cadastro({navigation}) {
               type="text"
               onChangeText={(text) => setContact(text)}
               value={contact}
+              keyboardType={"phone-pad"}
+              autoComplete={"tel"}
               />
           </DivInputForm>
           <DivInputForm>
@@ -229,7 +245,8 @@ export default function Cadastro({navigation}) {
               placeholder='Ex: alan.marinho@...'
               type="text"
               onChangeText={(text) => setEmail(text)}
-              value={email}/>
+              value={email.trim().toLowerCase()}
+              autoComplete={"email"}/>
           </DivInputForm>
           <DivInputForm>
             <TextForm>Senha*:</TextForm>

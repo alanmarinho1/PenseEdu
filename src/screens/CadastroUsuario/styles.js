@@ -2,15 +2,15 @@ import styled from 'styled-components/native';
 
 export const DivFormRegister = styled.View`
     /* flex: 1; */
-    height: 97%;
+    height: 94%;
     width: 90%;
     border: 0.5px gray;
     /* align-self: center; */
     align-items: center;
     background-color: white;
     border-radius: 10px;
-    margin-top: 10%;
-    padding-top: 10px;
+    margin-top: 17%;
+    /* padding-top: 1%; */
 `;
 
 export const DivInputForm = styled.View`
@@ -21,9 +21,9 @@ export const DivInputForm = styled.View`
 
 export const DivButtonRegister = styled.View`
 
-    flex: 1;
-    margin-bottom: 5px;
-    justify-content: flex-end;
+   
+    top: 3%;
+    
 `
 
 export const TextForm = styled.Text`

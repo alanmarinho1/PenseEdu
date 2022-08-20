@@ -49,12 +49,6 @@ export default function Login({navigation}) {
       {console.log("Xablau")}
       <TextNameApp>PenseEdu</TextNameApp>
       <DivLogin>
-        {/* <FormElements
-        texto = 'Xablau'
-        placeholder = 'Dale'
-        func = {setUsuario}
-        value = {{usuario}}
-        /> */}
         <DivInputLogin>
           <TextForm>Email:</TextForm>
           <InputTextField 
@@ -62,7 +56,8 @@ export default function Login({navigation}) {
             type="text"
             onChangeText={(text) => setEmail(text)}
             value={email}
-            />
+            autoComplete={"email"}
+            keyboardType={"email-address"}/>
         </DivInputLogin>
         <DivInputLogin>
           <TextForm>Senha:</TextForm>
