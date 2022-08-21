@@ -39,8 +39,6 @@ export default function Cadastro({navigation}) {
      .then(userCredentials => {
        const user = userCredentials.user;
        alert("Conta criada com sucesso, favor realizar login");
-       console.log("Conta criada!!");
-       console.log(user.name, user.email, user.password);
        navigation.goBack();
        handleNewUserRegister(user.uid);
       //  setCreated(true)
@@ -117,22 +115,7 @@ export default function Cadastro({navigation}) {
             style={{backgroundColor: 'rgba(0, 0, 0, 0.1)',borderRadius: 5, borderWidth: 1, borderColor: 'grey', height: 35, width: 300, flexDirection: 'row'}}
             onPress={() => setVisible(!visible)}
             >
-              {disciplines.map((element) => { 
-                
-                if(disciplines.length == 1) {
-                  return(
-                    <Text style={{marginTop: 6, paddingLeft: 5, fontSize: 15, color: 'rgba(0, 0, 0, 1)'}}>{element}</Text>
-                  )
-                
-              } else {
-                return(
-                  <Text style={{marginTop: 6, paddingLeft: 5, fontSize: 15, color: 'rgba(0, 0, 0, 1)'}}>{element + ','}</Text>
-                )
-                
-              }
-            }
-          
-        )}
+              <Text style={{marginTop: 6, paddingLeft: 5, fontSize: 15, color: 'rgba(0, 0, 0, 1)'}}>{disciplines.join(', ')}</Text>
             </Pressable>
           </DivInputForm>
           <Portal>
@@ -188,11 +171,11 @@ export default function Cadastro({navigation}) {
                   }}/>
                 </DivItemSelection>
                 <DivItemSelection>
-                  <ItemSelection>Lingua Portuguesa</ItemSelection>
+                  <ItemSelection>Língua Portuguesa</ItemSelection>
                   <Checkbox status={checked5 ? 'checked' : 'unchecked'}
                   onPress={() => {
                     if(!checked5){
-                      disciplines.push("Lingua Portuguesa")
+                      disciplines.push("Língua Portuguesa")
                     } else {
                       disciplines.splice(disciplines.indexOf("Lingua Portuguesa"), 1);
                     }

@@ -93,7 +93,6 @@ export default function Disciplina({navigation, route}) {
   } else {
   return (
     <Container>
-      {console.log("Minhas atividades", myActivities)}
       <DivPhoto>
         <Photo source={photo}/>
       </DivPhoto>

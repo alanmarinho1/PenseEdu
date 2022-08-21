@@ -72,6 +72,7 @@ export default function Disciplinas({navigation}) {
   } else {
   return (
     <Container>
+      
       <TitleScreen>Disciplinas</TitleScreen>
       <DivFlatListDisc>
         <TitleFlatListDisc>Suas Disciplinas:</TitleFlatListDisc>
