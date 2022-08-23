@@ -12,6 +12,7 @@ export const DivFlatListAtv = styled.View`
   margin-top: 4%;
   padding: 10px;
   width: 92%;
+  height: 21%;
   background-color: white;
   border: 1px #3CB371;
   border-radius: 10px;

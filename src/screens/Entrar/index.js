@@ -19,7 +19,6 @@ export default function Login({navigation}) {
       auth()
       .signInWithEmailAndPassword(email, password)
       .then(response => {
-        // console.log('resposta ao logar: ', response.user.uid);
         navigation.navigate('Wellcome', {id: response.user.uid});
         return Alert.alert('Acesso a conta', "Conta logada com sucesso!")
         
@@ -46,15 +45,8 @@ export default function Login({navigation}) {
       behavior="height"
       style={styles.container}
     >
-      {console.log("Xablau")}
       <TextNameApp>PenseEdu</TextNameApp>
       <DivLogin>
-        {/* <FormElements
-        texto = 'Xablau'
-        placeholder = 'Dale'
-        func = {setUsuario}
-        value = {{usuario}}
-        /> */}
         <DivInputLogin>
           <TextForm>Email:</TextForm>
           <InputTextField 
@@ -62,7 +54,8 @@ export default function Login({navigation}) {
             type="text"
             onChangeText={(text) => setEmail(text)}
             value={email}
-            />
+            autoComplete={"email"}
+            keyboardType={"email-address"}/>
         </DivInputLogin>
         <DivInputLogin>
           <TextForm>Senha:</TextForm>

@@ -14,7 +14,6 @@ export default function Wellcome({route, navigation}) {
     <WellcomeImage source={require('../../assets/wellcome_background.jpg')}>
       <DivWellcome>
         <DivWellcomeOne>
-        {console.log("Passando ID por rota em Bem Vindo", id)}
           <TitleComponent>Seja bem-vindo(a)! </TitleComponent>
           <TextComponent>
             Olá! Vamos aprender de forma prática que a computação 

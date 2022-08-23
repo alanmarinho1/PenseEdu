@@ -132,7 +132,7 @@ const DivItem = styled.TouchableOpacity`
   background-color: rgba(224, 255, 255, 0.6);
   width: 250px;
   height: 80px;
-  margin: 0px 0px 10px 10px;
+  margin: 0px 0px 10px 40px;
   padding: 5px;
   flex-direction: row; 
 

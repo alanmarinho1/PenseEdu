@@ -28,16 +28,9 @@ export default function Disciplina({navigation, route}) {
         const data = snapshot.docs.map(doc => {
             const { author, description, discipline, hability, objective, created_at, title, resources, scenario, type, pilar, attachment  } = doc.data();
 
-            firestore()
-            .collection('users')
-            .doc(author)
-            .onSnapshot(snapshot => {
-              setAuthor(snapshot.data())
-            })
-
             return {
                 id: doc.id,
-                author: authors.name,
+                author,
                 description,
                 discipline,
                 hability,
@@ -67,7 +60,7 @@ export default function Disciplina({navigation, route}) {
             
             return {
                 id: doc.id,
-                author: user.name,
+                author,
                 description,
                 discipline,
                 hability,
@@ -100,7 +93,6 @@ export default function Disciplina({navigation, route}) {
   } else {
   return (
     <Container>
-      {console.log(myActivities)}
       <DivPhoto>
         <Photo source={photo}/>
       </DivPhoto>

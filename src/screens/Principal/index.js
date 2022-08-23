@@ -119,7 +119,6 @@ export default function Home(props) {
     return (
         <Container>
           <DivFlatListAtv>
-            {/* {console.log(interestActivities)} */}
             <TitleComponents>Ultimas Atividades:</TitleComponents>
             <ListH navigation={props.navigation} data={allActivities} type={"Activy"}/>
             <TitleComponents>Atividades Sugeridas:</TitleComponents>

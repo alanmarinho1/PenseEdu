@@ -17,7 +17,7 @@ export default function Disciplinas({navigation}) {
   function LoadMyDisciplines(){
     firestore()
     .collection("disciplines")
-    .where("name", "in", ["Matemática", "Ciências"])
+    .where("name", "in", navigation.getId()[0].disciplines)
     .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
             const { icon, name, photo, rel } = doc.data();
@@ -72,6 +72,7 @@ export default function Disciplinas({navigation}) {
   } else {
   return (
     <Container>
+      
       <TitleScreen>Disciplinas</TitleScreen>
       <DivFlatListDisc>
         <TitleFlatListDisc>Suas Disciplinas:</TitleFlatListDisc>
