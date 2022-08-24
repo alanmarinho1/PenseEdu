@@ -1,6 +1,6 @@
 import { View, Text, Button, FlatList, ScrollView } from 'react-native'
 import React, {useState, useEffect} from 'react'
-import { Container, DivFlatListAtv, TitleComponents, DivNews } from './styles'
+import { Container, DivFlatListAtv, TitleComponents, DivNews, DivLatestAtv, DivAtv } from './styles'
 import ListH from '../../components/FlatLists/FlatListsScrollH'
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore'
@@ -8,6 +8,8 @@ import { dateFormat } from '../../utils/firestoreDateFormate';
 import { Loading } from '../../components/Loading';
 import { newsapi } from '../../utils/news';
 import ListV from '../../components/FlatLists/FlatListsScrollV';
+import ListGrid from '../../components/FlatLists/FlatListsScrollGrid';
+import ListGridH from '../../components/FlatLists/FlatListsScrollGridH';
 
 
 export default function Home(props) {
@@ -16,8 +18,8 @@ export default function Home(props) {
   const [user, setUser] = useState();
   const [newAuthor, setNewAuthor] = useState();
   const [news, setNews] = useState();
-  const [allActivities, setAllActivities] = useState();
-  const [interestActivities, setInterestActivities] = useState();
+  const [latestActivities, setLatestActivities] = useState();
+  const [suggestedActivities, setSuggestedActivities] = useState();
 
   function LoadNews(){
     newsapi.v2.everything({
@@ -41,7 +43,7 @@ export default function Home(props) {
     })
   }
 
-  function LoadAllActivities(){
+  function LoadLatestActivities(){
     firestore()
     .collection("activities")
     .orderBy("created_at", "desc")
@@ -67,11 +69,11 @@ export default function Home(props) {
           
         });
         
-        setAllActivities(data)
+        setLatestActivities(data)
       })
   }
 
-    function LoadInterestActivities(){
+    function LoadSuggestedActivities(){
      firestore()
     .collection("activities")
     .where("discipline", "in", props.navigation.getId()[0].disciplines)
@@ -97,15 +99,15 @@ export default function Home(props) {
                 when: dateFormat(created_at)
             }
         });
-        setInterestActivities(data)
+        setSuggestedActivities(data)
       })
   }
 
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(user => {
       setUser(user);
-      LoadAllActivities();
-      LoadInterestActivities();
+      LoadLatestActivities();
+      LoadSuggestedActivities();
       LoadNews();
       if (initializing) setInitializing(false);
     });
@@ -119,10 +121,15 @@ export default function Home(props) {
     return (
         <Container>
           <DivFlatListAtv>
-            <TitleComponents>Ultimas Atividades:</TitleComponents>
-            <ListH navigation={props.navigation} data={allActivities} type={"Activy"}/>
-            <TitleComponents>Atividades Sugeridas:</TitleComponents>
-            <ListH navigation={props.navigation} data={interestActivities} type={"Activy"}/>
+            <DivAtv>
+              <TitleComponents>Ultimas Atividades:</TitleComponents>
+              <ListGridH navigation={props.navigation} data={latestActivities} />
+            </DivAtv>
+            <DivAtv>
+              <TitleComponents>Atividades Sugeridas:</TitleComponents>
+              <ListGridH navigation={props.navigation} data={suggestedActivities} />
+            </DivAtv>
+  
           </DivFlatListAtv>
           <DivNews>
             <TitleComponents>Feed - Educação e Tecnologia</TitleComponents>
