@@ -18,7 +18,6 @@ export default function Cadastro({navigation}) {
   const [contact, setContact] = useState("")
   const [disciplines, setDisciplines] = useState([])
   const [visible, setVisible] = React.useState(false);
-  const [initializing, setInitializing] = useState(true)
   const [checked1, setChecked1] = React.useState(false);
   const [checked2, setChecked2] = React.useState(false);
   const [checked3, setChecked3] = React.useState(false);
@@ -26,7 +25,6 @@ export default function Cadastro({navigation}) {
   const [checked5, setChecked5] = React.useState(false);
   const [checked6, setChecked6] = React.useState(false);
   const [listDisc, setListDisc] = useState([])
-  // const [created, setCreated] = useState(false)
 
   const hideDialog = () => setVisible(false);
 

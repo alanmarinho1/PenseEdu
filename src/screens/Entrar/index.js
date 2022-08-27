@@ -1,9 +1,8 @@
 import { StyleSheet, KeyboardAvoidingView, Alert } from 'react-native'
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { DivLogin, TextForm, TextNameApp, DivInputLogin, DivButtonLogin } from './styles'
 import { InputTextField } from '../../components/SignInputs';
-import { PressableButton, PressableLoginButton, PressableRegisterButton } from '../../components/Button'
-import { FormElements } from '../../components/FormsElements'
+import { PressableLoginButton, PressableRegisterButton } from '../../components/Button'
 import auth from '@react-native-firebase/auth';
 
 

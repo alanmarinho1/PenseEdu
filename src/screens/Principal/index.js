@@ -16,7 +16,6 @@ export default function Home(props) {
 
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
-  const [newAuthor, setNewAuthor] = useState();
   const [news, setNews] = useState();
   const [latestActivities, setLatestActivities] = useState();
   const [suggestedActivities, setSuggestedActivities] = useState();
@@ -129,16 +128,12 @@ export default function Home(props) {
               <TitleComponents>Atividades Sugeridas:</TitleComponents>
               <ListGridH navigation={props.navigation} data={suggestedActivities} />
             </DivAtv>
-  
           </DivFlatListAtv>
           <DivNews>
             <TitleComponents>Feed - Educação e Tecnologia</TitleComponents>
             <ListV data={news} type={"News"}/>
           </DivNews>
         </Container>
-      
     )
   }
-
-  
 }

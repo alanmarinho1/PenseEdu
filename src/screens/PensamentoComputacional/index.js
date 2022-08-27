@@ -23,7 +23,6 @@ export default function PC() {
       <Container>
         <View>
           <PCImage source={require('../../assets/PC2.png')} />
-          {/* <TitleScreen>Pensamento Computacional</TitleScreen> */}
         </View>
         <DivPC>
           <TextPC>
@@ -36,7 +35,6 @@ export default function PC() {
           </TextPC>
         </DivPC>
         <Title>O que é Pensamento Computacional?</Title>
-        {/* Ref: https://youtu.be/yJlArskpu30 */}
         <DivPC>
           <TextPC>
             O termo <Text style={{fontWeight: 'bold'}}>Pensamento Computacional</Text> (PC) foi inicialmente citado por Papert nos anos 60 e 
@@ -58,7 +56,6 @@ export default function PC() {
           </TextPC>
         </DivPC>
         <Title>Características do PC</Title>
-        {/* Ref: https://youtu.be/yJlArskpu30 */}
         <DivPC>
           <TextPC>
           <Text style={{fontWeight: 'bold'}}>► Organizar e analisar dados de maneira lógica </Text>
@@ -78,7 +75,6 @@ export default function PC() {
           </TextPC>
         </DivPC>
         <Title>Os Pilares do Pensamento Computacional</Title>
-        {/* Ref:  https://educadordofuturo.com.br/tecnologia-na-educacao/o-que-e-pensamento-computacional/ */}
         <PCImage2 source={require('../../assets/PC.webp')} />
         <DivPC>
           <TextPC>
@@ -114,7 +110,6 @@ export default function PC() {
           <TextPC>Ex: Uma receita de bolo onde há uma sequencia de passos ordenados para ser seguido, até atingir o objetivo final.</TextPC>
         </DivPC>
         <Title>A interdisciplinaridade do Pensamento Computacional</Title>
-        {/* Ref:  MENEZES, Crediné Silva; JÚNIOR, Alberto Nogueira. Uma Abordagem Interdisciplinar para o Pensamento Computacional no Ensino Fundamental. Revista Novas Tecnologias na Educação, [s. l.], v. 19, n. 1, julho 2021.*/}
         <DivPC style={{marginBottom: 10}}>
           <TextPC>
           Os pilares do pensamento computacional podem ser aplicados na resolução de problemas em um número variado de contextos, 

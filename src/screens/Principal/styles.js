@@ -5,7 +5,7 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   background-color: rgba(224, 255, 255, 0.6);
-  /* background-repeat: repeat-y; */
+
 `;
 
 export const DivNews = styled.View`

@@ -38,12 +38,10 @@ export const BNCCImage1 = styled.ImageBackground`
   margin-top: 3%;
   width: 100%;
   height: 155px;
-  /* margin-left: 35px; */
     
 `
 export const BNCCImage2 = styled.ImageBackground`
 
-  /* margin-top: 3%; */
   width: 101%;
   height: 240px;
   align-self: center;

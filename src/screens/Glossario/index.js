@@ -3,19 +3,7 @@ import React, {useEffect} from 'react'
 import { useScrollToTop } from '@react-navigation/native';
 import { Container, GlossaryItem, DivTitleScreen, TitleScreen, DivGlossary } from './styles'
 
-export default function Glossario({navigation}) {
-
-    // const ref = React.useRef(null);
-    // useScrollToTop(ref);
-
-    // useEffect(() => {
-        
-    //     const unsubscribe = navigation.addListener('blur', () => {
-    //       ref.current.scrollToIndex({ animated: true, index: 0 });
-    //     });
-    
-    //     return unsubscribe;
-    //   }, [navigation]);
+export default function Glossario() {
 
   return (
     <ScrollView>

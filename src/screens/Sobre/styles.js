@@ -2,8 +2,8 @@ import styled from 'styled-components/native';
 
 
 export const Container = styled.ScrollView`
+  
   flex: 1;
-  /* align-items: center; */
   background-color: rgba(224, 255, 255, 0.6);
 `;
 
@@ -44,9 +44,6 @@ export const Message = styled.TextInput`
 
   border: 1px #3CB371;
   border-radius: 10px;
-  
-  /* width: 95%; */
-  /* height: 140px; */
   padding: 5px;
   margin: 10px;
   

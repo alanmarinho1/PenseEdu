@@ -47,12 +47,10 @@ const WellcomeButton = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* align-content: space-between; */
   width: 180px;
   height: 45px;
   top: 35%;
   border-radius: 10px;
-
   background-color: ${props => props.bgColor};
 `;
 
@@ -61,7 +59,7 @@ const WellcomeButtonText = styled.Text`
   font-size: 18px;
   width: 100px;
   color: white;
-  /* padding-bottom: 5px; */
+
 `;
 
 const FontsButton = styled.TouchableOpacity`
@@ -83,15 +81,14 @@ const TextFontsButton = styled.Text`
 `
 
 const FontBNCCButton = styled.TouchableOpacity`
-  /* background-color: white; */
+
   padding: 2%;
-  /* width: 90%; */
+
 `
 
 const TextFontBNCCButton = styled.Text`
 
   font-size: 16px;
-  /* text-align: justify; */
   color: blue;
   text-decoration: underline;
   

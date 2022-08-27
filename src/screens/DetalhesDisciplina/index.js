@@ -14,7 +14,6 @@ export default function Disciplina({navigation, route}) {
   const [allActivities, setAllActivities] = useState();
   const [myActivities, setMyActivities] = useState();
   const [initializing, setInitializing] = useState(true);
-  const [authors, setAuthor] = useState({});
   const [user, setUser] = useState(navigation.getId()[0]);
   const discipline = route.params.name
   const rel = route.params.rel
@@ -79,6 +78,22 @@ export default function Disciplina({navigation, route}) {
       })
   }
 
+  function MyActivities() {
+    if(typeof myActivities == "undefined" || myActivities.length == 0){
+      return(
+        <View style={{height: 90, alignItems: 'center', justifyContent: 'center'}}>
+          <Text style={{fontSize: 18, textAlign: 'center', width: 350, color: 'rgba(0, 0, 0, 0.5)'}}>
+            Você ainda não tem atividades criadas nesta disciplina (Em breve esta funcionalidade estará disponível)
+          </Text>
+        </View>
+      )
+    } else {
+      return(
+        <ListH navigation={navigation} data={myActivities} type={"Activy"}/> 
+      )
+    }
+  }
+
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(user => {
       LoadActivities()
@@ -104,7 +119,7 @@ export default function Disciplina({navigation, route}) {
       </DivRelPC>
       <DivFlatListAtv>
         <Title>Suas Atividades:</Title>
-        <ListH navigation={navigation} data={myActivities} type={"Activy"}/> 
+        <MyActivities/>
       </DivFlatListAtv>
       <DivAllAtv>
         <Title>Todas as atividades:</Title>

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Drawer, IconButton } from "react-native-paper";
+import { Drawer } from "react-native-paper";
 
 
 const DrawerItem = ({icon, label, func}) => {

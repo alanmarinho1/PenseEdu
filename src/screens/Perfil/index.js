@@ -1,19 +1,13 @@
 import { View, Text, Alert } from 'react-native'
 import React, {useState, useEffect} from 'react'
 import { Container, CreatedAt, DivPhoto, DivUserInfo, Photo, TextForm, DivButton } from './styles'
-import { Loading } from '../../components/Loading';
-import auth from '@react-native-firebase/auth';
-import firestore from '@react-native-firebase/firestore'
 import { IconButton } from "react-native-paper";
 import { InputTextField } from '../../components/SignInputs';
 import { PressableLoginButton } from '../../components/Button';
 
 export default function Perfil({route, navigation}) {
 
-  const [initializing, setInitializing] = useState(true);
   const [userId, setUserId] = useState(navigation.getId()[0]);
-
-
 
   return (
     <Container>
@@ -21,7 +15,6 @@ export default function Perfil({route, navigation}) {
         {console.log(userId)}
         <Photo
         source={userId.photo}>
-          
         </Photo>
         <IconButton
             icon={"image-edit"}
@@ -33,7 +26,6 @@ export default function Perfil({route, navigation}) {
             />
         <CreatedAt>Criado em: {userId.when}</CreatedAt>
       </DivPhoto>
-      
       <DivUserInfo>
         <TextForm>Nome:</TextForm>
         <InputTextField
@@ -74,12 +66,7 @@ export default function Perfil({route, navigation}) {
             bgColor='#3CB371'
           />
         </DivButton>
-         
       </DivUserInfo>
-     
-      
-
     </Container>
   )
-  
 }

@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 export const Container = styled.ScrollView`
 
   flex: 1;
-  /* align-items: center; */
   background-color: rgba(224, 255, 255, 0.6);
 `;
 
@@ -12,7 +11,6 @@ export const PCImage = styled.ImageBackground`
     width: 380px;
     height: 240px;
     
-    /* margin: 10px 0px 0px 10px; */
 `
 
 export const DivAtvInfo = styled.View`
@@ -20,21 +18,16 @@ export const DivAtvInfo = styled.View`
     border: 1px #3CB371;
     border-radius: 10px;
     align-items: center;
-    /* justify-items: center; */
     width: 98%;
-    /* height: 64%; */
     margin-left: 1%;
     background-color: rgb(255, 255, 255);
-    /* margin-bottom: 1%; */
 
 `
 
 export const DivAtvTitle = styled.View`
 
-    /* align-items: center; */
-    /* justify-content: center; */
     width: 350px;
-    /* height: 110px; */
+
 `
 
 export const DivAtvDetailsParent = styled.View`
@@ -65,11 +58,9 @@ export const DivAtvDescription = styled.View`
     border: 1px #3CB371;
     border-radius: 10px;
     width: 97%;
-    /* height: 35%; */
     margin-top: 2%;
     margin-bottom: 3%;
-    /* margin-left: 2%;
-    margin-right: 2%; */
+
 `
 
 export const AtvDetailsTitle = styled.Text`
