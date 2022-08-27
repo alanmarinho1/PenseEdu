@@ -73,8 +73,6 @@ const DivItem = styled.TouchableOpacity`
 `
 const DivTitle = styled.View`
 
-  /* align-items: center;
-  justify-content: center; */
 
 `
 const Title = styled.Text`

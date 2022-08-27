@@ -38,7 +38,7 @@ const DivItem = styled.TouchableOpacity`
     border: 1px #3CB371;
     border-radius: 10px;
     background-color: rgba(224, 255, 255, 0.6);
-    width: 150px;
+    width: 44.3%;
     height: 120px;
     margin: 0px 10px 20px 10px;
     padding: 5px;
