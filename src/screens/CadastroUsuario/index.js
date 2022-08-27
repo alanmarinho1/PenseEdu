@@ -18,7 +18,6 @@ export default function Cadastro({navigation}) {
   const [contact, setContact] = useState("")
   const [disciplines, setDisciplines] = useState([])
   const [visible, setVisible] = React.useState(false);
-  const [initializing, setInitializing] = useState(true)
   const [checked1, setChecked1] = React.useState(false);
   const [checked2, setChecked2] = React.useState(false);
   const [checked3, setChecked3] = React.useState(false);
@@ -26,7 +25,6 @@ export default function Cadastro({navigation}) {
   const [checked5, setChecked5] = React.useState(false);
   const [checked6, setChecked6] = React.useState(false);
   const [listDisc, setListDisc] = useState([])
-  // const [created, setCreated] = useState(false)
 
   const hideDialog = () => setVisible(false);
 
@@ -80,14 +78,9 @@ export default function Cadastro({navigation}) {
   }
 
     return (
-      <ScrollView
-      style={styles.container}>
-        <KeyboardAvoidingView 
-        behavior="padding"
-        style={{alignItems: 'center',
-        
-      marginBottom: 10}}
-      >
+      <KeyboardAvoidingView 
+        behavior="height"
+        style={styles.container}>
         <DivFormRegister>
         <TextRegisterApp>Crie sua conta</TextRegisterApp>
           <DivInputForm>
@@ -112,9 +105,8 @@ export default function Cadastro({navigation}) {
           <DivInputForm>
             <TextForm>Disciplina(s) de interesse*:</TextForm>
             <Pressable 
-            style={{backgroundColor: 'rgba(0, 0, 0, 0.1)',borderRadius: 5, borderWidth: 1, borderColor: 'grey', height: 35, width: 300, flexDirection: 'row'}}
-            onPress={() => setVisible(!visible)}
-            >
+            style={{backgroundColor: 'rgba(0, 0, 0, 0.1)',borderRadius: 5, borderWidth: 1, borderColor: 'grey', height: 46, width: 300, flexDirection: 'row', alignItems: 'center'}}
+            onPress={() => setVisible(!visible)}>
               <Text style={{marginTop: 6, paddingLeft: 5, fontSize: 15, color: 'rgba(0, 0, 0, 1)'}}>{disciplines.join(', ')}</Text>
             </Pressable>
           </DivInputForm>
@@ -267,14 +259,16 @@ export default function Cadastro({navigation}) {
           </DivButtonRegister>
         </DivFormRegister>
       </KeyboardAvoidingView>
-      </ScrollView>
     )
 }
   
 
 export const styles = StyleSheet.create({
   container: {
-
     backgroundColor: '#E0FFFF',
+    flex: 1,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 })

@@ -109,8 +109,8 @@ const DivItemNew = styled.TouchableOpacity`
   border: 1px #3CB371;
   border-radius: 10px;
   background-color: rgba(224, 255, 255, 0.6);
-  /* width: 80%;
-  height: 45%; */
+  /* width: 80%; */
+  /* height: 15%; */
   margin-bottom: 10px;
   padding: 5px; 
   flex-direction: row; 
@@ -187,7 +187,7 @@ const Icon = ({source}) => (
 const IconNewsComponent = styled.Image`
 
   width: 100px;
-  height: 90px;
+  height: 80px;
 `
 const IconNews = ({source}) => (
 

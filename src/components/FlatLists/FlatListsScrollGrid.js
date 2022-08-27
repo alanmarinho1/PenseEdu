@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 export default function ListGrid(props) {
 
+
     const renderItem = ({ item }) => (
         <Item id={item.id} title={item.name} rel={item.rel} photo={item.photo} icon={item.icon} navigation={props.navigation} />
       );

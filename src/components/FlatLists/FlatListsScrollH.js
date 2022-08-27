@@ -5,36 +5,33 @@ import firestore from '@react-native-firebase/firestore'
 import { Loading } from "../Loading";
 
 export default function ListH(props) {
-
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
   
-
   function  returnComponent(){
     
     if (props.type == "Activy"){
 
-      var renderItem = ({ item }) => {
+    
+        var renderItem = ({ item }) => {
 
-        if (item.author == null){
-          return <Loading/>
-        } else {  
-          return <ItemAtv id={item.id} 
-          title={item.title} 
-          author={item.author} 
-          disc={item.discipline} 
-          description={item.description} 
-          created={item.when} 
-          hability={item.hability}
-          objective={item.objective}
-          pilar={item.pilar}
-          resources={item.resources}
-          scenario={item.scenario}
-          type={item.type}
-          attachment={item.attachment}
-          navigation={props.navigation}/> 
+          if (item.author == null){
+            return <Loading/>
+          } else {  
+            return <ItemAtv id={item.id} 
+            title={item.title} 
+            author={item.author} 
+            disc={item.discipline} 
+            description={item.description} 
+            created={item.when} 
+            hability={item.hability}
+            objective={item.objective}
+            pilar={item.pilar}
+            resources={item.resources}
+            scenario={item.scenario}
+            type={item.type}
+            attachment={item.attachment}
+            navigation={props.navigation}/> 
+          }
         }
-      } 
     } else if (props.type == "Discipline"){
       var renderItem = ({ item }) => (
         <ItemDisc id={item.id} title={item.name} icon={item.icon} navigation={props.navigation} />
@@ -89,8 +86,8 @@ const ItemAtv = (props) => (
         <Title>{props.title}</Title>
       </DivTitleAtv>
       <DivInfoAtv>
-      <Text>{props.author}</Text>
-      <Text>{props.disc}</Text>
+      <Text>{props.type}</Text>
+      <Text>{props.pilar}</Text>
       <Text>{props.created}</Text>
       </DivInfoAtv>
     </DivItem>

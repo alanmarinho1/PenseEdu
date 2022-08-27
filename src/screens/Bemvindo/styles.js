@@ -10,9 +10,8 @@ export const Container = styled.View`
 `
 
 export const WellcomeImage = styled.ImageBackground`
+
     flex: 1;
-    /* width: 390px;
-    height: 750px; */
     width: 390px;
     align-items: center;
     justify-content: center;
@@ -54,7 +53,6 @@ export const TitleComponent = styled.Text`
 `
 export const TextComponent = styled.Text`
 
-    /* border: 1px red solid; */
     font-size: 16px;
     width: 310px;
     text-align: center;

@@ -7,7 +7,6 @@ import firestore from '@react-native-firebase/firestore'
 
 export default function Sobre({navigation}) {
 
-    const [email, setEmail] = useState("")
     const [message, setMessage] = useState("")
 
     function handleSugestion(){
@@ -60,19 +59,12 @@ export default function Sobre({navigation}) {
       </DivAbout>
       </KeyboardAvoidingView>
     </Container>
-   
-   
-    
-    
   )
 }
 
 export const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'rgba(224, 255, 255, 0.6)',
-    //   justifyContent: 'flex-end',
-    //   alignItems: 'center',
-      
+      backgroundColor: 'rgba(224, 255, 255, 0.6)',   
     }
   })

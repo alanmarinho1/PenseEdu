@@ -26,7 +26,7 @@ export const InputTextField = ({placeholder, secureTextEntry, value, onChangeTex
     style={width ? {width: width} : {width: InputLogin.width},
     borderBottom ? {borderBottomColor: 'gray', borderBottomWidth: 1, borderWidth: 0, backgroundColor: 'transparent'} : 
     {borderWidth: 1, borderColor: 'gray', backgroundColor: 'rgba(0, 0, 0, 0.1)'}}
-    // style={{height: 35 | height, width: 100}}
     />
+    
 );
 
